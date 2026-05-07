@@ -14,12 +14,12 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["dhiaeddine.barhoumi@etudiant-enit.utm.tn"],
+      to: ["wael.hammali@etudiant-enit.utm.tn"],
       reply_to: email,
       subject: `[Portfolio] New message from ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0a7c6e;">New message from your portfolio</h2>
+          <h2 style="color: #1d4ed8;">New message from your portfolio</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 8px 0; color: #666; font-size: 14px;"><strong>Name:</strong></td><td style="padding: 8px 0; font-size: 14px;">${name}</td></tr>
             <tr><td style="padding: 8px 0; color: #666; font-size: 14px;"><strong>Email:</strong></td><td style="padding: 8px 0; font-size: 14px;"><a href="mailto:${email}">${email}</a></td></tr>

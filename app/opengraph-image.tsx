@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Dhia Eddine Barhoumi — Software Engineering Student";
+export const alt = "Wael Hammali — Software Engineering Student";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -12,7 +12,7 @@ export default async function OgImage() {
         style={{
           width: "1200px",
           height: "630px",
-          background: "#0c0c0c",
+          background: "#0b1220",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -28,7 +28,7 @@ export default async function OgImage() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(10,124,110,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(10,124,110,0.06) 1px, transparent 1px)",
+              "linear-gradient(rgba(29,78,216,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(29,78,216,0.08) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
             display: "flex",
           }}
@@ -43,7 +43,7 @@ export default async function OgImage() {
             width: "500px",
             height: "500px",
             borderRadius: "50%",
-            background: "rgba(10,124,110,0.12)",
+            background: "rgba(29,78,216,0.15)",
             display: "flex",
           }}
         />
@@ -56,8 +56,8 @@ export default async function OgImage() {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-              background: "rgba(10,124,110,0.15)",
-              border: "1px solid rgba(10,124,110,0.4)",
+              background: "rgba(29,78,216,0.15)",
+              border: "1px solid rgba(29,78,216,0.4)",
               borderRadius: "100px",
               padding: "8px 20px",
             }}
@@ -67,11 +67,11 @@ export default async function OgImage() {
                 width: "8px",
                 height: "8px",
                 borderRadius: "50%",
-                background: "#0a7c6e",
+                background: "#1d4ed8",
                 display: "flex",
               }}
             />
-            <span style={{ color: "#4ab8a8", fontSize: "18px", fontWeight: 500 }}>
+            <span style={{ color: "#93c5fd", fontSize: "18px", fontWeight: 500 }}>
               Available for internships
             </span>
           </div>
@@ -87,7 +87,7 @@ export default async function OgImage() {
                 letterSpacing: "-2px",
               }}
             >
-              Dhia Eddine
+              Wael
             </span>
             <span
               style={{
@@ -95,10 +95,10 @@ export default async function OgImage() {
                 fontWeight: 700,
                 lineHeight: 1,
                 letterSpacing: "-2px",
-                color: "#0a7c6e",
+                color: "#1d4ed8",
               }}
             >
-              Barhoumi
+              Hammali
             </span>
           </div>
 
@@ -120,12 +120,12 @@ export default async function OgImage() {
           {/* Skill tags */}
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", maxWidth: "800px" }}>
             {[
-              "Machine Learning",
+              "Cloud Security",
+              "Cybersecurity",
+              "RAG",
               "Computer Vision",
               "Terraform",
-              "DevOps",
               "Python",
-              "Next.js",
             ].map((skill) => (
               <div
                 key={skill}
@@ -151,7 +151,7 @@ export default async function OgImage() {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              color: "#4ab8a8",
+              color: "#93c5fd",
               fontSize: "20px",
               fontFamily: "monospace",
             }}
@@ -161,11 +161,11 @@ export default async function OgImage() {
                 width: "6px",
                 height: "6px",
                 borderRadius: "50%",
-                background: "#0a7c6e",
+                background: "#1d4ed8",
                 display: "flex",
               }}
             />
-            dhiaeddinebarhoumi.me
+            waelhammali.vercel.app
           </div>
         </div>
 
@@ -177,7 +177,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: "4px",
-            background: "linear-gradient(90deg, transparent, #0a7c6e, #4ab8a8, transparent)",
+            background: "linear-gradient(90deg, transparent, #1d4ed8, #93c5fd, transparent)",
             display: "flex",
           }}
         />

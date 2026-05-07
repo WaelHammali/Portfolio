@@ -1,54 +1,55 @@
 import type { Metadata } from "next";
-import { Syne, JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { PersonJsonLd, WebsiteJsonLd } from "@/components/ui/JsonLd";
 import "./globals.css";
 
-const syne = Syne({
+const space = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-space",
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
+const plex = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-plex",
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dhiaeddinebarhoumi.me";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://waelhammali.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Dhia Eddine Barhoumi — Software Engineering Student at ENIT",
-    template: "%s | Dhia Eddine Barhoumi",
+    default: "Wael Hammali — Software Engineering Student at ENIT",
+    template: "%s | Wael Hammali",
   },
   description:
-    "Software engineering student at ENIT, Tunis. Passionate about Machine Learning, Computer Vision (YOLO), Network Automation, Terraform and Cloud/DevOps. Building intelligent systems that bridge ML and infrastructure.",
+    "Software engineering student at ENIT focused on Cloud, AI, and Cybersecurity. Building secure, scalable systems with computer vision, RAG, and infrastructure automation.",
   keywords: [
-    "Dhia Eddine Barhoumi", "ENIT", "Software Engineering Tunisia",
-    "Machine Learning", "Computer Vision", "YOLO", "Network Automation",
-    "Terraform", "DevOps", "Python", "Next.js", "Spring Boot", "Angular",
-    "Containerlab", "Portfolio",
+    "Wael Hammali", "ENIT", "Software Engineering Tunisia",
+    "Cybersecurity", "Cloud Security", "RAG", "Computer Vision",
+    "Network Automation", "Terraform", "Ansible", "AI", "Python",
+    "Next.js", "Portfolio",
   ],
-  authors: [{ name: "Dhia Eddine Barhoumi", url: BASE_URL }],
-  creator: "Dhia Eddine Barhoumi",
+  authors: [{ name: "Wael Hammali", url: BASE_URL }],
+  creator: "Wael Hammali",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: BASE_URL,
-    siteName: "Dhia Eddine Barhoumi",
-    title: "Dhia Eddine Barhoumi — Software Engineering Student",
-    description: "Software engineering student at ENIT building ML pipelines, network automation tools and cloud infrastructure.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Dhia Eddine Barhoumi — Portfolio" }],
+    siteName: "Wael Hammali",
+    title: "Wael Hammali — Software Engineering Student",
+    description: "Cloud, AI, and Cybersecurity student at ENIT building secure systems and AI-powered infrastructure.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Wael Hammali — Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dhia Eddine Barhoumi",
-    description: "Software engineering student · ML · Cloud · DevOps · ENIT",
+    title: "Wael Hammali",
+    description: "Software engineering student · Cloud · AI · Cybersecurity · ENIT",
   },
   robots: {
     index: true,
@@ -68,17 +69,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${syne.variable} ${jetbrains.variable} font-sans bg-white dark:bg-background-dark text-gray-900 dark:text-slate-100 antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <PersonJsonLd />
-          <WebsiteJsonLd />
-          <div className="relative min-h-screen flex flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+    <html lang="en" className="dark">
+      <body className={`${space.variable} ${plex.variable} font-sans bg-slate-950 text-slate-100 antialiased`}>
+        <PersonJsonLd />
+        <WebsiteJsonLd />
+        <div className="relative min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

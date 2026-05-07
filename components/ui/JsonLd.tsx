@@ -1,16 +1,16 @@
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dhiaeddinebarhoumi.me";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://waelhammali.vercel.app";
 
 export function PersonJsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Dhia Eddine Barhoumi",
+    name: "Wael Hammali",
     url: BASE_URL,
     image: `${BASE_URL}/og-image.png`,
     jobTitle: "Software Engineering Student",
     affiliation: {
       "@type": "CollegeOrUniversity",
-      name: "École Nationale d'Ingénieurs de Tunis (ENIT)",
+      name: "Ecole Nationale d'Ingenieurs de Tunis (ENIT)",
       url: "https://www.enit.utm.tn",
     },
     address: {
@@ -18,21 +18,20 @@ export function PersonJsonLd() {
       addressLocality: "Tunis",
       addressCountry: "TN",
     },
-    email: "dhiaeddine.barhoumi@etudiant-enit.utm.tn",
+    email: "wael.hammali@etudiant-enit.utm.tn",
     sameAs: [
-      "https://github.com/dhieeddine",
-      "https://linkedin.com/in/dhiaeddine-barhoumi",
+      "https://github.com/WaelHammali",
+      "https://www.linkedin.com/in/wael-hammali-993100360/",
     ],
     knowsAbout: [
-      "Machine Learning",
+      "Cloud Security",
+      "Cybersecurity",
       "Computer Vision",
+      "RAG Architecture",
       "Network Automation",
-      "Cloud Computing",
-      "DevOps",
       "Terraform",
+      "Ansible",
       "Python",
-      "Java",
-      "Spring Boot",
       "Next.js",
     ],
   };
@@ -49,13 +48,13 @@ export function WebsiteJsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Dhia Eddine Barhoumi — Portfolio",
+    name: "Wael Hammali — Portfolio",
     url: BASE_URL,
     description:
-      "Portfolio of Dhia Eddine Barhoumi, software engineering student at ENIT specializing in ML, Computer Vision and Cloud/DevOps.",
+      "Portfolio of Wael Hammali, software engineering student at ENIT specializing in Cloud, AI, and Cybersecurity.",
     author: {
       "@type": "Person",
-      name: "Dhia Eddine Barhoumi",
+      name: "Wael Hammali",
     },
   };
 

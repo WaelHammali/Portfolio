@@ -1,4 +1,4 @@
-# dhiaeddine.me — Personal Portfolio
+# waelhammali.me — Personal Portfolio
 
 > Built with **Next.js 14**, **Tailwind CSS**, **Framer Motion** and deployed on **Vercel** via **GitHub Actions**.
 
@@ -28,7 +28,7 @@
 
 ```bash
 # 1. Clone
-git clone https://github.com/dhieeddine/portfolio.git
+git clone https://github.com/WaelHammali/portfolio.git
 cd portfolio
 
 # 2. Install
@@ -81,7 +81,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `VERCEL_PROJECT_ID` | From `.vercel/project.json` after `vercel link` |
 | `GH_TOKEN` | GitHub personal access token (public_repo scope) |
 | `RESEND_API_KEY` | From resend.com dashboard |
-| `NEXT_PUBLIC_SITE_URL` | `https://dhiaeddine.me` |
+| `NEXT_PUBLIC_SITE_URL` | `https://waelhammali.me` |
 
 ### First deploy
 

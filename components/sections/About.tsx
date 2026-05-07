@@ -1,41 +1,52 @@
 export function About() {
   return (
-    <section id="about" className="py-24 px-6 max-w-6xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-20 px-6 max-w-6xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-14 items-center">
         <div>
-          <p className="text-teal-500 font-mono text-sm mb-2">// about</p>
-          <h2 className="text-4xl font-display font-semibold mb-6">
-            Turning schemas into deployments
+          <p className="text-cyan-400 font-mono text-sm mb-2">// about me</p>
+          <h2 className="text-4xl font-display font-semibold mb-4 text-white">
+            Clear, secure, and scalable systems
           </h2>
-          <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-            <p>
-              2nd year Software Engineering student at ENIT, Tunis. I build systems that sit at the crossroads of{" "}
-              <span className="text-teal-600 dark:text-teal-400">computer vision</span>,{" "}
-              <span className="text-teal-600 dark:text-teal-400">network automation</span>, and{" "}
-              <span className="text-teal-600 dark:text-teal-400">cloud infrastructure</span>.
-            </p>
-            <p>
-              My current focus is my PFA2 project — a Vision-to-Infrastructure pipeline that uses a
-              YOLO model (~98% accuracy) to detect network diagrams and automatically generate
-              Terraform configs deployed via Containerlab.
-            </p>
-            <p>
-              I hold NVIDIA and Cisco certifications, and I love the challenge of bridging the gap between
-              intelligent models and real-world infrastructure.
-            </p>
+          <p className="text-slate-400 leading-relaxed">
+            I am a Software Engineering student at ENIT in Tunis focused on combining cloud
+            security, AI, and network automation. I build practical systems that translate real
+            infrastructure into secure, deployable cloud architectures.
+          </p>
+
+          <div className="mt-6 grid gap-3 text-sm text-slate-400">
+            <div className="flex items-start gap-2">
+              <span className="mt-1 size-2 rounded-full bg-cyan-400" />
+              RAG + computer vision to analyze and map infrastructure.
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1 size-2 rounded-full bg-cyan-400" />
+              Infrastructure as code with Terraform and Ansible.
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1 size-2 rounded-full bg-cyan-400" />
+              Security-focused automation and monitoring.
+            </div>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://www.linkedin.com/in/dhia-eddine-barhoumi-511b5b360"
+              href="https://www.linkedin.com/in/wael-hammali-993100360/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 text-sm hover:border-teal-400 transition-colors"
+              className="btn-cyan"
             >
               LinkedIn
             </a>
             <a
-              href="mailto:dhiaeddine.barhoumi@etudiant-enit.utm.tn"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-white/10 text-sm hover:border-teal-400 transition-colors"
+              href="https://github.com/WaelHammali"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cyan"
+            >
+              GitHub
+            </a>
+            <a
+              href="mailto:wael.hammali@etudiant-enit.utm.tn"
+              className="btn-cyan"
             >
               Email
             </a>
@@ -45,17 +56,17 @@ export function About() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4">
           {[
-            { value: "5+", label: "GitHub Projects" },
-            { value: "~98%", label: "YOLO model accuracy" },
+            { value: "2024-2027", label: "B.Eng Software Engineering" },
             { value: "2", label: "Certifications" },
-            { value: "2026", label: "Expected graduation" },
+            { value: "5+", label: "Projects shipped" },
+            { value: "2025", label: "Cloud + AI internship" },
           ].map(({ value, label }) => (
             <div
               key={label}
-              className="p-6 rounded-2xl border border-gray-100 dark:border-white/8 bg-white dark:bg-white/3 text-center"
+              className="p-6 rounded-2xl glass-card text-center"
             >
-              <div className="text-3xl font-display font-bold text-teal-500 mb-1">{value}</div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">{label}</div>
+              <div className="text-3xl font-display font-bold text-cyan-400 mb-1">{value}</div>
+              <div className="text-sm text-slate-400">{label}</div>
             </div>
           ))}
         </div>

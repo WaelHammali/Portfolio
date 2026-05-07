@@ -1,10 +1,9 @@
 import { Hero }       from "@/components/sections/Hero";
-import { About }      from "@/components/sections/About";
 import { Skills }     from "@/components/sections/Skills";
 import { Projects }   from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
+import { Education }  from "@/components/sections/Education";
 import { Contact }    from "@/components/sections/Contact";
-import { getPinnedRepos } from "@/lib/github";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,16 +12,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function HomePage() {
-  const repos = await getPinnedRepos();
-
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
       <Skills />
-      <Projects repos={repos} />
+      <Projects />
       <Experience />
+      <Education />
       <Contact />
     </>
   );
