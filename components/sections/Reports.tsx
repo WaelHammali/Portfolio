@@ -7,8 +7,8 @@ const REPORTS = [
     date: "2024",
     href: "/rapports/Projet_PFA1.pdf",
     summary:
-      "First-year academic project report focusing on software development fundamentals and system architecture at ENIT.",
-    skills: ["Software Development", "System Design", "Documentation"],
+      "Development of a full-stack recruitment management platform for HR teams, featuring candidate profiling, automated CV scoring, and workflow tracking.",
+    skills: ["Node.js", "MySQL", "Tailwind"],
   },
   {
     name: "PFA 2 — Rapport de Stage",
