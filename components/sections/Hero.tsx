@@ -37,7 +37,7 @@ export function Hero() {
               </Link>
               <div className="flex gap-2">
                 <a
-                  href="/rapports/pfa1.pdf"
+                  href="/rapports/Projet_PFA1.pdf"
                   download
                   className="px-4 py-2 rounded-lg border border-cyan-500/30 text-cyan-400 font-medium text-xs transition-all duration-300 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 flex items-center gap-2"
                 >

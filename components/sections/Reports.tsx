@@ -5,7 +5,7 @@ const REPORTS = [
     name: "PFA 1 — Rapport de Stage",
     org: "ENIT",
     date: "2024",
-    href: "/rapports/pfa1.pdf",
+    href: "/rapports/Projet_PFA1.pdf",
     summary:
       "First-year academic project report focusing on software development fundamentals and system architecture at ENIT.",
     skills: ["Software Development", "System Design", "Documentation"],
