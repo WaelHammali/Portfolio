@@ -222,46 +222,6 @@ export function Experience() {
                 </div>
               </div>
 
-              {/* Academic Reports */}
-              <div id="reports">
-                <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
-                  Academic Reports (PFA)
-                </h3>
-                <div className="space-y-5">
-                  {REPORTS.map((report) => (
-                    <div key={report.name} className="rounded-2xl glass-card p-5">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <line x1="16" y1="13" x2="8" y2="13" />
-                            <line x1="16" y1="17" x2="8" y2="17" />
-                            <polyline points="10 9 9 9 8 9" />
-                          </svg>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-base font-semibold text-slate-100">{report.name}</p>
-                          <p className="text-xs text-cyan-400">{report.org} · {report.date}</p>
-                          <p className="text-sm text-slate-400 mt-3 leading-relaxed">{report.summary}</p>
-                        </div>
-                      </div>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {report.skills.map((skill) => (
-                          <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        <a href={report.href} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors">
-                          Download Rapport →
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
