@@ -2,22 +2,22 @@
 
 const REPORTS = [
   {
-    name: "PFA 1 — Rapport de Stage",
+    name: "PFA 1 — Recruitment Management Platform",
     org: "ENIT",
     date: "2024",
     href: "/rapports/Projet_PFA1.pdf",
     summary:
-      "Development of a full-stack recruitment management platform for HR teams, featuring candidate profiling, automated CV scoring, and workflow tracking.",
+      "A complete recruitment platform built for HR teams, featuring candidate profile management, CV parsing and automated scoring based on job requirements.",
     skills: ["Node.js", "MySQL", "Tailwind"],
   },
   {
-    name: "PFA 2 — Rapport de Stage",
+    name: "PFA 2 — Advanced RAG For Net To Cloud Translation",
     org: "ENIT / TAV Airports",
     date: "2025",
     href: "/rapports/pfa2.pdf",
     summary:
-      "Second-year project report detailing the implementation of AI-powered monitoring and cloud infrastructure security at TAV Airports.",
-    skills: ["Cloud Security", "YOLOv8", "Network Monitoring", "Infrastructure Automation"],
+      "An AI pipeline using YOLOv8 to analyze network diagrams and RAG to generate secure cloud infrastructure (Terraform/Ansible).",
+    skills: ["Cloud Security", "YOLOv8", "RAG", "Automation"],
   },
 ];
 
