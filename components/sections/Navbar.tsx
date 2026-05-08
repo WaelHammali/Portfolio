@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
@@ -14,8 +15,14 @@ const links = [
   { href: "/#contact", label: "Contact" },
 ];
 
+const rapports = [
+  { href: "/rapports/pfa1.pdf", label: "PFA 1 — Rapport", icon: "📄" },
+  { href: "/rapports/pfa2.pdf", label: "PFA 2 — Rapport", icon: "📄" },
+];
+
 export function Navbar() {
   const pathname = usePathname();
+  const [rapportsOpen, setRapportsOpen] = useState(false);
 
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-cyan-500/10 px-6 py-4 lg:px-20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
@@ -47,6 +54,52 @@ export function Navbar() {
               {label}
             </Link>
           ))}
+
+          {/* Rapports dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setRapportsOpen(true)}
+            onMouseLeave={() => setRapportsOpen(false)}
+          >
+            <button className="text-slate-400 hover:text-cyan-400 transition-colors text-sm font-medium flex items-center gap-1">
+              Rapports
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`transition-transform duration-200 ${rapportsOpen ? "rotate-180" : ""}`}
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            {/* Dropdown */}
+            <div
+              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[200px] rounded-xl border border-cyan-500/20 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-cyan-500/5 overflow-hidden transition-all duration-200 ${
+                rapportsOpen
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-2 pointer-events-none"
+              }`}
+            >
+              {rapports.map(({ href, label, icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all text-sm"
+                >
+                  <span>{icon}</span>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
         </nav>
       </div>
 

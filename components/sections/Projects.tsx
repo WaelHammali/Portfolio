@@ -8,7 +8,7 @@ const FEATURED = [
     fullDesc: "An end-to-end AI pipeline that uses YOLOv8 computer vision to detect and analyze network topology diagrams, then leverages RAG to automatically generate equivalent secure cloud infrastructure. Outputs production-ready Terraform and Ansible configurations for deployment on AWS.",
     tags: ["Python", "YOLOv8", "RAG"],
     visual: "pipeline",
-    github: "https://github.com/WaelHammali",
+    github: "https://github.com/WaelHammali/Advanced-RAG-For-Net_To_Cloud-Translation",
   },
   {
     name: "Network Automation & Monitoring",
@@ -16,7 +16,7 @@ const FEATURED = [
     fullDesc: "A RAG-powered system that takes physical network architecture descriptions and automatically maps each component to its cloud equivalent. Supports multi-cloud environments and generates monitoring configurations alongside the infrastructure code.",
     tags: ["RAG", "Automation", "Cloud"],
     visual: "router",
-    github: "https://github.com/WaelHammali",
+    github: "https://github.com/WaelHammali/Net2Terraform-WebInterface",
   },
   {
     name: "Recruitment Management Platform",
@@ -24,7 +24,7 @@ const FEATURED = [
     fullDesc: "A complete recruitment platform built for HR teams, featuring candidate profile management, CV parsing and upload, automated scoring based on job requirements, and a dashboard for tracking application pipelines from application to hire.",
     tags: ["Node.js", "MySQL", "Tailwind"],
     visual: "hub",
-    github: "https://github.com/WaelHammali",
+    github: "https://github.com/WaelHammali/Recruitment-Management-Platform",
   },
   {
     name: "Smurf Game",
