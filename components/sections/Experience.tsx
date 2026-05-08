@@ -82,26 +82,7 @@ const CERTS = [
   },
 ];
 
-const REPORTS = [
-  {
-    name: "PFA 1 — Rapport de Stage",
-    org: "ENIT",
-    date: "2024",
-    href: "/rapports/pfa1.pdf",
-    summary:
-      "First-year academic project report focusing on software development fundamentals and system architecture at ENIT.",
-    skills: ["Software Development", "System Design", "Documentation"],
-  },
-  {
-    name: "PFA 2 — Rapport de Stage",
-    org: "ENIT / TAV Airports",
-    date: "2025",
-    href: "/rapports/pfa2.pdf",
-    summary:
-      "Second-year project report detailing the implementation of AI-powered monitoring and cloud infrastructure security at TAV Airports.",
-    skills: ["Cloud Security", "YOLOv8", "Network Monitoring", "Infrastructure Automation"],
-  },
-];
+
 
 const AWARDS = [
   "Cybercriminalite & Gouvernance (ESPRIT)",
