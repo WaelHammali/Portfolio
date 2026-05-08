@@ -20,7 +20,7 @@ export function Footer() {
         {/* Links */}
         <div className="flex gap-8">
           <a
-            href="/rapports/Projet_PFA1.pdf"
+            href="/Resume.pdf"
             download
             className="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-1 text-sm"
           >
