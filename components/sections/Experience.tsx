@@ -82,6 +82,27 @@ const CERTS = [
   },
 ];
 
+const REPORTS = [
+  {
+    name: "PFA 1 — Rapport de Stage",
+    org: "ENIT",
+    date: "2024",
+    href: "/rapports/pfa1.pdf",
+    summary:
+      "First-year academic project report focusing on software development fundamentals and system architecture at ENIT.",
+    skills: ["Software Development", "System Design", "Documentation"],
+  },
+  {
+    name: "PFA 2 — Rapport de Stage",
+    org: "ENIT / TAV Airports",
+    date: "2025",
+    href: "/rapports/pfa2.pdf",
+    summary:
+      "Second-year project report detailing the implementation of AI-powered monitoring and cloud infrastructure security at TAV Airports.",
+    skills: ["Cloud Security", "YOLOv8", "Network Monitoring", "Infrastructure Automation"],
+  },
+];
+
 const AWARDS = [
   "Cybercriminalite & Gouvernance (ESPRIT)",
   "Cyber Camp 6.0 (INSAT)",
@@ -95,7 +116,6 @@ export function Experience() {
     <>
       {/* Live Lab / Experience Highlight section */}
       <section id="experience" className="px-6 py-20 lg:px-20 relative overflow-hidden">
-
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -140,104 +160,127 @@ export function Experience() {
               <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
                 Education
               </h3>
-              {EDUCATION.map((edu) => (
-                <div key={edu.degree} className="relative pl-6 pb-7 border-l border-cyan-500/20">
-                  <div className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-slate-900" />
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                    <h4 className="font-bold text-slate-100">{edu.degree}</h4>
-                    <span className="text-xs font-mono text-slate-500">{edu.period}</span>
-                  </div>
-                  <p className="text-sm text-slate-400">{edu.school}</p>
-                  {edu.note && (
-                    <span className="inline-block mt-1 px-2 py-0.5 text-xs font-mono rounded bg-cyan-500/10 text-cyan-300">
-                      {edu.note}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Certifications */}
-            <div id="certifications">
-              <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
-                Certifications
-              </h3>
-              <div className="space-y-5">
-                {CERTS.map((cert) => (
-                  <div
-                    key={cert.name}
-                    className="rounded-2xl glass-card p-5"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <circle cx="12" cy="8" r="6" />
-                          <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
-                        </svg>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-base font-semibold text-slate-100">
-                          {cert.name}
-                        </p>
-                        <p className="text-xs text-cyan-400">
-                          {cert.org} · {cert.date}
-                        </p>
-                        <p className="text-sm text-slate-400 mt-3 leading-relaxed">
-                          {cert.summary}
-                        </p>
-                      </div>
+              <div className="space-y-0">
+                {EDUCATION.map((edu) => (
+                  <div key={edu.degree} className="relative pl-6 pb-7 border-l border-cyan-500/20">
+                    <div className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-slate-900" />
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                      <h4 className="font-bold text-slate-100">{edu.degree}</h4>
+                      <span className="text-xs font-mono text-slate-500">{edu.period}</span>
                     </div>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {cert.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="text-[11px] px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <a
-                        href={cert.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors"
-                      >
-                        View certificate →
-                      </a>
-                      {cert.verifyHref && (
-                        <a
-                          href={cert.verifyHref}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors"
-                        >
-                          Verify →
-                        </a>
-                      )}
-                    </div>
+                    <p className="text-sm text-slate-400">{edu.school}</p>
+                    {edu.note && (
+                      <span className="inline-block mt-1 px-2 py-0.5 text-xs font-mono rounded bg-cyan-500/10 text-cyan-300">
+                        {edu.note}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
 
-          <div className="mt-12">
-            <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
-              Awards & Programs
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {AWARDS.map((award) => (
-                <span
-                  key={award}
-                  className="px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-xs text-slate-300"
-                >
-                  {award}
-                </span>
-              ))}
+              {/* Awards section integrated here for space */}
+              <div className="mt-12">
+                <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
+                  Awards & Programs
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {AWARDS.map((award) => (
+                    <span
+                      key={award}
+                      className="px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-xs text-slate-300"
+                    >
+                      {award}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Certs & Reports */}
+            <div className="space-y-16">
+              {/* Certifications */}
+              <div id="certifications">
+                <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
+                  Certifications
+                </h3>
+                <div className="space-y-5">
+                  {CERTS.map((cert) => (
+                    <div key={cert.name} className="rounded-2xl glass-card p-5">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="8" r="6" />
+                            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-base font-semibold text-slate-100">{cert.name}</p>
+                          <p className="text-xs text-cyan-400">{cert.org} · {cert.date}</p>
+                          <p className="text-sm text-slate-400 mt-3 leading-relaxed">{cert.summary}</p>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {cert.skills.map((skill) => (
+                          <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        <a href={cert.href} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+                          View certificate →
+                        </a>
+                        {cert.verifyHref && (
+                          <a href={cert.verifyHref} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+                            Verify →
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Academic Reports */}
+              <div id="reports">
+                <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
+                  Academic Reports (PFA)
+                </h3>
+                <div className="space-y-5">
+                  {REPORTS.map((report) => (
+                    <div key={report.name} className="rounded-2xl glass-card p-5">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-base font-semibold text-slate-100">{report.name}</p>
+                          <p className="text-xs text-cyan-400">{report.org} · {report.date}</p>
+                          <p className="text-sm text-slate-400 mt-3 leading-relaxed">{report.summary}</p>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {report.skills.map((skill) => (
+                          <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        <a href={report.href} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+                          Download Rapport →
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
