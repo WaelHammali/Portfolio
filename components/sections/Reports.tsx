@@ -2,13 +2,13 @@
 
 const REPORTS = [
   {
-    name: "PFA 1 — Recruitment Management Platform",
+    name: "PFA 1 — Les Techniques de Data Lake",
     org: "ENIT",
     date: "2024",
     href: "/rapports/Projet_PFA1.pdf",
     summary:
-      "A complete recruitment platform built for HR teams, featuring candidate profile management, CV parsing and automated scoring based on job requirements.",
-    skills: ["Node.js", "MySQL", "Tailwind"],
+      "Etude approfondie et mise en œuvre des architectures Data Lake pour le stockage et le traitement analytique de données massives et hétérogènes.",
+    skills: ["Big Data", "Data Lake", "Data Architecture", "Analytics"],
   },
   {
     name: "PFA 2 — Advanced RAG For Net To Cloud Translation",
