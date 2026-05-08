@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const FEATURED = [
   {
-    name: "Vision-to-Infrastructure Pipeline",
+    name: "Advanced RAG For Net To Cloud Translation",
     shortDesc: "AI system that translates network designs into secure cloud equivalents and generates Terraform + Ansible deployments.",
     fullDesc: "An end-to-end AI pipeline that uses YOLOv8 computer vision to detect and analyze network topology diagrams, then leverages RAG to automatically generate equivalent secure cloud infrastructure. Outputs production-ready Terraform and Ansible configurations for deployment on AWS.",
     tags: ["Python", "YOLOv8", "RAG"],
@@ -11,7 +11,7 @@ const FEATURED = [
     github: "https://github.com/WaelHammali/Advanced-RAG-For-Net_To_Cloud-Translation",
   },
   {
-    name: "Network Automation & Monitoring",
+    name: "Net2Terraform WebInterface",
     shortDesc: "Architecture translation system that maps real network components to cloud resources using RAG.",
     fullDesc: "A RAG-powered system that takes physical network architecture descriptions and automatically maps each component to its cloud equivalent. Supports multi-cloud environments and generates monitoring configurations alongside the infrastructure code.",
     tags: ["RAG", "Automation", "Cloud"],
