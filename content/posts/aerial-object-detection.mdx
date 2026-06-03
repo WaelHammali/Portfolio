@@ -1,0 +1,60 @@
+---
+title: "Aerial Object Detection with YOLOv8 — Trees, Cars & Buildings"
+description: "Detecting trees, cars, and buildings from aerial imagery using two custom-trained YOLOv8 models to solve severe class imbalance."
+date: "2026-06-03"
+tags: ["Computer Vision", "YOLOv8", "Deep Learning", "Python"]
+---
+
+## The Challenge
+
+Aerial datasets suffer from severe class imbalance. In this project, the dataset had **2,650 tree images** but **fewer than 80** for cars and buildings combined. Training a single multi-class model predictably collapsed on the minority classes.
+
+## The Approach
+
+Instead of fighting the imbalance in a single model, I split the problem into two dedicated models:
+
+1. **🌲 Model A** — trees only (single class)
+2. **🚗🏢 Model B** — cars + buildings (two classes)
+
+By splitting the task, per-class tuning became practical, augmentations could be task-specific, and debugging stayed manageable.
+
+### Dual Model Execution Pipeline
+
+```python
+from ultralytics import YOLO
+
+# Load dual custom models
+model_trees = YOLO("weights/best_trees.pt")
+model_objects = YOLO("weights/best_cars_buildings.pt")
+
+def run_pipeline(image_path):
+    # Run tree detection (Model A)
+    tree_results = model_trees(image_path, imgsz=640)
+    
+    # Run car & building detection (Model B)
+    object_results = model_objects(image_path, imgsz=640)
+    
+    return tree_results, object_results
+```
+
+## Results (Validation mAP50)
+
+- **🌲 Trees**: `0.593`
+- **🚗🏢 Cars + Buildings**: `0.735`
+  - **Building**: `0.823`
+  - **Car**: `0.648`
+
+## Stack
+
+- **Frameworks**: YOLOv8n, Gradio, Python
+- **Optimizer**: AdamW (150 epochs, imgsz 640)
+- **Compute**: T4 GPUs (Kaggle + Colab)
+- **Dataset**: Roboflow Universe
+
+## Next Steps
+
+- Collect more balanced data to train a single multi-class model
+- Implement test-time augmentation (TTA)
+- Deploy to Hugging Face Spaces
+
+The full code and model weights are available on [GitHub](https://github.com/WaelHammali/Aerial-object-detection).

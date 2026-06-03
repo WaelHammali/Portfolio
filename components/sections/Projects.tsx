@@ -3,6 +3,14 @@ import { useState } from "react";
 
 const FEATURED = [
   {
+    name: "Aerial Object Detection with YOLOv8",
+    shortDesc: "Dual-model YOLOv8 pipeline for detecting trees, cars, and buildings from aerial imagery, solving severe class imbalance.",
+    fullDesc: "An innovative computer vision system that addresses severe class imbalance in aerial datasets by using two custom-trained YOLOv8 models. Model A handles tree detection (mAP50: 0.593), while Model B targets cars and buildings (mAP50: 0.735). Integrated with a Gradio web interface.",
+    tags: ["YOLOv8", "Computer Vision", "Gradio", "Python"],
+    visual: "aerial",
+    github: "https://github.com/WaelHammali/Aerial-object-detection",
+  },
+  {
     name: "Advanced RAG For Net To Cloud Translation",
     shortDesc: "AI system that translates network designs into secure cloud equivalents and generates Terraform + Ansible deployments.",
     fullDesc: "An end-to-end AI pipeline that uses YOLOv8 computer vision to detect and analyze network topology diagrams, then leverages RAG to automatically generate equivalent secure cloud infrastructure. Outputs production-ready Terraform and Ansible configurations for deployment on AWS.",
@@ -60,9 +68,59 @@ const FEATURED = [
   },
 ];
 
-type Visual = "pipeline" | "router" | "hub";
+type Visual = "pipeline" | "router" | "hub" | "aerial";
 
 function CardVisual({ visual }: { visual: Visual }) {
+  if (visual === "aerial") {
+    return (
+      <div className="absolute inset-0 p-3 flex flex-col justify-between bg-slate-950/40">
+        {/* Top bar with simulated coordinates */}
+        <div className="flex justify-between items-center text-[8px] font-mono text-cyan-400/80">
+          <span>LAT: 36.8065° N</span>
+          <span>LON: 10.1815° E</span>
+        </div>
+        
+        {/* Mock detection layout */}
+        <div className="relative flex-1 w-full border border-cyan-500/20 rounded bg-slate-900/50 overflow-hidden my-1">
+          <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 opacity-10 pointer-events-none">
+            <div className="border-r border-b border-cyan-500"></div>
+            <div className="border-r border-b border-cyan-500"></div>
+            <div className="border-b border-cyan-500"></div>
+            <div className="border-r border-b border-cyan-500"></div>
+            <div className="border-r border-b border-cyan-500"></div>
+            <div className="border-b border-cyan-500"></div>
+            <div className="border-r border-cyan-500"></div>
+            <div className="border-r border-cyan-500"></div>
+            <div></div>
+          </div>
+          
+          {/* Tree detections (Green/Emerald boxes) */}
+          <div className="absolute top-[10%] left-[15%] w-[30%] h-[30%] border border-emerald-500/60 bg-emerald-500/5 rounded-full flex flex-col justify-start p-0.5 pointer-events-none">
+            <span className="text-[6px] font-mono text-emerald-400 leading-none">Tree: 0.59</span>
+          </div>
+          <div className="absolute top-[50%] left-[5%] w-[20%] h-[20%] border border-emerald-500/60 bg-emerald-500/5 rounded-full flex flex-col justify-start p-0.5 pointer-events-none">
+            <span className="text-[6px] font-mono text-emerald-400 leading-none">Tree: 0.61</span>
+          </div>
+          
+          {/* Building detections (Cyan/Blue boxes) */}
+          <div className="absolute top-[20%] right-[10%] w-[35%] h-[40%] border border-cyan-500/60 bg-cyan-500/5 flex flex-col justify-start p-0.5 pointer-events-none">
+            <span className="text-[6px] font-mono text-cyan-400 leading-none">Building: 0.82</span>
+          </div>
+          
+          {/* Car detections (Amber/Orange boxes) */}
+          <div className="absolute bottom-[15%] left-[45%] w-[12%] h-[18%] border border-amber-500/60 bg-amber-500/5 rotate-12 flex flex-col justify-start p-0.5 pointer-events-none">
+            <span className="text-[5px] font-mono text-amber-400 leading-none">Car: 0.65</span>
+          </div>
+        </div>
+
+        {/* Bottom bar with telemetry */}
+        <div className="flex justify-between items-center text-[7px] font-mono text-slate-500">
+          <span>YOLOv8 Dual-Model</span>
+          <span>imgsz: 640</span>
+        </div>
+      </div>
+    );
+  }
   if (visual === "pipeline") {
     return (
       <div className="absolute inset-0 grid grid-cols-2">
