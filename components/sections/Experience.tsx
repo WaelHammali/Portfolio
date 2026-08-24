@@ -111,39 +111,117 @@ const AWARDS = [
 export function Experience() {
   return (
     <>
-      {/* Live Lab / Experience Highlight section */}
+      {/* Grand Experience Section */}
       <section id="experience" className="px-6 py-20 lg:px-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <div className="text-cyan-400 font-mono text-xs mb-2 uppercase tracking-widest">
-                Experience Highlight
-              </div>
-              <h2 className="text-slate-100 text-4xl font-black">Cloud + Security Internship</h2>
+          
+          {/* Main Section Header */}
+          <div className="mb-20">
+            <div className="text-cyan-400 font-mono text-xs mb-3 uppercase tracking-widest flex items-center gap-2">
+              <span className="w-4 h-[1px] bg-cyan-400"></span>
+              Career Journey
             </div>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
-                <span className="size-2 rounded-full bg-cyan-400" />
-                <span className="text-xs font-mono text-slate-300 uppercase">
-                  Intern @ TAV Airports
-                </span>
-              </div>
-            </div>
+            <h2 className="text-slate-100 text-4xl md:text-5xl font-black">Experience</h2>
           </div>
 
-          {/* Feature cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {HIGHLIGHTS.map((item) => (
-              <div
-                key={item.title}
-                className="glass-card-hover rounded-xl p-8 flex flex-col gap-4 group"
-              >
-                <span className="text-cyan-400">{item.icon}</span>
-                <h4 className="text-slate-100 font-bold">{item.title}</h4>
-                <p className="text-slate-400 text-sm">{item.description}</p>
+          <div className="space-y-24">
+            
+            {/* Internships Subsection */}
+            <div>
+              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-cyan-500/20">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-cyan-400" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-slate-100 tracking-tight">Internships</h3>
               </div>
-            ))}
+
+              {/* TAV Airports Internship */}
+              <div>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
+                  <div>
+                    <h4 className="text-slate-200 text-2xl font-black mb-2">Cloud + Security Internship</h4>
+                    <p className="text-slate-400 text-sm">Focused on network infrastructure, security auditing, and AI integrations.</p>
+                  </div>
+                  <div className="flex items-center gap-4 shrink-0">
+                    <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
+                      <span className="size-2 rounded-full bg-cyan-400 animate-pulse" />
+                      <span className="text-xs font-mono text-slate-300 uppercase">
+                        Intern @ TAV Airports
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Feature cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {HIGHLIGHTS.map((item) => (
+                    <div
+                      key={item.title}
+                      className="glass-card-hover rounded-xl p-8 flex flex-col gap-4 group"
+                    >
+                      <span className="text-cyan-400 transform transition-transform group-hover:scale-110 group-hover:-translate-y-1">{item.icon}</span>
+                      <h4 className="text-slate-100 font-bold">{item.title}</h4>
+                      <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Documents / Attachments */}
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all text-sm font-medium">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    Attestation de Stage
+                  </a>
+                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-slate-700/50 hover:text-slate-100 transition-all text-sm font-medium">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    Rapport de Stage
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Research Subsection */}
+            <div>
+              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-cyan-500/20">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-purple-400" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <circle cx="10" cy="13" r="2"/>
+                    <line x1="11.41" y1="14.41" x2="15" y2="18"/>
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-slate-100 tracking-tight">Research</h3>
+              </div>
+
+              {/* Research Placeholder */}
+              <div className="glass-card rounded-xl p-12 flex flex-col items-center justify-center text-center border-dashed border-purple-500/20 hover:border-purple-500/40 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-purple-500/5 flex items-center justify-center mb-6">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-purple-400" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                </div>
+                <h4 className="text-slate-200 text-xl font-bold mb-3">Ready for Research Details</h4>
+                <p className="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
+                  This section is set up and ready to showcase your academic and independent research projects. Let me know what you'd like to add!
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

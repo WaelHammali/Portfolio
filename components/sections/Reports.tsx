@@ -11,13 +11,13 @@ const REPORTS = [
     skills: ["Big Data", "Data Lake", "Data Architecture", "Analytics"],
   },
   {
-    name: "PFA 2 — Advanced RAG For Net To Cloud Translation",
+    name: "PFA 2 — From Network Diagrams to Deployable Cloud Infrastructure: A Multimodal AI-Based Approach",
     org: "ENIT / TAV Airports",
-    date: "2025",
-    href: "/rapports/pfa2.pdf",
-    summary:
-      "An AI pipeline using YOLOv8 to analyze network diagrams and RAG to generate secure cloud infrastructure (Terraform/Ansible).",
-    skills: ["Cloud Security", "YOLOv8", "RAG", "Automation"],
+  date: "2025",
+  href: "/rapports/pfa2.pdf",
+  summary:
+  "An AI pipeline using YOLOv8 to analyze network diagrams and RAG to generate secure cloud infrastructure (Terraform/Ansible).",
+  skills: ["Cloud Security", "YOLOv8", "RAG", "Automation"],
   },
 ];
 
@@ -53,7 +53,7 @@ export function Reports() {
                     <p className="text-sm text-cyan-400">{report.org} · {report.date}</p>
                   </div>
                 </div>
-                
+
                 <p className="text-slate-400 text-sm leading-relaxed mb-6">
                   {report.summary}
                 </p>
