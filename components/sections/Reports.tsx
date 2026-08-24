@@ -11,7 +11,9 @@ const REPORTS = [
     skills: ["Big Data", "Data Lake", "Data Architecture", "Analytics"],
   },
   {
-    name: "PFA 2 — From Network Diagrams to Deployable Cloud Infrastructure: A Multimodal AI-Based Approach",
+    name: "PFA 2 — From Network Diagrams to Deployable
+Cloud Infrastructure: A Multimodal
+AI- Based Approach",
     org: "ENIT / TAV Airports",
   date: "2025",
   href: "/rapports/pfa2.pdf",
