@@ -114,14 +114,6 @@ export function Experience() {
                     <h4 className="text-slate-200 text-2xl font-black mb-2">TAV Airports</h4>
                     <p className="text-slate-400 text-sm">Focused on network infrastructure, security auditing, and AI integrations.</p>
                   </div>
-                  <div className="flex items-center gap-4 shrink-0">
-                    <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
-                      <span className="size-2 rounded-full bg-cyan-400 animate-pulse" />
-                      <span className="text-xs font-mono text-slate-300 uppercase">
-                        Intern @ TAV Airports
-                      </span>
-                    </div>
-                  </div>
                 </div>
 
 
@@ -153,14 +145,6 @@ export function Experience() {
                   <div>
                     <h4 className="text-slate-200 text-2xl font-black mb-2">Keystone Groupe</h4>
                     <p className="text-slate-400 text-sm">AI powered penetration command.</p>
-                  </div>
-                  <div className="flex items-center gap-4 shrink-0">
-                    <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
-                      <span className="size-2 rounded-full bg-cyan-400 animate-pulse" />
-                      <span className="text-xs font-mono text-slate-300 uppercase">
-                        2026
-                      </span>
-                    </div>
                   </div>
                 </div>
 
