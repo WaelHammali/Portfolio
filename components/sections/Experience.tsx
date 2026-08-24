@@ -80,6 +80,22 @@ const CERTS = [
       "Connectivity testing and troubleshooting",
     ],
   },
+  {
+    name: "CCNA: Switching, Routing, and Wireless Essentials",
+    org: "Cisco Networking Academy",
+    date: "2026",
+    href: "/certificates/CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_wael-hammali-etudiant-enit-utm-tn_721fe3be-16df-401f-ac9a-feffe476c040.pdf",
+    summary:
+      "Intermediate certification covering architecture, components, and operations of routers and switches, including WLANs and security concepts.",
+    skills: [
+      "VLANs, Inter-VLAN Routing, and STP",
+      "EtherChannel and FHRP Configuration",
+      "IPv4/IPv6 Static Routing and Troubleshooting",
+      "WLAN Architecture and Security",
+      "Switch Security (Port Security, DHCP Snooping)",
+      "DHCPv4 and SLAAC/DHCPv6 Configuration",
+    ],
+  },
 ];
 
 
