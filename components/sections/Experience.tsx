@@ -1,35 +1,4 @@
-const HIGHLIGHTS = [
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-      </svg>
-    ),
-    title: "Network Security Assessment",
-    description:
-      "Reviewed camera and network infrastructure to identify security, reliability, and integration gaps.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-      </svg>
-    ),
-    title: "YOLO-Based Monitoring",
-    description:
-      "Proposed a computer vision system to detect vehicles and reduce parking fraud with AI.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
-    title: "AI + Infrastructure Recommendations",
-    description:
-      "Delivered technical recommendations combining network architecture, security, and automation.",
-  },
-];
+
 
 const EDUCATION = [
   {
@@ -155,19 +124,6 @@ export function Experience() {
                   </div>
                 </div>
 
-                {/* Feature cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {HIGHLIGHTS.map((item) => (
-                    <div
-                      key={item.title}
-                      className="glass-card-hover rounded-xl p-8 flex flex-col gap-4 group"
-                    >
-                      <span className="text-cyan-400 transform transition-transform group-hover:scale-110 group-hover:-translate-y-1">{item.icon}</span>
-                      <h4 className="text-slate-100 font-bold">{item.title}</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
-                    </div>
-                  ))}
-                </div>
 
                 {/* Documents / Attachments */}
                 <div className="mt-8 flex flex-wrap gap-4">
