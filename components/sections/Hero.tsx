@@ -9,17 +9,17 @@ export function Hero() {
           {/* Left side - Text */}
           <div className="flex flex-col gap-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7b8fa8]/30 bg-[#7b8fa8]/5 text-[#94b8d4] text-xs font-mono w-fit">
-              ✨ Available for internships
+              ✨ Available for Work 
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight">
               <span className="text-white">Hi, I'm</span>
               <br />
-              <span className="gradient-text">Wael Hammali</span>
+              <span className="gradient-text">Wael HAMMALi</span>
             </h1>
             <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
-              Software Engineering Student at ENIT focused on cloud security, AI systems, and
-              cybersecurity automation. Building secure, scalable infrastructure with modern tools.
+              Software Engineering Student at ENIT focused on AI , Cybersecurity,  and
+              embedded systems.
             </p>
 
             <div className="flex flex-wrap gap-2 text-xs font-mono text-slate-500">
@@ -87,8 +87,8 @@ export function Hero() {
                   />
                 </div>
                 <div className="mt-4 space-y-2">
-                  <h3 className="text-[#94b8d4] font-semibold text-sm">Full Stack Developer</h3>
-                  <p className="text-slate-400 text-xs">Cloud & Security Focused</p>
+                  <h3 className="text-[#94b8d4] font-semibold text-sm">Software Engineering</h3>
+                  <p className="text-slate-400 text-xs">AI & CyberSecurity Focused</p>
                 </div>
               </div>
             </div>
@@ -101,12 +101,12 @@ export function Hero() {
                     <span className="text-[#94b8d4] font-bold">🚀</span>
                   </div>
                   <div>
-                    <p className="text-[#94b8d4] font-semibold text-sm">Cloud & AI</p>
-                    <p className="text-slate-500 text-xs">Infrastructure</p>
+                    <p className="text-[#94b8d4] font-semibold text-sm"> AI & CyberSecurity  </p>
+                    <p className="text-slate-500 text-xs">Architecture</p>
                   </div>
                 </div>
                 <p className="text-slate-400 text-xs leading-relaxed">
-                  Building scalable cloud infrastructure with Terraform & automated security frameworks
+                  Building a Multimodal Systems for Automation and Penetration Testing
                 </p>
               </div>
             </div>
