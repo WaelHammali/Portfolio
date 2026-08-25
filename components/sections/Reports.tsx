@@ -2,6 +2,15 @@
 
 const REPORTS = [
   {
+    name: "TAV IT Internship Report",
+    org: "ENIT / TAV Airports",
+    date: "2025/2026",
+    href: "/rapports/TAV.pdf",
+    summary:
+      "Internship report covering parking network auditing, end-to-end system validation, incident response during a fiber cut, and the temporary workaround used to keep airport operations running.",
+    skills: ["Network Audit", "Troubleshooting", "Fiber Optics", "Cybersecurity"],
+  },
+  {
     name: "PFA 1 — Les Techniques de Data Lake",
     org: "ENIT",
     date: "2024",
@@ -27,11 +36,11 @@ export function Reports() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-2 mb-12">
           <h2 className="text-slate-100 text-3xl font-bold tracking-tight">
-            Academic Reports (PFA)
+            Academic & Internship Reports
           </h2>
           <div className="h-1 w-20 bg-cyan-500" />
           <p className="text-slate-400 mt-2 font-mono text-sm">
-            Detailed project documentation and research
+            Detailed project documentation, internship deliverables, and research
           </p>
         </div>
 

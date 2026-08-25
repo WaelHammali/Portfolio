@@ -112,14 +112,14 @@ export function Experience() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
                   <div>
                     <h4 className="text-slate-200 text-2xl font-black mb-2">TAV Airports</h4>
-                    <p className="text-slate-400 text-sm">Focused on network infrastructure, security auditing, and AI integrations.</p>
+                    <p className="text-slate-400 text-sm">During my internship at TAV IT at Enfidha-Hammamet International Airport, I integrated the parking IT team and worked on the network infrastructure behind the parking system. I audited cabling and connectivity, tested the end-to-end parking workflow, reviewed cameras, switches, firewalls, and servers, and helped document the system for operational follow-up. When a fiber-optic cut disrupted service, I also contributed to the temporary coaxial workaround that kept the parking system running until the repair was completed. The internship strengthened my skills in networking, troubleshooting, security analysis, and operational continuity.</p>
                   </div>
                 </div>
 
 
                 {/* Documents / Attachments */}
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all text-sm font-medium">
+                  <a href="/rapports/TAV.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all text-sm font-medium">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                       <polyline points="14 2 14 8 20 8"/>
@@ -127,14 +127,14 @@ export function Experience() {
                       <line x1="16" y1="17" x2="8" y2="17"/>
                       <polyline points="10 9 9 9 8 9"/>
                     </svg>
-                    Attestation de Stage
+                    Rapport de Stage
                   </a>
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-slate-700/50 hover:text-slate-100 transition-all text-sm font-medium">
+                  <a href="#reports" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-slate-700/50 hover:text-slate-100 transition-all text-sm font-medium">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                       <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                     </svg>
-                    Rapport de Stage
+                    Voir les Rapports
                   </a>
                 </div>
               </div>
