@@ -250,16 +250,20 @@ export function Experience() {
               </div>
             </div>
 
-            {/* Right Column: Certs & Reports */}
-            <div className="space-y-16">
-              {/* Certifications */}
-              <div id="certifications">
-                <h3 className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-6">
-                  Certifications
-                </h3>
+            {/* Certifications */}
+            <div id="certifications" className="lg:col-span-2">
+              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
+                <div className="w-12 h-12 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="8" r="6" />
+                    <path d="M15.477 12.89L17 22l-5-3-5 3-1.523-9.11" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-slate-100 tracking-tight">Certifications</h3>
+              </div>
                 <div className="space-y-5">
                   {CERTS.map((cert) => (
-                    <div key={cert.name} className="rounded-2xl glass-card p-5">
+                    <div key={cert.name} className="rounded-2xl glass-card p-6">
                       <div className="flex items-start gap-4">
                         <div className="w-10 h-10 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 flex items-center justify-center shrink-0">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94b8d4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -293,8 +297,6 @@ export function Experience() {
                     </div>
                   ))}
                 </div>
-              </div>
-
             </div>
           </div>
         </div>
