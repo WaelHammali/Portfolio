@@ -25,7 +25,6 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <p className="text-[#94b8d4] font-mono text-sm mb-2 text-center">// contact</p>
         <h2 className="text-4xl font-display font-semibold mb-3 text-center text-slate-100">Let&apos;s connect</h2>
         <p className="text-slate-400 text-center mb-10">
           Open to cloud, AI, and cybersecurity internships, collaborations, and projects.
