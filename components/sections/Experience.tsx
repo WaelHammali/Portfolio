@@ -173,7 +173,7 @@ export function Experience() {
                   <span className="text-xs font-mono text-slate-500 shrink-0">Research Project</span>
                 </div>
                 <p className="text-slate-400 text-sm leading-relaxed">
-                  Contributed to jersey number recognition using computer vision techniques to identify and recognize players' jersey numbers from soccer footage. The project provided hands-on experience in AI, computer vision, image processing, and sports analytics, while supporting collaboration on a real-world multidisciplinary AI application.
+                  During the SympactAI – Second Edition program by TAIS NextGen, I contributed to the project “Automated Camera Calibration for Augmented Reality in Soccer Analytics.” My main contribution focused on jersey number recognition, using computer vision techniques to identify and recognize players’ jersey numbers from soccer footage. This project gave me hands-on experience in AI, computer vision, image processing, and sports analytics, while also allowing me to collaborate with a multidisciplinary team and work on a real-world AI application.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {["AI", "Computer Vision", "Image Processing", "Sports Analytics", "Jersey Number Recognition"].map((skill) => (
