@@ -162,19 +162,26 @@ export function Experience() {
                 <h3 className="text-3xl font-bold text-slate-100 tracking-tight">Research</h3>
               </div>
 
-              {/* Research Placeholder */}
-              <div className="glass-card rounded-xl p-12 flex flex-col items-center justify-center text-center border-dashed border-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-colors">
-                <div className="w-16 h-16 rounded-full bg-[#7b8fa8]/5 flex items-center justify-center mb-6">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 16v-4"/>
-                    <path d="M12 8h.01"/>
-                  </svg>
+              {/* SympactAI Research Project */}
+              <div className="glass-card rounded-xl p-6 border border-[#7b8fa8]/20">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+                  <div>
+                    <p className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-2">SympactAI — Second Edition</p>
+                    <h4 className="text-slate-200 text-2xl font-bold">Automated Camera Calibration for Augmented Reality in Soccer Analytics</h4>
+                    <p className="text-sm text-slate-400 mt-2">TAIS NextGen</p>
+                  </div>
+                  <span className="text-xs font-mono text-slate-500 shrink-0">Research Project</span>
                 </div>
-                <h4 className="text-slate-200 text-xl font-bold mb-3">Ready for Research Details</h4>
-                <p className="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
-                  This section is set up and ready to showcase your academic and independent research projects. Let me know what you'd like to add!
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Contributed to jersey number recognition using computer vision techniques to identify and recognize players' jersey numbers from soccer footage. The project provided hands-on experience in AI, computer vision, image processing, and sports analytics, while supporting collaboration on a real-world multidisciplinary AI application.
                 </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {["AI", "Computer Vision", "Image Processing", "Sports Analytics", "Jersey Number Recognition"].map((skill) => (
+                    <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-[#7b8fa8]/10 text-[#94b8d4]">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
