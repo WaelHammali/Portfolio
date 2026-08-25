@@ -35,12 +35,12 @@ export function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {STACK.map((group) => (
             <div key={group.title} className="rounded-2xl glass-card p-6">
-              <div className="text-sm font-semibold text-cyan-400 mb-4">{group.title}</div>
+              <div className="text-sm font-semibold text-[#94b8d4] mb-4">{group.title}</div>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-sm text-cyan-300"
+                    className="px-3 py-1 rounded-full border border-[#7b8fa8]/25 bg-[#7b8fa8]/8 text-sm text-[#94b8d4]"
                   >
                     {item}
                   </span>

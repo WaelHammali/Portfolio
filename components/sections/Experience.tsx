@@ -86,8 +86,8 @@ export function Experience() {
           
           {/* Main Section Header */}
           <div className="mb-20">
-            <div className="text-cyan-400 font-mono text-xs mb-3 uppercase tracking-widest flex items-center gap-2">
-              <span className="w-4 h-[1px] bg-cyan-400"></span>
+            <div className="text-[#94b8d4] font-mono text-xs mb-3 uppercase tracking-widest flex items-center gap-2">
+              <span className="w-4 h-[1px] bg-[#94b8d4]"></span>
               Career Journey
             </div>
             <h2 className="text-slate-100 text-4xl md:text-5xl font-black">Experience</h2>
@@ -97,9 +97,9 @@ export function Experience() {
             
             {/* Internships Subsection */}
             <div>
-              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-cyan-500/20">
-                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-cyan-400" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
+                <div className="w-12 h-12 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
                   </svg>
@@ -119,7 +119,7 @@ export function Experience() {
 
                 {/* Documents / Attachments */}
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="/rapports/TAV.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all text-sm font-medium">
+                  <a href="/rapports/TAV.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                       <polyline points="14 2 14 8 20 8"/>
@@ -150,7 +150,7 @@ export function Experience() {
 
                 {/* Documents / Attachments */}
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/40 transition-all text-sm font-medium">
+                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                       <polyline points="14 2 14 8 20 8"/>
@@ -173,9 +173,9 @@ export function Experience() {
 
             {/* Research Subsection */}
             <div>
-              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-cyan-500/20">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center shrink-0">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-purple-400" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
+                <div className="w-12 h-12 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/25 flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
                     <polyline points="14 2 14 8 20 8"/>
                     <circle cx="10" cy="13" r="2"/>
@@ -186,9 +186,9 @@ export function Experience() {
               </div>
 
               {/* Research Placeholder */}
-              <div className="glass-card rounded-xl p-12 flex flex-col items-center justify-center text-center border-dashed border-purple-500/20 hover:border-purple-500/40 transition-colors">
-                <div className="w-16 h-16 rounded-full bg-purple-500/5 flex items-center justify-center mb-6">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-purple-400" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <div className="glass-card rounded-xl p-12 flex flex-col items-center justify-center text-center border-dashed border-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-[#7b8fa8]/5 flex items-center justify-center mb-6">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"/>
                     <path d="M12 16v-4"/>
                     <path d="M12 8h.01"/>
@@ -211,20 +211,20 @@ export function Experience() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Education */}
             <div>
-              <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
+              <h3 className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-6">
                 Education
               </h3>
               <div className="space-y-0">
                 {EDUCATION.map((edu) => (
-                  <div key={edu.degree} className="relative pl-6 pb-7 border-l border-cyan-500/20">
-                    <div className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-slate-900" />
+                  <div key={edu.degree} className="relative pl-6 pb-7 border-l border-[#7b8fa8]/20">
+                    <div className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-[#94b8d4] ring-4 ring-[#0d0f14]" />
                     <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                       <h4 className="font-bold text-slate-100">{edu.degree}</h4>
                       <span className="text-xs font-mono text-slate-500">{edu.period}</span>
                     </div>
                     <p className="text-sm text-slate-400">{edu.school}</p>
                     {edu.note && (
-                      <span className="inline-block mt-1 px-2 py-0.5 text-xs font-mono rounded bg-cyan-500/10 text-cyan-300">
+                      <span className="inline-block mt-1 px-2 py-0.5 text-xs font-mono rounded bg-[#7b8fa8]/10 text-[#94b8d4]">
                         {edu.note}
                       </span>
                     )}
@@ -234,14 +234,14 @@ export function Experience() {
 
               {/* Awards section integrated here for space */}
               <div className="mt-12">
-                <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
+                <h3 className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-6">
                   Awards & Programs
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {AWARDS.map((award) => (
                     <span
                       key={award}
-                      className="px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-xs text-slate-300"
+                      className="px-3 py-1.5 rounded-full border border-[#7b8fa8]/20 bg-[#7b8fa8]/5 text-xs text-slate-300"
                     >
                       {award}
                     </span>
@@ -254,38 +254,38 @@ export function Experience() {
             <div className="space-y-16">
               {/* Certifications */}
               <div id="certifications">
-                <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">
+                <h3 className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-6">
                   Certifications
                 </h3>
                 <div className="space-y-5">
                   {CERTS.map((cert) => (
                     <div key={cert.name} className="rounded-2xl glass-card p-5">
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <div className="w-10 h-10 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 flex items-center justify-center shrink-0">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94b8d4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="12" cy="8" r="6" />
                             <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
                           </svg>
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-base font-semibold text-slate-100">{cert.name}</p>
-                          <p className="text-xs text-cyan-400">{cert.org} · {cert.date}</p>
+                          <p className="text-xs text-[#94b8d4]">{cert.org} · {cert.date}</p>
                           <p className="text-sm text-slate-400 mt-3 leading-relaxed">{cert.summary}</p>
                         </div>
                       </div>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {cert.skills.map((skill) => (
-                          <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300">
+                          <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-[#7b8fa8]/10 text-[#94b8d4]">
                             {skill}
                           </span>
                         ))}
                       </div>
                       <div className="mt-4 flex flex-wrap gap-3">
-                        <a href={cert.href} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+                        <a href={cert.href} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-[#94b8d4] transition-colors">
                           View certificate →
                         </a>
                         {cert.verifyHref && (
-                          <a href={cert.verifyHref} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+                          <a href={cert.verifyHref} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-[#94b8d4] transition-colors">
                             Verify →
                           </a>
                         )}

@@ -3,7 +3,7 @@ export const Education = () => {
     <section id="education" className="py-20 px-6 max-w-6xl mx-auto">
       <div className="space-y-6">
         <div>
-          <p className="text-yellow-400 font-mono text-sm mb-2">// education</p>
+          <p className="text-[#94b8d4] font-mono text-sm mb-2">// education</p>
           <h2 className="text-4xl font-display font-semibold mb-6 text-white">Education</h2>
         </div>
         

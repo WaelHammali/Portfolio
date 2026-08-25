@@ -25,7 +25,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <p className="text-cyan-400 font-mono text-sm mb-2 text-center">// contact</p>
+        <p className="text-[#94b8d4] font-mono text-sm mb-2 text-center">// contact</p>
         <h2 className="text-4xl font-display font-semibold mb-3 text-center text-slate-100">Let&apos;s connect</h2>
         <p className="text-slate-400 text-center mb-10">
           Open to cloud, AI, and cybersecurity internships, collaborations, and projects.
@@ -34,14 +34,14 @@ export function Contact() {
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
           <a
             href="mailto:wael.hammali@etudiant-enit.utm.tn"
-            className="rounded-xl glass-card px-4 py-4 text-center text-sm hover:border-cyan-400 transition-colors"
+            className="rounded-xl glass-card px-4 py-4 text-center text-sm hover:border-[#94b8d4]/40 transition-colors"
           >
             <div className="text-xs text-slate-400">Email</div>
             <div className="font-semibold text-slate-100">wael.hammali@etudiant-enit.utm.tn</div>
           </a>
           <a
             href="tel:+21694916106"
-            className="rounded-xl glass-card px-4 py-4 text-center text-sm hover:border-cyan-400 transition-colors"
+            className="rounded-xl glass-card px-4 py-4 text-center text-sm hover:border-[#94b8d4]/40 transition-colors"
           >
             <div className="text-xs text-slate-400">Phone</div>
             <div className="font-semibold text-slate-100">+216 94 916 106</div>
@@ -63,7 +63,7 @@ export function Contact() {
                 required
                 value={form.name}
                 onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                className="w-full px-4 py-3 rounded-xl border border-cyan-500/20 bg-slate-900/50 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-slate-900/70 transition-colors"
+                className="w-full px-4 py-3 rounded-xl border border-[#7b8fa8]/20 bg-[#12141c]/70 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#94b8d4]/50 focus:bg-[#12141c] transition-colors"
                 placeholder="Your name"
               />
             </div>
@@ -76,7 +76,7 @@ export function Contact() {
                 required
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                className="w-full px-4 py-3 rounded-xl border border-cyan-500/20 bg-slate-900/50 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-slate-900/70 transition-colors"
+                className="w-full px-4 py-3 rounded-xl border border-[#7b8fa8]/20 bg-[#12141c]/70 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#94b8d4]/50 focus:bg-[#12141c] transition-colors"
                 placeholder="you@example.com"
               />
             </div>
@@ -91,7 +91,7 @@ export function Contact() {
               rows={5}
               value={form.message}
               onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-              className="w-full px-4 py-3 rounded-xl border border-cyan-500/20 bg-slate-900/50 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-slate-900/70 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-[#7b8fa8]/20 bg-[#12141c]/70 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#94b8d4]/50 focus:bg-[#12141c] transition-colors resize-none"
               placeholder="What's on your mind?"
             />
           </div>
@@ -99,13 +99,13 @@ export function Contact() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full py-3 px-6 rounded-xl bg-cyan-600 hover:bg-cyan-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium transition-all hover:scale-[1.01] active:scale-[0.99]"
+            className="w-full py-3 px-6 rounded-xl bg-[#94b8d4]/15 border border-[#94b8d4]/30 hover:bg-[#94b8d4]/25 hover:border-[#94b8d4]/50 disabled:opacity-60 disabled:cursor-not-allowed text-[#c8d6e5] font-medium transition-all hover:scale-[1.01] active:scale-[0.99]"
           >
             {status === "loading" ? "Sending..." : "Send Message"}
           </button>
 
           {status === "success" && (
-            <p className="text-center text-sm text-cyan-400">
+            <p className="text-center text-sm text-[#94b8d4]">
               Message sent! I&apos;ll get back to you soon.
             </p>
           )}

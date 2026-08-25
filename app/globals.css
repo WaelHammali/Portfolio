@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --primary: #ffd700;
-    --bg-dark: #0a1f22;
-    --bg-darker: #051419;
-    --navy-deep: #0d2a2d;
-    --slate-custom: #0a1f22;
-    --accent-gold: #ffd700;
-    --accent-teal: #00d9ff;
+    --primary: #94b8d4;
+    --bg-dark: #0d0f14;
+    --bg-darker: #080a0e;
+    --navy-deep: #12141c;
+    --slate-custom: #0d0f14;
+    --accent-gold: #94b8d4;
+    --accent-teal: #7b8fa8;
   }
 
   /* Dark theme (default) */
@@ -21,13 +21,13 @@
   /* Light theme fallback */
   :root[data-theme="light"], body.light {
     color-scheme: light;
-    --primary: #d4a574;
+    --primary: #7b8fa8;
     --bg-dark: #ffffff;
     --bg-darker: #f9fafb;
   }
 
   ::selection {
-    background: rgba(255, 215, 0, 0.35);
+    background: rgba(148, 184, 212, 0.35);
     color: inherit;
   }
 
@@ -36,15 +36,15 @@
   }
 
   body {
-    background: linear-gradient(135deg, #0a1f22 0%, #0d2a2d 25%, #051419 50%, #0a1820 75%, #0a1f22 100%);
+    background: linear-gradient(135deg, #0d0f14 0%, #12141c 25%, #080a0e 50%, #0f1118 75%, #0d0f14 100%);
     background-attachment: fixed;
-    color: #e2e8f0;
+    color: #c8cdd5;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar       { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: #3d4a5c; border-radius: 3px; }
 }
 
 @layer utilities {
@@ -65,23 +65,23 @@
     animation-fill-mode: forwards;
   }
 
-  /* Gold glow */
+  /* Steel-blue glow */
   .glow-cyan {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 20px rgba(148, 184, 212, 0.25), inset 0 0 20px rgba(148, 184, 212, 0.06);
   }
 
   .glow-primary {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(148, 184, 212, 0.2);
   }
 
-  /* Gold border */
+  /* Accent border */
   .border-cyan-accent {
-    border-color: rgba(255, 215, 0, 0.3);
+    border-color: rgba(123, 143, 168, 0.3);
   }
 
-  /* Gradient text with gold & cyan */
+  /* Gradient text with cool blue tones */
   .gradient-text {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #00d9ff 100%);
+    background: linear-gradient(135deg, #c8d6e5 0%, #94b8d4 50%, #7b8fa8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -89,10 +89,10 @@
 
   /* Dark glass card */
   .glass-card {
-    background: rgba(10, 31, 34, 0.4);
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    background: rgba(18, 20, 28, 0.5);
+    border: 1px solid rgba(123, 143, 168, 0.15);
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
   .glass-card-hover {
@@ -100,9 +100,9 @@
   }
 
   .glass-card-hover:hover {
-    background: rgba(10, 31, 34, 0.6);
-    border-color: rgba(255, 215, 0, 0.4);
-    box-shadow: 0 12px 48px rgba(255, 215, 0, 0.2);
+    background: rgba(18, 20, 28, 0.7);
+    border-color: rgba(148, 184, 212, 0.3);
+    box-shadow: 0 12px 48px rgba(148, 184, 212, 0.08);
     transform: translateY(-2px);
   }
 
@@ -121,46 +121,46 @@
 
   /* Dot grid background */
   .dot-grid {
-    background-image: radial-gradient(circle at 2px 2px, rgba(255, 215, 0, 0.1) 1px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(123, 143, 168, 0.08) 1px, transparent 0);
     background-size: 40px 40px;
   }
 
   .grid-lines {
     background-image:
-      linear-gradient(to right, rgba(255, 215, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(123, 143, 168, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(123, 143, 168, 0.04) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
-  /* Gold accent button */
+  /* Steel-blue accent button */
   .btn-cyan {
     @apply px-8 py-3 rounded-lg font-semibold text-sm;
-    background: rgba(234, 179, 8, 0.15);
-    border: 1.5px solid rgba(234, 179, 8, 0.7);
-    color: #fbbf24;
+    background: rgba(148, 184, 212, 0.08);
+    border: 1.5px solid rgba(148, 184, 212, 0.4);
+    color: #94b8d4;
     transition: all 0.25s ease;
-    box-shadow: 0 0 12px rgba(234, 179, 8, 0.2);
+    box-shadow: 0 0 12px rgba(148, 184, 212, 0.1);
   }
 
   .btn-cyan:hover {
-    background: rgba(234, 179, 8, 0.28);
-    border-color: #fbbf24;
-    color: #fef08a;
-    box-shadow: 0 0 22px rgba(234, 179, 8, 0.45);
+    background: rgba(148, 184, 212, 0.18);
+    border-color: #94b8d4;
+    color: #c8d6e5;
+    box-shadow: 0 0 22px rgba(148, 184, 212, 0.25);
     transform: translateY(-1px);
   }
 
   .mesh-bg {
     background-image:
-      radial-gradient(600px 400px at 10% 20%, rgba(255, 215, 0, 0.15), transparent 60%),
-      radial-gradient(500px 360px at 85% 10%, rgba(0, 217, 255, 0.12), transparent 60%),
-      radial-gradient(420px 320px at 70% 80%, rgba(10, 31, 34, 0.08), transparent 60%);
+      radial-gradient(600px 400px at 10% 20%, rgba(148, 184, 212, 0.06), transparent 60%),
+      radial-gradient(500px 360px at 85% 10%, rgba(123, 143, 168, 0.05), transparent 60%),
+      radial-gradient(420px 320px at 70% 80%, rgba(18, 20, 28, 0.08), transparent 60%);
   }
 
   .glass-panel {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+    background: rgba(13, 15, 20, 0.7);
+    border: 1px solid rgba(123, 143, 168, 0.15);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(16px);
   }
 }
@@ -188,19 +188,19 @@
 }
 
 [data-rehype-pretty-code-fragment] pre {
-  @apply rounded-xl border border-cyan-500/20 bg-slate-900 p-5 overflow-x-auto text-sm;
+  @apply rounded-xl border border-slate-700/40 bg-slate-950 p-5 overflow-x-auto text-sm;
 }
 
 [data-rehype-pretty-code-title] {
-  @apply px-5 py-2 text-xs font-mono text-slate-400 bg-slate-800 border border-b-0 border-cyan-500/20 rounded-t-xl;
+  @apply px-5 py-2 text-xs font-mono text-slate-400 bg-slate-900 border border-b-0 border-slate-700/40 rounded-t-xl;
 }
 
 [data-highlighted-line] {
-  @apply bg-cyan-500/10 -mx-5 px-5;
+  @apply bg-slate-700/10 -mx-5 px-5;
 }
 
 /* Terminal cursor */
 .cursor::after {
   content: "|";
-  @apply animate-blink text-cyan-400;
+  @apply animate-blink text-slate-400;
 }

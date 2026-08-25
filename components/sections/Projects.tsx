@@ -75,22 +75,22 @@ function CardVisual({ visual }: { visual: Visual }) {
     return (
       <div className="absolute inset-0 p-3 flex flex-col justify-between bg-slate-950/40">
         {/* Top bar with simulated coordinates */}
-        <div className="flex justify-between items-center text-[8px] font-mono text-cyan-400/80">
+        <div className="flex justify-between items-center text-[8px] font-mono text-[#94b8d4]/80">
           <span>LAT: 36.8065° N</span>
           <span>LON: 10.1815° E</span>
         </div>
         
         {/* Mock detection layout */}
-        <div className="relative flex-1 w-full border border-cyan-500/20 rounded bg-slate-900/50 overflow-hidden my-1">
+        <div className="relative flex-1 w-full border border-[#7b8fa8]/20 rounded bg-slate-900/50 overflow-hidden my-1">
           <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 opacity-10 pointer-events-none">
-            <div className="border-r border-b border-cyan-500"></div>
-            <div className="border-r border-b border-cyan-500"></div>
-            <div className="border-b border-cyan-500"></div>
-            <div className="border-r border-b border-cyan-500"></div>
-            <div className="border-r border-b border-cyan-500"></div>
-            <div className="border-b border-cyan-500"></div>
-            <div className="border-r border-cyan-500"></div>
-            <div className="border-r border-cyan-500"></div>
+            <div className="border-r border-b border-[#7b8fa8]"></div>
+            <div className="border-r border-b border-[#7b8fa8]"></div>
+            <div className="border-b border-[#7b8fa8]"></div>
+            <div className="border-r border-b border-[#7b8fa8]"></div>
+            <div className="border-r border-b border-[#7b8fa8]"></div>
+            <div className="border-b border-[#7b8fa8]"></div>
+            <div className="border-r border-[#7b8fa8]"></div>
+            <div className="border-r border-[#7b8fa8]"></div>
             <div></div>
           </div>
           
@@ -102,12 +102,12 @@ function CardVisual({ visual }: { visual: Visual }) {
             <span className="text-[6px] font-mono text-emerald-400 leading-none">Tree: 0.61</span>
           </div>
           
-          {/* Building detections (Cyan/Blue boxes) */}
-          <div className="absolute top-[20%] right-[10%] w-[35%] h-[40%] border border-cyan-500/60 bg-cyan-500/5 flex flex-col justify-start p-0.5 pointer-events-none">
-            <span className="text-[6px] font-mono text-cyan-400 leading-none">Building: 0.82</span>
+          {/* Building detections */}
+          <div className="absolute top-[20%] right-[10%] w-[35%] h-[40%] border border-[#94b8d4]/60 bg-[#94b8d4]/5 flex flex-col justify-start p-0.5 pointer-events-none">
+            <span className="text-[6px] font-mono text-[#94b8d4] leading-none">Building: 0.82</span>
           </div>
           
-          {/* Car detections (Amber/Orange boxes) */}
+          {/* Car detections */}
           <div className="absolute bottom-[15%] left-[45%] w-[12%] h-[18%] border border-amber-500/60 bg-amber-500/5 rotate-12 flex flex-col justify-start p-0.5 pointer-events-none">
             <span className="text-[5px] font-mono text-amber-400 leading-none">Car: 0.65</span>
           </div>
@@ -124,12 +124,12 @@ function CardVisual({ visual }: { visual: Visual }) {
   if (visual === "pipeline") {
     return (
       <div className="absolute inset-0 grid grid-cols-2">
-        <div className="bg-cyan-500/10 flex items-center justify-center border-r border-cyan-500/20">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+        <div className="bg-[#7b8fa8]/8 flex items-center justify-center border-r border-[#7b8fa8]/20">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
             <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
           </svg>
         </div>
-        <div className="bg-slate-900/50 p-2 font-mono text-[8px] text-cyan-300/60 overflow-hidden">
+        <div className="bg-slate-900/50 p-2 font-mono text-[8px] text-[#94b8d4]/60 overflow-hidden">
           <p>optimized_yolov8()</p>
           <p>generate_topology()</p>
           <p>terraform_deploy()</p>
@@ -139,13 +139,13 @@ function CardVisual({ visual }: { visual: Visual }) {
   }
   if (visual === "router") {
     return (
-      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
         <rect x="2" y="9" width="20" height="6" rx="2"/><path d="M8 9V5M16 9V5M12 9V5M8 15v4M16 15v4M12 15v4"/>
       </svg>
     );
   }
   return (
-    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
       <circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6 6.5l4 4M18 6.5l-4 4M6 17.5l4-4M18 17.5l-4-4"/>
     </svg>
   );
@@ -165,7 +165,7 @@ export function Projects() {
           <h2 className="text-slate-100 text-3xl font-bold tracking-tight">
             Key Projects
           </h2>
-          <div className="h-1 w-20 bg-cyan-500" />
+          <div className="h-1 w-20 bg-[#94b8d4]" />
           <p className="text-slate-500 text-sm font-mono mt-1">Click any card to read more</p>
         </div>
 
@@ -197,8 +197,8 @@ export function Projects() {
                     style={{ backfaceVisibility: "hidden" }}
                   >
                     {/* Visual thumbnail */}
-                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-cyan-500/20 bg-cyan-500/5 flex items-center justify-center">
-                      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-500/20 via-transparent to-transparent" />
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#7b8fa8]/20 bg-[#7b8fa8]/5 flex items-center justify-center">
+                      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#7b8fa8]/20 via-transparent to-transparent" />
                       <CardVisual visual={project.visual as Visual} />
                     </div>
                     {/* Text */}
@@ -209,7 +209,7 @@ export function Projects() {
                       </p>
                       <div className="flex gap-2 mt-3 flex-wrap">
                         {project.tags.map((tag) => (
-                          <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400">
+                          <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#7b8fa8]/10 text-[#94b8d4]">
                             {tag}
                           </span>
                         ))}
@@ -221,24 +221,24 @@ export function Projects() {
 
                   {/* ── BACK ── */}
                   <div
-                    className="absolute inset-0 flex flex-col justify-between glass-card rounded-xl p-6 border border-cyan-500/40 bg-slate-900/90"
+                    className="absolute inset-0 flex flex-col justify-between glass-card rounded-xl p-6 border border-[#94b8d4]/30 bg-[#0d0f14]/95"
                     style={{
                       backfaceVisibility: "hidden",
                       transform: "rotateY(180deg)",
                     }}
                   >
                     <div>
-                      <h3 className="text-cyan-400 text-lg font-bold mb-3">{project.name}</h3>
+                      <h3 className="text-[#94b8d4] text-lg font-bold mb-3">{project.name}</h3>
                       <p className="text-slate-300 text-sm leading-relaxed">{project.fullDesc}</p>
                       <div className="flex gap-2 mt-4 flex-wrap">
                         {project.tags.map((tag) => (
-                          <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400">
+                          <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#7b8fa8]/10 text-[#94b8d4]">
                             {tag}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <div className="mt-5 pt-4 border-t border-cyan-500/20 flex flex-col gap-2">
+                    <div className="mt-5 pt-4 border-t border-[#7b8fa8]/20 flex flex-col gap-2">
                       <a
                         href={project.github}
                         target="_blank"

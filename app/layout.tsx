@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${space.variable} ${plex.variable} font-sans bg-slate-950 text-slate-100 antialiased`}>
+      <body className={`${space.variable} ${plex.variable} font-sans bg-[#0d0f14] text-slate-100 antialiased`}>
         <PersonJsonLd />
         <WebsiteJsonLd />
         <div className="relative min-h-screen flex flex-col">

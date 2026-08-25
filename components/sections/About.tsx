@@ -3,7 +3,7 @@ export function About() {
     <section id="about" className="py-20 px-6 max-w-6xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-14 items-center">
         <div>
-          <p className="text-cyan-400 font-mono text-sm mb-2">// about me</p>
+          <p className="text-[#94b8d4] font-mono text-sm mb-2">// about me</p>
           <h2 className="text-4xl font-display font-semibold mb-4 text-white">
             Clear, secure, and scalable systems
           </h2>
@@ -15,15 +15,15 @@ export function About() {
 
           <div className="mt-6 grid gap-3 text-sm text-slate-400">
             <div className="flex items-start gap-2">
-              <span className="mt-1 size-2 rounded-full bg-cyan-400" />
+              <span className="mt-1 size-2 rounded-full bg-[#94b8d4]" />
               RAG + computer vision to analyze and map infrastructure.
             </div>
             <div className="flex items-start gap-2">
-              <span className="mt-1 size-2 rounded-full bg-cyan-400" />
+              <span className="mt-1 size-2 rounded-full bg-[#94b8d4]" />
               Infrastructure as code with Terraform and Ansible.
             </div>
             <div className="flex items-start gap-2">
-              <span className="mt-1 size-2 rounded-full bg-cyan-400" />
+              <span className="mt-1 size-2 rounded-full bg-[#94b8d4]" />
               Security-focused automation and monitoring.
             </div>
           </div>
@@ -65,7 +65,7 @@ export function About() {
               key={label}
               className="p-6 rounded-2xl glass-card text-center"
             >
-              <div className="text-3xl font-display font-bold text-cyan-400 mb-1">{value}</div>
+              <div className="text-3xl font-display font-bold text-[#94b8d4] mb-1">{value}</div>
               <div className="text-sm text-slate-400">{label}</div>
             </div>
           ))}
