@@ -18,7 +18,7 @@ export function Hero() {
               <span className="gradient-text">Wael HAMMALi</span>
             </h1>
             <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
-              Software Engineering Student at ENIT focused on AI , Cybersecurity,  and
+              Software Engineering Student at ENIT focused on AI , Cybersecurity and
               embedded systems.
             </p>
 
