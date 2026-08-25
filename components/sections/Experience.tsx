@@ -1,20 +1,5 @@
 
 
-const EDUCATION = [
-  {
-    degree: "Software Engineering",
-    school: "ENIT — Ecole Nationale d'Ingenieurs de Tunis",
-    period: "2024 → 2027",
-    note: null,
-  },
-  {
-    degree: "Preparatory Cycle — Physics & Technology",
-    school: "IPEIM — Institut Preparatoire aux Etudes d'Ingenieurs de Monastir",
-    period: "2021 → 2023",
-    note: "High Honors (Rank 78)",
-  },
-];
-
 const CERTS = [
   {
     name: "Certified Associate Penetration Tester (CAPT)",
@@ -68,14 +53,6 @@ const CERTS = [
 ];
 
 
-
-const AWARDS = [
-  "Cybercriminalite & Gouvernance (ESPRIT)",
-  "Cyber Camp 6.0 (INSAT)",
-  "Cyber Horizon (FST)",
-  "GOAT-1.0 (Supcom)",
-  "Out Of Brief (Junior Entreprise / ENIT)",
-];
 
 export function Experience() {
   return (
@@ -205,53 +182,10 @@ export function Experience() {
         </div>
       </section>
 
-      {/* Education & Certifications */}
+      {/* Certifications */}
       <section className="px-6 py-20 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Education */}
-            <div>
-              <h3 className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-6">
-                Education
-              </h3>
-              <div className="space-y-0">
-                {EDUCATION.map((edu) => (
-                  <div key={edu.degree} className="relative pl-6 pb-7 border-l border-[#7b8fa8]/20">
-                    <div className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-[#94b8d4] ring-4 ring-[#0d0f14]" />
-                    <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                      <h4 className="font-bold text-slate-100">{edu.degree}</h4>
-                      <span className="text-xs font-mono text-slate-500">{edu.period}</span>
-                    </div>
-                    <p className="text-sm text-slate-400">{edu.school}</p>
-                    {edu.note && (
-                      <span className="inline-block mt-1 px-2 py-0.5 text-xs font-mono rounded bg-[#7b8fa8]/10 text-[#94b8d4]">
-                        {edu.note}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Awards section integrated here for space */}
-              <div className="mt-12">
-                <h3 className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-6">
-                  Awards & Programs
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {AWARDS.map((award) => (
-                    <span
-                      key={award}
-                      className="px-3 py-1.5 rounded-full border border-[#7b8fa8]/20 bg-[#7b8fa8]/5 text-xs text-slate-300"
-                    >
-                      {award}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Certifications */}
-            <div id="certifications" className="lg:col-span-2">
+          <div id="certifications">
               <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
                 <div className="w-12 h-12 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 flex items-center justify-center shrink-0">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -297,7 +231,6 @@ export function Experience() {
                     </div>
                   ))}
                 </div>
-            </div>
           </div>
         </div>
       </section>
