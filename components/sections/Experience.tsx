@@ -183,7 +183,7 @@ export function Experience() {
                   ))}
                 </div>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
+                  <a href="/certificates/sympactai-certificate.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                       <polyline points="14 2 14 8 20 8" />
