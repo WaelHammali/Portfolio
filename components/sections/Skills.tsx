@@ -9,11 +9,11 @@ const STACK = [
   },
   {
     title: "AI & Automation",
-    items: ["RAG", "Computer Vision", "YOLO", "Infrastructure Automation", "FineTunning"],
+    items: ["RAG", "Computer Vision", "YOLO", "LangGraph", "LangChain", "ChromaDB", "PyTorch", "Prompt Engineering", "LLM Fine-Tuning", "Federated Learning", "Infrastructure Automation"],
   },
   {
     title: "Development",
-    items: ["Python", "Node.js", "SQL / NoSQL", "Git"],
+    items: ["Python", "Node.js", "SQL / NoSQL", "MongoDB", "Git", "Bash Scripting"],
   },
 ];
 

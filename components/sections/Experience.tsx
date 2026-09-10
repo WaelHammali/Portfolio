@@ -89,7 +89,8 @@ export function Experience() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
                   <div>
                     <h4 className="text-slate-200 text-2xl font-black mb-2">TAV Airports</h4>
-                    <p className="text-slate-400 text-sm">During my internship at TAV IT at Enfidha-Hammamet International Airport, I integrated the parking IT team and worked on the network infrastructure behind the parking system. I audited cabling and connectivity, tested the end-to-end parking workflow, reviewed cameras, switches, firewalls, and servers, and helped document the system for operational follow-up. When a fiber-optic cut disrupted service, I also contributed to the temporary coaxial workaround that kept the parking system running until the repair was completed. The internship strengthened my skills in networking, troubleshooting, security analysis, and operational continuity.</p>
+                    <p className="text-xs font-mono text-[#94b8d4] mb-2 uppercase tracking-widest">Network &amp; Security Infrastructure Internship · Enfidha, Tunisia · July 2025 — August 2025</p>
+                    <p className="text-slate-400 text-sm">During my internship at TAV IT at Enfidha-Hammamet International Airport, I integrated the parking IT team and worked on the network infrastructure behind the parking system. I audited cabling and connectivity, tested the end-to-end parking workflow, reviewed cameras, switches, firewalls, and servers, and helped document the system for operational follow-up. When a fiber-optic cut disrupted service, I also contributed to the temporary coaxial workaround that kept the parking system running until the repair was completed. I produced an infrastructure report recommending hardware upgrades, IoT sensors, and AI-driven computer-vision solutions such as license-plate recognition and anomaly detection, along with strict data-access policies to keep captured data protected from unauthorised access. The internship strengthened my skills in networking, troubleshooting, security analysis, and operational continuity.</p>
                   </div>
                 </div>
 
@@ -121,6 +122,7 @@ export function Experience() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
                   <div>
                     <h4 className="text-slate-200 text-2xl font-black mb-2">Keystone Groupe</h4>
+                    <p className="text-xs font-mono text-[#94b8d4] mb-2 uppercase tracking-widest">AI-Powered Penetration Testing Command Framework (DarkIntel) · Engineering Internship · June 2026 — July 2026</p>
                     <p className="text-slate-400 text-sm">During my internship at Keystone Groupe, I built an AI-powered penetration-testing toolchain for web applications and infrastructure. The work grew into three frameworks: <span className="text-slate-300">IntelForge</span>, a LangGraph-orchestrated reconnaissance pipeline that runs the scanners and chains a Cleaner → Analyst → Researcher → Synthesis loop into a prioritised exploit-intelligence report; <span className="text-slate-300">VoidHawk</span>, a six-agent LangGraph state machine (Planner · Worker · Cleaner · Analyst · Logic · Validator) with ChromaDB + Sentence-Transformers RAG memory that produces CVSS-scored, validated vulnerability reports; and <span className="text-slate-300">DarkIntel</span>, the integration layer that feeds IntelForge's output straight into VoidHawk's memory so a full assessment runs end to end from a single command. The internship deepened my skills in security automation, multi-agent LLM systems, RAG, and AI-driven offensive security.</p>
                   </div>
                 </div>
@@ -168,15 +170,15 @@ export function Experience() {
                   <div>
                     <p className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-2">SympactAI — Second Edition</p>
                     <h4 className="text-slate-200 text-2xl font-bold">Automated Camera Calibration for Augmented Reality in Soccer Analytics</h4>
-                    <p className="text-sm text-slate-400 mt-2">TAIS NextGen</p>
+                    <p className="text-sm text-slate-400 mt-2">TAIS NextGen · June 2026 — August 2026</p>
                   </div>
                   <span className="text-xs font-mono text-slate-500 shrink-0">Research Project</span>
                 </div>
                 <p className="text-slate-400 text-sm leading-relaxed">
-                  During the SympactAI – Second Edition program by TAIS NextGen, I contributed to the project “Automated Camera Calibration for Augmented Reality in Soccer Analytics.” My main contribution focused on jersey number recognition, using computer vision techniques to identify and recognize players’ jersey numbers from soccer footage. This project gave me hands-on experience in AI, computer vision, image processing, and sports analytics, while also allowing me to collaborate with a multidisciplinary team and work on a real-world AI application.
+                  During the SympactAI – Second Edition program by TAIS NextGen, I contributed to the project “Automated Camera Calibration for Augmented Reality in Soccer Analytics.” I led the development of a jersey number recognition module, using computer vision and image processing to identify players from live and recorded soccer footage, enhanced with Real-ESRGAN super-resolution to improve accuracy on low-resolution and motion-blurred broadcast frames. The pipeline combined ViTPose for pose estimation and PARSeq for text recognition. This project gave me hands-on experience building real-world AI pipelines while collaborating within a multidisciplinary team on a sports analytics application.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {["AI", "Computer Vision", "Image Processing", "Sports Analytics", "Jersey Number Recognition"].map((skill) => (
+                  {["PyTorch", "OpenCV", "Real-ESRGAN", "ViTPose", "PARSeq", "Computer Vision", "Image Processing", "Sports Analytics"].map((skill) => (
                     <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-[#7b8fa8]/10 text-[#94b8d4]">
                       {skill}
                     </span>

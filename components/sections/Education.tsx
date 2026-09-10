@@ -1,4 +1,5 @@
 const EDUCATION = [
+  { degree: "Master of Research — Communication Systems (SYSCOM)", school: "ENIT — Ecole Nationale d'Ingenieurs de Tunis", period: "2026 → Present", note: "Research Master" },
   { degree: "Software Engineering", school: "ENIT — Ecole Nationale d'Ingenieurs de Tunis", period: "2024 → 2027", note: null },
   { degree: "Preparatory Cycle — Physics & Technology", school: "IPEIM — Institut Preparatoire aux Etudes d'Ingenieurs de Monastir", period: "2021 → 2023", note: "High Honors (Rank 78)" },
 ];
@@ -9,6 +10,39 @@ const AWARDS = [
   "Cyber Horizon (FST)",
   "GOAT-1.0 (Supcom)",
   "Out Of Brief (Junior Entreprise / ENIT)",
+];
+
+const CLUBS = [
+  {
+    role: "Active Member",
+    org: "Securinets ENIT — Cybersecurity Club",
+    period: "2024 → Present",
+    detail: "Cybersecurity activities, technical workshops, CTF competitions, and security events.",
+  },
+  {
+    role: "Golden Member & Event Organizer",
+    org: "G2FOSS ENIT — Software Club",
+    period: "2024 → Present",
+    detail: "Organized the League of Coders, a major problem-solving and competitive-programming event in Tunisia — event planning, coordination, and participant engagement.",
+  },
+  {
+    role: "Organizing Member",
+    org: "FabLab ENIT",
+    period: "2024 → Present",
+    detail: "Helped organize Aero-Fab, a robotics competition featuring junior line-follower robots and all-terrain robots.",
+  },
+  {
+    role: "Participant",
+    org: "Injaz El Arab Competition — ENIT",
+    period: "2025",
+    detail: "Sustainable project developing thermal-insulation panels from natural materials; teamwork, project management, and sustainable innovation.",
+  },
+];
+
+const LANGUAGES = [
+  { name: "Arabic", level: "Native" },
+  { name: "French", level: "B2" },
+  { name: "English", level: "B2" },
 ];
 
 export const Education = () => {
@@ -40,6 +74,31 @@ export const Education = () => {
                 <p className="text-sm text-slate-400">{edu.school}</p>
                 {edu.note && <span className="inline-block mt-1 px-2 py-0.5 text-xs font-mono rounded bg-[#7b8fa8]/10 text-[#94b8d4]">{edu.note}</span>}
               </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-3xl font-bold text-slate-100 tracking-tight mb-6">Clubs & Community</h3>
+          <div className="space-y-0">
+            {CLUBS.map((club) => (
+              <div key={club.org} className="relative pl-6 pb-7 border-l border-[#7b8fa8]/20">
+                <div className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-[#94b8d4] ring-4 ring-[#0d0f14]" />
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-1"><h4 className="font-bold text-slate-100">{club.role}</h4><span className="text-xs font-mono text-slate-500">{club.period}</span></div>
+                <p className="text-sm text-[#94b8d4]">{club.org}</p>
+                <p className="text-sm text-slate-400 mt-1 leading-relaxed">{club.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-3xl font-bold text-slate-100 tracking-tight mb-6">Languages</h3>
+          <div className="flex flex-wrap gap-3">
+            {LANGUAGES.map((lang) => (
+              <span key={lang.name} className="px-3 py-1.5 rounded-full border border-[#7b8fa8]/20 bg-[#7b8fa8]/5 text-xs text-slate-300">
+                {lang.name} <span className="text-[#94b8d4] font-mono">· {lang.level}</span>
+              </span>
             ))}
           </div>
         </div>
