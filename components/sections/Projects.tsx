@@ -3,12 +3,28 @@ import { useState } from "react";
 
 const FEATURED = [
   {
-    name: "AI powered penetration command",
-    shortDesc: "A MultiModel command line tool that uses LLMs to penetrate web applications.",
-    fullDesc: "An AI-powered command-line penetration testing framework for web applications, inspired by tools like Metasploit. It combines multimodal LLMs, Bash scripting, and LLM frameworks to automate reconnaissance, security testing, vulnerability analysis, and attack workflows through an intelligent command-driven interface.",
-    tags: ["Bash Scripting", "AI", "Cybersecurity", "LLMs"],
-    visual: "CLI",
-    github: "https://github.com/WaelHammali/Pentest_Command_DAGDIG",
+    name: "DarkIntel",
+    shortDesc: "Unified end-to-end AI pentest pipeline that chains IntelForge's recon straight into VoidHawk's multi-agent validation, producing CVSS-scored reports from a single command.",
+    fullDesc: "The integration layer between IntelForge and VoidHawk, built during an engineering internship at Keystone Groupe (Jun–Jul 2026). It takes IntelForge's structured intelligence report and injects it into VoidHawk's ChromaDB-backed memory before a run starts, so VoidHawk's Planner agent skips re-discovery and goes straight to validation, exploit reasoning, and severity ranking. Breadth-first recon feeds depth-first multi-agent analysis, with each framework evolving independently. Currently in active development.",
+    tags: ["Python", "LangGraph", "LangChain", "Ollama"],
+    visual: "pipeline",
+    github: "https://github.com/WaelHammali/DarkIntel",
+  },
+  {
+    name: "VoidHawk",
+    shortDesc: "AI-powered penetration-testing framework: six specialised LangGraph agents automate the full lifecycle from recon to CVSS-scored, validated vulnerability reports.",
+    fullDesc: "An extended fork of the open-source Watchtower framework, developed at Keystone Groupe (2026). It models a penetration test as a LangGraph state machine driven by six agents — Planner, Worker, Cleaner, Analyst, Logic, and a skeptical Validator that confirms, rejects, or retests each finding with a CVSS 3.1 score and remediation. RAG memory (ChromaDB HNSW + Sentence-Transformers) provides cross-session knowledge retention that feeds the Planner's next move, with finding de-duplication, severity ranking, and multi-format reporting in PDF, HTML, and Markdown.",
+    tags: ["Python", "LangGraph", "RAG", "ChromaDB"],
+    visual: "hub",
+    github: "https://github.com/WaelHammali/VoidHawk",
+  },
+  {
+    name: "IntelForge",
+    shortDesc: "LangGraph-orchestrated reconnaissance pipeline that runs the scanners, condenses each tool's output with an LLM, then chains four AI analysts into a prioritised exploit-intelligence report.",
+    fullDesc: "A reconnaissance and exploit-intelligence framework built as a compiled LangGraph state machine at Keystone Groupe (2026). It runs Nmap, FinalRecon, and web fuzzing in parallel, uses an LLM to de-noise raw CLI output, then walks a fixed Cleaner → Analyst → Researcher → Synthesis chain to produce an open-services table, an access map, ranked exploit vectors, and a final verdict on the likeliest foothold. Provider-agnostic LLMs (Groq, OpenAI, Google) and strict target validation before anything reaches a subprocess.",
+    tags: ["Python", "LangGraph", "OSINT", "Cybersecurity"],
+    visual: "router",
+    github: "https://github.com/WaelHammali/IntelForge",
   },
   {
     name: "Aerial Object Detection with YOLOv8",
