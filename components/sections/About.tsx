@@ -26,24 +26,24 @@ export function About() {
     <section
       id="about"
       ref={ref}
-      className="relative flex min-h-[100vh] flex-col justify-center overflow-hidden px-5 py-28 sm:px-8 lg:px-12"
+      className="relative flex flex-col justify-center overflow-hidden px-5 py-20 sm:px-8 sm:py-24 lg:px-12"
     >
       {/* decorative objects */}
       <motion.div
         aria-hidden
         style={{ rotate: orbit }}
-        className="pointer-events-none absolute -right-24 top-24 h-72 w-72 rounded-full border border-paper/10"
+        className="pointer-events-none absolute -right-16 top-10 h-52 w-52 rounded-full border border-paper/10"
       >
-        <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-accent/70" />
+        <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-accent/70" />
       </motion.div>
       <motion.div
         aria-hidden
         style={{ y: rise }}
-        className="pointer-events-none absolute left-6 top-1/3 h-40 w-40 rounded-3xl border border-paper/10 [background:repeating-linear-gradient(45deg,rgba(215,226,234,0.04)_0_6px,transparent_6px_12px)]"
+        className="pointer-events-none absolute left-6 top-1/3 h-28 w-28 rounded-2xl border border-paper/10 [background:repeating-linear-gradient(45deg,rgba(215,226,234,0.04)_0_6px,transparent_6px_12px)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-16 right-1/4 font-mono text-6xl text-paper/[0.04]"
+        className="pointer-events-none absolute bottom-6 right-1/4 font-mono text-5xl text-paper/[0.04]"
       >
         {"{ }"}
       </div>
@@ -54,19 +54,19 @@ export function About() {
         </FadeIn>
         <h2
           data-text="About"
-          className="hero-heading text-[clamp(3rem,12vw,10rem)] font-black uppercase leading-[0.9] tracking-tight"
+          className="hero-heading text-[clamp(2rem,5.5vw,3.75rem)] font-black uppercase leading-[0.95] tracking-tight"
         >
           About
         </h2>
 
-        <div className="mt-10 max-w-3xl">
+        <div className="mt-6 max-w-2xl">
           <AnimatedText
             text={ABOUT_SUMMARY}
-            className="text-xl leading-relaxed text-paper/80 sm:text-2xl"
+            className="text-base leading-relaxed text-paper/75 sm:text-lg"
           />
         </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {PILLARS.map(({ icon: Icon, label }, i) => (
             <FadeIn
               key={label}
