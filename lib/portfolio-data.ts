@@ -462,7 +462,15 @@ export const EDUCATION: EducationEntry[] = [
   },
 ];
 
-export const CLUBS = [
+type ClubEntry = {
+  role: string;
+  org: string;
+  period: string;
+  detail: string;
+  certificate?: { href: string; title: string };
+};
+
+export const CLUBS: readonly ClubEntry[] = [
   {
     role: "Active Member",
     org: "Securinets ENIT — Cybersecurity Club",
@@ -475,18 +483,30 @@ export const CLUBS = [
     period: "2024 → Present",
     detail:
       "Contributed to planning, coordination, and participant engagement for League of Coders, a competitive programming event. Subsequently recognized as a Golden Member of the club.",
+    certificate: {
+      href: "/certificates/g2foss-golden-member.pdf",
+      title: "G2FOSS Golden Member Certificate",
+    },
   },
   {
     role: "Organizing Member",
     org: "FabLab ENIT",
     period: "2024 → Present",
     detail: "Helped organise Aero-Fab, a robotics competition for junior line-follower and all-terrain robots.",
+    certificate: {
+      href: "/certificates/aerofab-appreciation.pdf",
+      title: "Aero-Fab Certificate of Appreciation",
+    },
   },
   {
     role: "Participant",
     org: "Injaz El Arab Competition — ENIT",
     period: "2025",
     detail: "Contributed to a sustainable project developing thermal insulation panels from natural materials in the Injaz El Arab competition.",
+    certificate: {
+      href: "/certificates/injaz-participation.pdf",
+      title: "INJAZ Tunisia Company Program Participation Certificate",
+    },
   },
 ] as const;
 

@@ -1,4 +1,5 @@
 import { SectionAccent } from "@/components/ui/SectionAccent";
+import { FileText, ArrowUpRight } from "lucide-react";
 
 import { EDUCATION, AWARDS, CLUBS, LANGUAGES } from "@/lib/portfolio-data";
 
@@ -36,7 +37,7 @@ export const Education = () => {
           </div>
         </div>
 
-        <div>
+        <div id="clubs-community" className="scroll-mt-24">
           <h3 className="text-3xl font-bold text-slate-100 tracking-tight mb-6">Clubs & Community</h3>
           <div className="space-y-0">
             {CLUBS.map((club) => (
@@ -45,6 +46,20 @@ export const Education = () => {
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-1"><h4 className="font-bold text-slate-100">{club.role}</h4><span className="text-xs font-mono text-slate-500">{club.period}</span></div>
                 <p className="text-sm text-[#94b8d4]">{club.org}</p>
                 <p className="text-sm text-slate-400 mt-1 leading-relaxed">{club.detail}</p>
+                {club.certificate && (
+                  <a
+                    href={club.certificate.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View Certificate: ${club.certificate.title} (PDF, opens in a new tab)`}
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg border border-[#7b8fa8]/20 bg-[#7b8fa8]/10 px-4 py-2.5 text-sm font-medium text-[#94b8d4] transition-colors hover:border-[#7b8fa8]/40 hover:bg-[#7b8fa8]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#94b8d4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0f14]"
+                  >
+                    <FileText size={16} aria-hidden="true" />
+                    View Certificate
+                    <span className="text-xs text-slate-400">PDF</span>
+                    <ArrowUpRight size={14} aria-hidden="true" />
+                  </a>
+                )}
               </div>
             ))}
           </div>
