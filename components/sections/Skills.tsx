@@ -1,3 +1,5 @@
+import { SectionAccent } from "@/components/ui/SectionAccent";
+
 const STACK = [
   {
     title: "Cloud & Infrastructure",
@@ -19,7 +21,8 @@ const STACK = [
 
 export function Skills() {
   return (
-    <section id="skills" className="px-6 py-20 lg:px-20">
+    <section id="skills" className="relative overflow-hidden px-6 py-20 lg:px-20">
+      <SectionAccent label="// stack" position="top-right" />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
