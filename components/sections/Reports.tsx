@@ -14,7 +14,7 @@ const REPORTS = [
   },
   {
     name: "PFA 2 — From Network Diagrams to Deployable Cloud Infrastructure: A Multimodal AI- Based Approach",
-    org: "ENIT / TAV Airports",
+    org: "ENIT",
   date: "2025",
   href: "/rapports/pfa2.pdf",
   summary:
