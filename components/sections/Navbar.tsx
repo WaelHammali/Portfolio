@@ -47,24 +47,24 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-all duration-300 sm:px-6 lg:px-10 ${
+        className={`mx-auto grid max-w-[1800px] grid-cols-[auto_1fr_auto] items-center gap-3 px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
           scrolled || open ? "border-b border-paper/10 bg-ink/80 py-3 backdrop-blur-xl" : "border-b border-transparent py-5"
         }`}
       >
         {/* Logo + tagline */}
         <Link
           href="/#home"
-          className="group flex items-center gap-3"
+          className="group flex min-w-0 items-center gap-3"
           onClick={() => setOpen(false)}
         >
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-paper font-display text-sm font-black text-ink transition-transform group-hover:scale-105">
             W
           </span>
-          <span className="hidden text-sm font-semibold tracking-tight text-paper sm:inline">
+          <span className="hidden shrink-0 text-sm font-semibold tracking-tight text-paper sm:inline">
             Wael <span className="text-paper/50">Hammali</span>
           </span>
-          <span className="ml-1 hidden h-8 w-px bg-paper/15 md:block" />
-          <span className="hidden font-mono text-[9px] uppercase leading-tight tracking-[0.2em] text-paper/40 md:block">
+          <span className="ml-1 hidden h-8 w-px shrink-0 bg-paper/15 2xl:block" />
+          <span className="hidden shrink-0 whitespace-nowrap font-mono text-[9px] uppercase leading-tight tracking-[0.2em] text-paper/40 2xl:block">
             {IDENTITY.phrases.heroLine1}
             <br />
             {IDENTITY.phrases.heroLine2}
@@ -72,12 +72,12 @@ export function Navbar() {
         </Link>
 
         {/* Desktop centre pill */}
-        <nav className="glass-nav absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full px-2 py-1.5 lg:flex">
+        <nav className="glass-nav mx-auto hidden max-w-full items-center gap-0.5 overflow-x-auto rounded-full px-1.5 py-1.5 xl:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={`/${link.href}`}
-              className="relative rounded-full px-4 py-1.5 text-sm font-medium text-paper/70 transition-colors hover:bg-paper/5 hover:text-paper"
+              className="relative shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12.5px] font-medium text-paper/70 transition-colors hover:bg-paper/5 hover:text-paper 2xl:px-3.5 2xl:text-sm"
             >
               {link.label}
               {active === link.href && (
@@ -88,13 +88,13 @@ export function Navbar() {
         </nav>
 
         {/* Right cluster */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-self-end gap-2">
           <a
             href={SOCIALS.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hidden h-9 w-9 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors hover:border-accent/60 hover:text-paper sm:grid"
+            className="hidden h-9 w-9 shrink-0 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors hover:border-accent/60 hover:text-paper sm:grid"
           >
             <Github size={16} />
           </a>
@@ -103,20 +103,20 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hidden h-9 w-9 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors hover:border-accent/60 hover:text-paper sm:grid"
+            className="hidden h-9 w-9 shrink-0 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors hover:border-accent/60 hover:text-paper sm:grid"
           >
             <Linkedin size={16} />
           </a>
           <a
             href={`mailto:${SOCIALS.email}`}
             aria-label="Email"
-            className="hidden h-9 w-9 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors hover:border-accent/60 hover:text-paper sm:grid"
+            className="hidden h-9 w-9 shrink-0 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors hover:border-accent/60 hover:text-paper sm:grid"
           >
             <Mail size={16} />
           </a>
           <Link
             href="/#contact"
-            className="hidden items-center gap-1.5 rounded-full bg-paper px-4 py-2 text-xs font-semibold uppercase tracking-widest text-ink transition-transform hover:-translate-y-0.5 md:flex"
+            className="hidden shrink-0 items-center gap-1.5 rounded-full bg-paper px-4 py-2 text-xs font-semibold uppercase tracking-widest text-ink transition-transform hover:-translate-y-0.5 md:flex"
           >
             Let&apos;s Talk
             <ArrowUpRight size={14} />
@@ -127,7 +127,7 @@ export function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-paper/15 text-paper lg:hidden"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-paper/15 text-paper xl:hidden"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -136,7 +136,7 @@ export function Navbar() {
 
       {/* Mobile sheet */}
       {open && (
-        <div className="fixed inset-0 top-0 z-40 flex flex-col bg-ink/95 px-6 pb-10 pt-24 backdrop-blur-md lg:hidden">
+        <div className="fixed inset-0 top-0 z-40 flex flex-col bg-ink/95 px-6 pb-10 pt-24 backdrop-blur-md xl:hidden">
           <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <Link
