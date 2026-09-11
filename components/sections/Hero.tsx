@@ -146,12 +146,12 @@ export function Hero() {
           {/* thin orbit arcs flanking the portrait */}
           <svg
             aria-hidden
-            viewBox="0 0 520 260"
-            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[260px] w-[520px] -translate-x-1/2 -translate-y-1/2 overflow-visible sm:block"
+            viewBox="0 0 620 280"
+            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[280px] w-[620px] -translate-x-1/2 -translate-y-1/2 overflow-visible sm:block"
           >
-            <ellipse cx="260" cy="130" rx="255" ry="95" fill="none" stroke="rgba(215,226,234,0.14)" strokeWidth="0.75" />
-            <circle cx="18" cy="95" r="3" fill="#69b7ff" opacity="0.8" />
-            <circle cx="500" cy="165" r="2.5" fill="#d7e2ea" opacity="0.6" />
+            <ellipse cx="310" cy="140" rx="305" ry="105" fill="none" stroke="rgba(215,226,234,0.14)" strokeWidth="0.75" />
+            <circle cx="18" cy="100" r="3" fill="#69b7ff" opacity="0.8" />
+            <circle cx="600" cy="180" r="2.5" fill="#d7e2ea" opacity="0.6" />
           </svg>
 
           <Magnet padding={130} strength={3.4}>
@@ -159,30 +159,27 @@ export function Hero() {
               animate={{ rotateX: tilt.x, rotateY: tilt.y }}
               transition={{ type: "spring", stiffness: 120, damping: 18 }}
               style={{ transformPerspective: 900 }}
-              className="relative"
+              className="relative w-[clamp(250px,32vw,440px)]"
             >
-              {/* backlight */}
+              {/* backlight glow, shows through the cutout's soft edges */}
               <div
                 aria-hidden
-                className="absolute -inset-8 -z-10 rounded-[40%] bg-[radial-gradient(circle,rgba(105,183,255,0.22),transparent_65%)] blur-2xl"
+                className="absolute inset-x-[-15%] inset-y-[-10%] -z-10 rounded-[45%] bg-[radial-gradient(ellipse,rgba(105,183,255,0.24),transparent_68%)] blur-2xl"
               />
-              <div className="relative h-[clamp(230px,28vw,370px)] w-[clamp(200px,24vw,320px)] overflow-hidden rounded-[46%_46%_42%_42%/52%_52%_40%_40%] border border-paper/15 bg-paper/[0.03] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.75)] rim-light">
-                <Image
-                  src={PORTRAIT.current}
-                  alt={PORTRAIT.alt}
-                  fill
-                  priority
-                  sizes="(max-width:640px) 55vw, 330px"
-                  className="scale-110 object-cover object-[center_10%]"
-                />
-                {/* rim + bottom fade */}
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(12,12,12,0.55)_100%)]" />
-                <div className="pointer-events-none absolute inset-0 shadow-[inset_18px_0_36px_-24px_rgba(140,207,255,0.6),inset_-18px_0_36px_-24px_rgba(0,0,0,0.7)]" />
-              </div>
+              {/* true alpha cutout — no crop box, shape-aware shadow + rim glow via drop-shadow */}
+              <Image
+                src={PORTRAIT.current}
+                alt={PORTRAIT.alt}
+                width={872}
+                height={749}
+                priority
+                sizes="(max-width:640px) 65vw, 440px"
+                className="relative h-auto w-full select-none drop-shadow-[0_35px_50px_rgba(0,0,0,0.65)] [filter:drop-shadow(0_35px_50px_rgba(0,0,0,0.65))_drop-shadow(-10px_0_28px_rgba(105,183,255,0.28))_drop-shadow(10px_0_28px_rgba(140,207,255,0.16))]"
+              />
 
               {/* metallic ring platform, with "Ideas -> Systems -> Real Impact" curved along the front edge —
                   absolutely positioned so its wider-than-portrait size never affects the layout above */}
-              <div className="absolute left-1/2 top-full h-20 w-[145%] -translate-x-1/2 -translate-y-4 sm:h-24">
+              <div className="absolute left-1/2 top-full h-20 w-[155%] -translate-x-1/2 -translate-y-3 sm:h-24 sm:-translate-y-4">
                 <svg viewBox="0 0 600 110" className="h-full w-full overflow-visible" aria-hidden>
                   <defs>
                     <path id="ringTextPath" d="M 42 26 A 258 34 0 0 0 558 26" fill="none" />
