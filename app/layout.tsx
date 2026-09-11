@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Kanit, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { PersonJsonLd, WebsiteJsonLd } from "@/components/ui/JsonLd";
 import "./globals.css";
+
+const kanit = Kanit({
+  subsets: ["latin"],
+  variable: "--font-kanit",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 const space = Space_Grotesk({
   subsets: ["latin"],
@@ -24,11 +31,11 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://waelhammali.vercel
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Wael Hammali — Software Engineering Student at ENIT",
+    default: "Wael Hammali — Software Engineering | AI & Cybersecurity",
     template: "%s | Wael Hammali",
   },
   description:
-    "Software engineering student at ENIT focused on Cloud, AI, and Cybersecurity. Building secure, scalable systems with computer vision, RAG, and infrastructure automation.",
+    "Software Engineering portfolio of Wael Hammali, student at ENIT focused on artificial intelligence, cybersecurity, cloud infrastructure and automation — building multi-agent AI systems for penetration testing and network-to-cloud translation.",
   keywords: [
     "Wael Hammali", "ENIT", "Software Engineering Tunisia",
     "Cybersecurity", "Cloud Security", "RAG", "Computer Vision",
@@ -69,11 +76,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${space.variable} ${plex.variable} font-sans bg-[#0d0f14] text-slate-100 antialiased`}>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${kanit.variable} ${space.variable} ${plex.variable} font-sans bg-ink text-paper antialiased`}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js')`,
+          }}
+        />
         <PersonJsonLd />
         <WebsiteJsonLd />
-        <div className="relative min-h-screen flex flex-col">
+        <div className="relative flex min-h-screen flex-col overflow-x-clip">
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
