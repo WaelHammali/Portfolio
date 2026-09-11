@@ -113,42 +113,35 @@ export function Hero() {
         </FadeIn>
       </div>
 
-      {/* CENTRE STAGE */}
-      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center">
-        {/* LAYER 2 — massive chrome heading */}
-        <FadeIn onView={false} delay={0.15} y={40} className="z-0 w-full">
-          <motion.h1
+      {/* CENTRE STAGE — "Hi, I'm [portrait] Wael" on one line at lg+, stacked below */}
+      <h1 className="sr-only">Hi, I&apos;m Wael — Software Engineering Student at ENIT</h1>
+      <div
+        aria-hidden
+        className="relative mx-auto flex w-full max-w-[1300px] flex-1 flex-col items-center justify-center lg:flex-row lg:gap-1 xl:gap-3"
+      >
+        {/* LAYER 2a — "Hi, I'm" */}
+        <FadeIn onView={false} delay={0.15} y={40} className="z-0 order-1 shrink-0">
+          <motion.div
             style={{ y: headingY }}
-            className="pointer-events-none relative select-none text-center font-black leading-[0.82] tracking-tight"
+            className="pointer-events-none relative select-none text-center font-black leading-[0.82] tracking-tight lg:text-right"
           >
             <span
               aria-hidden
               className="heading-glint left-[18%] top-[6%] animate-sparkle hidden sm:block"
             />
             <span
-              aria-hidden
-              className="heading-glint right-[20%] top-[58%] hidden animate-sparkle sm:block"
-              style={{ animationDelay: "1.1s" }}
-            />
-            <span
               data-text="Hi, I'm"
-              className="hero-heading block text-[clamp(2.8rem,12vw,9rem)]"
+              className="hero-heading block text-[clamp(2.8rem,10vw,7rem)]"
             >
               Hi, I&apos;m
             </span>
-            <span
-              data-text="Wael"
-              className="hero-heading block text-[clamp(3.6rem,16vw,13rem)]"
-            >
-              Wael
-            </span>
-          </motion.h1>
+          </motion.div>
         </FadeIn>
 
-        {/* LAYER 3 — portrait, overlapping the letters */}
+        {/* LAYER 3 — portrait, between the two halves of the heading */}
         <motion.div
           style={{ y: portraitY, opacity: fade }}
-          className="relative z-20 -mt-[3vw] sm:-mt-[5vw]"
+          className="relative z-20 order-2 mx-auto -my-2 w-fit shrink-0 lg:my-0"
         >
           {/* thin orbit arcs flanking the portrait */}
           <svg
@@ -173,48 +166,71 @@ export function Hero() {
                 aria-hidden
                 className="absolute -inset-8 -z-10 rounded-[40%] bg-[radial-gradient(circle,rgba(105,183,255,0.22),transparent_65%)] blur-2xl"
               />
-              <div className="relative h-[clamp(240px,42vw,440px)] w-[clamp(210px,36vw,380px)] overflow-hidden rounded-[46%_46%_42%_42%/52%_52%_40%_40%] border border-paper/15 bg-paper/[0.03] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.75)] rim-light">
+              <div className="relative h-[clamp(230px,28vw,370px)] w-[clamp(200px,24vw,320px)] overflow-hidden rounded-[46%_46%_42%_42%/52%_52%_40%_40%] border border-paper/15 bg-paper/[0.03] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.75)] rim-light">
                 <Image
                   src={PORTRAIT.current}
                   alt={PORTRAIT.alt}
                   fill
                   priority
-                  sizes="(max-width:640px) 60vw, 380px"
-                  className="scale-110 object-cover object-top"
+                  sizes="(max-width:640px) 55vw, 330px"
+                  className="scale-110 object-cover object-[center_10%]"
                 />
                 {/* rim + bottom fade */}
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(12,12,12,0.55)_100%)]" />
                 <div className="pointer-events-none absolute inset-0 shadow-[inset_18px_0_36px_-24px_rgba(140,207,255,0.6),inset_-18px_0_36px_-24px_rgba(0,0,0,0.7)]" />
               </div>
+
+              {/* metallic ring platform, with "Ideas -> Systems -> Real Impact" curved along the front edge —
+                  absolutely positioned so its wider-than-portrait size never affects the layout above */}
+              <div className="absolute left-1/2 top-full h-20 w-[145%] -translate-x-1/2 -translate-y-4 sm:h-24">
+                <svg viewBox="0 0 600 110" className="h-full w-full overflow-visible" aria-hidden>
+                  <defs>
+                    <path id="ringTextPath" d="M 42 26 A 258 34 0 0 0 558 26" fill="none" />
+                    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="rgba(215,226,234,0.04)" />
+                      <stop offset="50%" stopColor="rgba(105,183,255,0.75)" />
+                      <stop offset="100%" stopColor="rgba(215,226,234,0.04)" />
+                    </linearGradient>
+                    <radialGradient id="ringGlow" cx="50%" cy="20%" r="70%">
+                      <stop offset="0%" stopColor="rgba(105,183,255,0.18)" />
+                      <stop offset="100%" stopColor="rgba(105,183,255,0)" />
+                    </radialGradient>
+                  </defs>
+                  <ellipse cx="300" cy="22" rx="258" ry="34" fill="url(#ringGlow)" />
+                  <ellipse cx="300" cy="20" rx="258" ry="34" fill="none" stroke="url(#ringGrad)" strokeWidth="2" />
+                  <ellipse cx="300" cy="16" rx="258" ry="34" fill="none" stroke="rgba(215,226,234,0.15)" strokeWidth="0.75" />
+                  <text fill="rgba(224,232,238,0.85)" fontSize="16" letterSpacing="2.5" className="font-mono font-semibold uppercase">
+                    <textPath href="#ringTextPath" startOffset="50%" textAnchor="middle">
+                      {IDENTITY.phrases.footer}
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
             </motion.div>
           </Magnet>
-
-          {/* metallic ring platform, with "Ideas -> Systems -> Real Impact" curved along the front edge */}
-          <div className="relative -mt-4 h-20 w-[145%] -translate-x-[calc((145%-100%)/2)] sm:h-24">
-            <svg viewBox="0 0 600 110" className="h-full w-full overflow-visible" aria-hidden>
-              <defs>
-                <path id="ringTextPath" d="M 42 26 A 258 34 0 0 0 558 26" fill="none" />
-                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="rgba(215,226,234,0.04)" />
-                  <stop offset="50%" stopColor="rgba(105,183,255,0.75)" />
-                  <stop offset="100%" stopColor="rgba(215,226,234,0.04)" />
-                </linearGradient>
-                <radialGradient id="ringGlow" cx="50%" cy="20%" r="70%">
-                  <stop offset="0%" stopColor="rgba(105,183,255,0.18)" />
-                  <stop offset="100%" stopColor="rgba(105,183,255,0)" />
-                </radialGradient>
-              </defs>
-              <ellipse cx="300" cy="22" rx="258" ry="34" fill="url(#ringGlow)" />
-              <ellipse cx="300" cy="20" rx="258" ry="34" fill="none" stroke="url(#ringGrad)" strokeWidth="2" />
-              <ellipse cx="300" cy="16" rx="258" ry="34" fill="none" stroke="rgba(215,226,234,0.15)" strokeWidth="0.75" />
-              <text fill="rgba(224,232,238,0.85)" fontSize="16" letterSpacing="2.5" className="font-mono font-semibold uppercase">
-                <textPath href="#ringTextPath" startOffset="50%" textAnchor="middle">
-                  {IDENTITY.phrases.footer}
-                </textPath>
-              </text>
-            </svg>
-          </div>
+          {/* spacer so the absolutely-positioned ring still reserves flow height below the portrait */}
+          <div className="h-14 sm:h-16" aria-hidden />
         </motion.div>
+
+        {/* LAYER 2b — "Wael" */}
+        <FadeIn onView={false} delay={0.25} y={40} className="z-0 order-3 shrink-0">
+          <motion.div
+            style={{ y: headingY }}
+            className="pointer-events-none relative select-none text-center font-black leading-[0.82] tracking-tight lg:text-left"
+          >
+            <span
+              aria-hidden
+              className="heading-glint right-[20%] top-[30%] hidden animate-sparkle sm:block"
+              style={{ animationDelay: "1.1s" }}
+            />
+            <span
+              data-text="Wael"
+              className="hero-heading block text-[clamp(3.2rem,12.5vw,8rem)]"
+            >
+              Wael
+            </span>
+          </motion.div>
+        </FadeIn>
       </div>
 
       {/* LAYER 4 — info + CTAs */}
