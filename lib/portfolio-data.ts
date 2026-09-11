@@ -4,9 +4,9 @@ export const IDENTITY = {
   name: "Wael Hammali",
   firstName: "Wael",
   role: "Software Engineering Student at ENIT",
-  focusLine: "AI • Cybersecurity • Cloud",
+  focusLine: "AI • Cybersecurity",
   heroDescription:
-    "Developing AI systems for computer vision, security automation, and cloud infrastructure.",
+    "Developing AI systems for automation, backed by cybersecurity and cloud expertise.",
   location: "Tunis, Tunisia",
   coordinates: { lat: "36.8065° N", lon: "10.1815° E" },
   quote: "Technology is a tool. Impact is the goal.",
