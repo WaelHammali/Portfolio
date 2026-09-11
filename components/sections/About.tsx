@@ -2,15 +2,24 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ShieldCheck, Boxes, Workflow } from "lucide-react";
+import { ShieldCheck, Eye, Workflow } from "lucide-react";
 import { AnimatedText } from "@/components/motion/AnimatedText";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { ABOUT_SUMMARY } from "@/lib/portfolio-data";
 
 const PILLARS = [
-  { icon: Boxes, label: "RAG + computer vision to analyse and map infrastructure." },
-  { icon: Workflow, label: "Infrastructure as code with Terraform and Ansible." },
-  { icon: ShieldCheck, label: "Security-focused automation, multi-agent pipelines and monitoring." },
+  {
+    icon: ShieldCheck,
+    label: "Multi-agent AI pentesting — DarkIntel, VoidHawk, IntelForge — from recon to CVSS-scored reports.",
+  },
+  {
+    icon: Eye,
+    label: "YOLOv8 computer vision reading aerial imagery and network diagrams.",
+  },
+  {
+    icon: Workflow,
+    label: "RAG-driven infrastructure as code, deploying to Terraform and Ansible.",
+  },
 ];
 
 export function About() {
