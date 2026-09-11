@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { SectionAccent } from "@/components/ui/SectionAccent";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -23,7 +24,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="relative overflow-hidden py-24 px-6">
+      <SectionAccent label="// contact" position="top-right" />
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-display font-semibold mb-3 text-center text-slate-100">Let&apos;s connect</h2>
         <p className="text-slate-400 text-center mb-10">
