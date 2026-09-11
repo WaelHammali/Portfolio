@@ -162,12 +162,11 @@ export function Hero() {
                 className="relative h-auto w-full select-none drop-shadow-[0_35px_50px_rgba(0,0,0,0.65)] [filter:drop-shadow(0_35px_50px_rgba(0,0,0,0.65))_drop-shadow(-10px_0_28px_rgba(105,183,255,0.28))_drop-shadow(10px_0_28px_rgba(140,207,255,0.16))]"
               />
 
-              {/* metallic ring platform, with "Ideas -> Systems -> Real Impact" curved along the front edge —
-                  absolutely positioned so its wider-than-portrait size never affects the layout above */}
+              {/* metallic ring platform — absolutely positioned so its
+                  wider-than-portrait size never affects the layout above */}
               <div className="absolute left-1/2 top-full h-20 w-[155%] -translate-x-1/2 -translate-y-3 sm:h-24 sm:-translate-y-4">
                 <svg viewBox="0 0 600 110" className="h-full w-full overflow-visible" aria-hidden>
                   <defs>
-                    <path id="ringTextPath" d="M 42 26 A 258 34 0 0 0 558 26" fill="none" />
                     <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="rgba(215,226,234,0.04)" />
                       <stop offset="50%" stopColor="rgba(105,183,255,0.75)" />
@@ -181,11 +180,6 @@ export function Hero() {
                   <ellipse cx="300" cy="22" rx="258" ry="34" fill="url(#ringGlow)" />
                   <ellipse cx="300" cy="20" rx="258" ry="34" fill="none" stroke="url(#ringGrad)" strokeWidth="2" />
                   <ellipse cx="300" cy="16" rx="258" ry="34" fill="none" stroke="rgba(215,226,234,0.15)" strokeWidth="0.75" />
-                  <text fill="rgba(224,232,238,0.85)" fontSize="16" letterSpacing="2.5" className="font-mono font-semibold uppercase">
-                    <textPath href="#ringTextPath" startOffset="50%" textAnchor="middle">
-                      {IDENTITY.phrases.footer}
-                    </textPath>
-                  </text>
                 </svg>
               </div>
             </motion.div>

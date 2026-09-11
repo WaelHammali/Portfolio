@@ -14,7 +14,6 @@ export const IDENTITY = {
   phrases: {
     heroLine1: "CODE  BUILD  SECURE",
     heroLine2: "A SMARTER TOMORROW",
-    footer: "IDEAS → SYSTEMS → REAL IMPACT",
     tunisiaToWorld: "TUNISIA → THE WORLD",
     alwaysBuilding: "ALWAYS A STUDENT // ALWAYS BUILDING",
   },
