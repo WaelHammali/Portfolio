@@ -7,6 +7,7 @@ import { Experience } from "@/components/sections/Experience";
 import { Reports }    from "@/components/sections/Reports";
 import { Education }  from "@/components/sections/Education";
 import { Contact }    from "@/components/sections/Contact";
+import { EngineerGlobe } from "@/components/sections/EngineerGlobe";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function HomePage() {
       <Reports />
       <Education />
       <Contact />
+      <EngineerGlobe />
     </>
   );
 }
