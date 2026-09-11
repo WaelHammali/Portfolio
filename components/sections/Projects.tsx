@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { SectionAccent } from "@/components/ui/SectionAccent";
 
 const FEATURED = [
   {
@@ -182,7 +183,8 @@ export function Projects() {
     setFlipped((prev) => (prev === name ? null : name));
 
   return (
-    <section id="projects" className="px-6 py-20">
+    <section id="projects" className="relative overflow-hidden px-6 py-20">
+      <SectionAccent label="// projects" position="top-right" />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col gap-2 mb-12">
