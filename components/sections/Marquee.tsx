@@ -23,7 +23,7 @@ function Row({
         {doubled.map((tech, i) => (
           <span
             key={`${tech}-${i}`}
-            className="flex items-center gap-3 whitespace-nowrap rounded-2xl border border-paper/10 bg-white/[0.02] px-6 py-4 text-lg font-medium text-paper/70 transition-colors hover:border-accent/40 hover:text-paper"
+            className="flex items-center gap-2.5 whitespace-nowrap rounded-xl border border-paper/10 bg-white/[0.02] px-4 py-2.5 text-sm font-medium text-paper/70 transition-colors hover:border-accent/40 hover:text-paper"
           >
             {tech}
             <span className="h-1.5 w-1.5 rounded-full bg-accent/50" />
@@ -38,9 +38,9 @@ export function Marquee() {
   return (
     <section
       aria-label="Technologies I work with"
-      className="relative overflow-hidden border-y border-paper/10 py-14"
+      className="relative overflow-hidden border-y border-paper/10 py-10"
     >
-      <div className="mx-auto mb-8 flex max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto mb-6 flex max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-paper/40">
           Toolchain
         </p>
@@ -48,7 +48,7 @@ export function Marquee() {
           AI · Security · Cloud
         </p>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2.5">
         <Row items={ROW_A} direction="left" />
         <Row items={ROW_B} direction="right" />
       </div>
