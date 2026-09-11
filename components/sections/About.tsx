@@ -1,73 +1,81 @@
-export function About() {
-  return (
-    <section id="about" className="py-20 px-6 max-w-6xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-14 items-center">
-        <div>
-          <p className="text-[#94b8d4] font-mono text-sm mb-2">// about me</p>
-          <h2 className="text-4xl font-display font-semibold mb-4 text-white">
-            Clear, secure, and scalable systems
-          </h2>
-          <p className="text-slate-400 leading-relaxed">
-            I am a Software Engineering student at ENIT in Tunis focused on combining cloud
-            security, AI, and network automation. I build practical systems that translate real
-            infrastructure into secure, deployable cloud architectures.
-          </p>
+"use client";
 
-          <div className="mt-6 grid gap-3 text-sm text-slate-400">
-            <div className="flex items-start gap-2">
-              <span className="mt-1 size-2 rounded-full bg-[#94b8d4]" />
-              RAG + computer vision to analyze and map infrastructure.
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="mt-1 size-2 rounded-full bg-[#94b8d4]" />
-              Infrastructure as code with Terraform and Ansible.
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="mt-1 size-2 rounded-full bg-[#94b8d4]" />
-              Security-focused automation and monitoring.
-            </div>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://www.linkedin.com/in/wael-hammali-993100360/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-cyan"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/WaelHammali"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-cyan"
-            >
-              GitHub
-            </a>
-            <a
-              href="mailto:wael.hammali@etudiant-enit.utm.tn"
-              className="btn-cyan"
-            >
-              Email
-            </a>
-          </div>
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ShieldCheck, Boxes, Workflow } from "lucide-react";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+import { FadeIn } from "@/components/motion/FadeIn";
+import { ABOUT_SUMMARY } from "@/lib/portfolio-data";
+
+const PILLARS = [
+  { icon: Boxes, label: "RAG + computer vision to analyse and map infrastructure." },
+  { icon: Workflow, label: "Infrastructure as code with Terraform and Ansible." },
+  { icon: ShieldCheck, label: "Security-focused automation, multi-agent pipelines and monitoring." },
+];
+
+export function About() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const orbit = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const rise = useTransform(scrollYProgress, [0, 1], [60, -60]);
+
+  return (
+    <section
+      id="about"
+      ref={ref}
+      className="relative flex min-h-[100vh] flex-col justify-center overflow-hidden px-5 py-28 sm:px-8 lg:px-12"
+    >
+      {/* decorative objects */}
+      <motion.div
+        aria-hidden
+        style={{ rotate: orbit }}
+        className="pointer-events-none absolute -right-24 top-24 h-72 w-72 rounded-full border border-paper/10"
+      >
+        <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-accent/70" />
+      </motion.div>
+      <motion.div
+        aria-hidden
+        style={{ y: rise }}
+        className="pointer-events-none absolute left-6 top-1/3 h-40 w-40 rounded-3xl border border-paper/10 [background:repeating-linear-gradient(45deg,rgba(215,226,234,0.04)_0_6px,transparent_6px_12px)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-16 right-1/4 font-mono text-6xl text-paper/[0.04]"
+      >
+        {"{ }"}
+      </div>
+
+      <div className="mx-auto w-full max-w-5xl">
+        <FadeIn className="mb-2 font-mono text-[11px] uppercase tracking-[0.35em] text-accent-soft">
+          // about me
+        </FadeIn>
+        <h2
+          data-text="About"
+          className="hero-heading text-[clamp(3rem,12vw,10rem)] font-black uppercase leading-[0.9] tracking-tight"
+        >
+          About
+        </h2>
+
+        <div className="mt-10 max-w-3xl">
+          <AnimatedText
+            text={ABOUT_SUMMARY}
+            className="text-xl leading-relaxed text-paper/80 sm:text-2xl"
+          />
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { value: "2024-2027", label: "B.Eng Software Engineering" },
-            { value: "2", label: "Certifications" },
-            { value: "5+", label: "Projects shipped" },
-            { value: "2025", label: "Cloud + AI internship" },
-          ].map(({ value, label }) => (
-            <div
+        <div className="mt-14 grid gap-4 sm:grid-cols-3">
+          {PILLARS.map(({ icon: Icon, label }, i) => (
+            <FadeIn
               key={label}
-              className="p-6 rounded-2xl glass-card text-center"
+              delay={i * 0.1}
+              className="surface-card flex flex-col gap-3 p-5"
             >
-              <div className="text-3xl font-display font-bold text-[#94b8d4] mb-1">{value}</div>
-              <div className="text-sm text-slate-400">{label}</div>
-            </div>
+              <Icon size={20} className="text-accent-soft" />
+              <p className="text-sm leading-relaxed text-paper/60">{label}</p>
+            </FadeIn>
           ))}
         </div>
       </div>
