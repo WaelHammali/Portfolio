@@ -13,9 +13,14 @@ export const IDENTITY = {
     "Building intelligent systems for automation, infrastructure, and offensive security.",
   location: "Tunis, Tunisia",
   coordinates: { lat: "36.8065° N", lon: "10.1815° E" },
+  quote: "Technology is a tool. Impact is the goal.",
+  cursiveTag: "More Than Code",
   phrases: {
-    hero: "CODE • BUILD • SECURE",
+    heroLine1: "CODE  BUILD  SECURE",
+    heroLine2: "A SMARTER TOMORROW",
     footer: "IDEAS → SYSTEMS → REAL IMPACT",
+    tunisiaToWorld: "TUNISIA → THE WORLD",
+    alwaysBuilding: "ALWAYS A STUDENT // ALWAYS BUILDING",
   },
 } as const;
 
@@ -38,9 +43,8 @@ export const PORTRAIT = {
 
 export const NAV_LINKS = [
   { href: "#about", label: "About" },
-  { href: "#expertise", label: "Stack" },
+  { href: "#skills", label: "Stack" },
   { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
