@@ -13,6 +13,7 @@ import { ArrowUpRight, FileDown } from "lucide-react";
 import { Magnet } from "@/components/motion/Magnet";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { HeroGlobe } from "@/components/sections/HeroGlobe";
+import { EngineerGlobe } from "@/components/sections/EngineerGlobe";
 import { IDENTITY, PORTRAIT, HERO_STATS } from "@/lib/portfolio-data";
 
 const ORBIT_WORDS = ["LEARN", "BUILD", "BREAK", "IMPROVE", "REPEAT"];
@@ -265,6 +266,9 @@ export function Hero() {
         <span>{IDENTITY.phrases.tunisiaToWorld}</span>
         <span>{IDENTITY.phrases.alwaysBuilding}</span>
       </div>
+
+      {/* floating Engineer/AI/Cyber balloons, confined to this section */}
+      <EngineerGlobe containerRef={ref} />
     </section>
   );
 }
