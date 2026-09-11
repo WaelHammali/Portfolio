@@ -1,4 +1,4 @@
-
+import { SectionAccent } from "@/components/ui/SectionAccent";
 
 const CERTS = [
   {
@@ -59,6 +59,7 @@ export function Experience() {
     <>
       {/* Grand Experience Section */}
       <section id="experience" className="px-6 py-20 lg:px-20 relative overflow-hidden">
+        <SectionAccent label="// experience" position="top-right" />
         <div className="max-w-7xl mx-auto relative z-10">
 
           {/* Main Section Header */}
@@ -210,7 +211,8 @@ export function Experience() {
       </section>
 
       {/* Certifications */}
-      <section className="px-6 py-20 lg:px-20">
+      <section className="relative overflow-hidden px-6 py-20 lg:px-20">
+        <SectionAccent label="// certifications" position="top-right" />
         <div className="max-w-7xl mx-auto">
           <div id="certifications">
             <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
