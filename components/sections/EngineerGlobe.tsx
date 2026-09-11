@@ -16,7 +16,7 @@ const BALLOONS = [
 
 function bounds(container: HTMLElement) {
   const rect = container.getBoundingClientRect();
-  const size = rect.width < 640 ? 42 : 56;
+  const size = rect.width < 640 ? 52 : 70;
   const maxY = Math.max(TOP_CLEARANCE, rect.height - size - MARGIN);
   return {
     size,
