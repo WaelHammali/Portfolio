@@ -3,22 +3,21 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ShieldCheck, Eye, Workflow } from "lucide-react";
-import { AnimatedText } from "@/components/motion/AnimatedText";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { ABOUT_SUMMARY } from "@/lib/portfolio-data";
 
 const PILLARS = [
   {
     icon: ShieldCheck,
-    label: "Multi-agent AI pentesting — DarkIntel, VoidHawk, IntelForge — from recon to CVSS-scored reports.",
+    label: "AI-assisted security assessment, from automated reconnaissance to vulnerability validation and reporting.",
   },
   {
     icon: Eye,
-    label: "YOLOv8 computer vision reading aerial imagery and network diagrams.",
+    label: "Computer vision for aerial object detection, network diagram analysis, and player identification.",
   },
   {
     icon: Workflow,
-    label: "RAG-driven infrastructure as code, deploying to Terraform and Ansible.",
+    label: "Cloud infrastructure automation using retrieval-augmented generation, Terraform, and Ansible.",
   },
 ];
 
@@ -69,10 +68,9 @@ export function About() {
         </h2>
 
         <div className="mt-6 max-w-2xl">
-          <AnimatedText
-            text={ABOUT_SUMMARY}
-            className="text-base leading-relaxed text-paper/75 sm:text-lg"
-          />
+          <p className="text-base leading-relaxed text-paper/75 sm:text-lg">
+            {ABOUT_SUMMARY}
+          </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">

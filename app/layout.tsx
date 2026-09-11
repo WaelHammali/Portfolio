@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Wael Hammali",
   },
   description:
-    "Software engineering student at ENIT focused on Cloud, AI, and Cybersecurity. Building secure, scalable systems with computer vision, RAG, and infrastructure automation.",
+    "Wael Hammali, software engineering and SYSCOM research master's student at ENIT. Projects in artificial intelligence, computer vision, cybersecurity, and cloud automation.",
   keywords: [
     "Wael Hammali", "ENIT", "Software Engineering Tunisia",
     "Cybersecurity", "Cloud Security", "RAG", "Computer Vision",
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
     url: BASE_URL,
     siteName: "Wael Hammali",
     title: "Wael Hammali — Software Engineering Student",
-    description: "Cloud, AI, and Cybersecurity student at ENIT building secure systems and AI-powered infrastructure.",
+    description: "Software engineering and SYSCOM research master's student at ENIT working on AI, computer vision, cybersecurity, and cloud automation.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Wael Hammali — Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Wael Hammali",
-    description: "Software engineering student · Cloud · AI · Cybersecurity · ENIT",
+    description: "Software engineering · SYSCOM research master's · AI · Computer vision · Cybersecurity · ENIT",
   },
   robots: {
     index: true,

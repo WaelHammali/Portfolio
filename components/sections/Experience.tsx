@@ -1,211 +1,103 @@
+import { BriefcaseBusiness, FileText, GraduationCap, Microscope } from "lucide-react";
 import { SectionAccent } from "@/components/ui/SectionAccent";
+import { CERTIFICATIONS as CERTS, EXPERIENCE, RESEARCH_MASTER, type ExperienceEntry } from "@/lib/portfolio-data";
 
-const CERTS = [
-  {
-    name: "Certified Associate Penetration Tester (CAPT)",
-    org: "Hackviser",
-    date: "December 2025",
-    href: "/certificates/cert-capt.pdf",
-    verifyHref: "https://lnkd.in/ddUVy22U",
-    summary:
-      "Hands-on entry program covering penetration testing fundamentals through real-world labs and assessments.",
-    skills: [
-      "Linux, Windows, Network, and Web fundamentals",
-      "Ethical hacking and penetration testing",
-      "Network and web security",
-      "Privilege escalation and vulnerability analysis",
-      "Security tools, OSINT, and system auditing",
-      "Cryptography fundamentals and social engineering",
-    ],
-  },
-  {
-    name: "CCNA: Introduction to Networks",
-    org: "Cisco Networking Academy",
-    date: "January 2026",
-    href: "/certificates/cert-ccna-intro-to-networks.pdf",
-    summary:
-      "Foundational networking certification focused on IP addressing, switching, routing, and troubleshooting best practices.",
-    skills: [
-      "Network fundamentals and OSI/TCP-IP models",
-      "IPv4/IPv6 addressing and subnetting",
-      "Ethernet switching and VLAN basics",
-      "Routing concepts and device configuration",
-      "Network security fundamentals",
-      "Connectivity testing and troubleshooting",
-    ],
-  },
-  {
-    name: "CCNA: Switching, Routing, and Wireless Essentials",
-    org: "Cisco Networking Academy",
-    date: "2026",
-    href: "/certificates/CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_wael-hammali-etudiant-enit-utm-tn_721fe3be-16df-401f-ac9a-feffe476c040.pdf",
-    summary:
-      "Intermediate certification covering architecture, components, and operations of routers and switches, including WLANs and security concepts.",
-    skills: [
-      "VLANs, Inter-VLAN Routing, and STP",
-      "EtherChannel and FHRP Configuration",
-      "IPv4/IPv6 Static Routing and Troubleshooting",
-      "WLAN Architecture and Security",
-      "Switch Security (Port Security, DHCP Snooping)",
-      "DHCPv4 and SLAAC/DHCPv6 Configuration",
-    ],
-  },
-];
-
-
+function ExperienceCard({ entry }: { entry: ExperienceEntry }) {
+  const research = entry.kind === "Research";
+  return (
+    <article className="glass-card rounded-xl border border-[#7b8fa8]/20 p-6 sm:p-8">
+      <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-[#94b8d4]">
+            {entry.org}
+          </p>
+          <h4 className="text-2xl font-bold text-slate-200">{entry.title}</h4>
+          <p className="mt-2 text-sm text-slate-400">{entry.location} · {entry.period}</p>
+        </div>
+        <span className="shrink-0 font-mono text-xs text-slate-400">
+          {research ? "Research Project" : "Engineering Internship"}
+        </span>
+      </div>
+      <p className="max-w-4xl text-sm leading-relaxed text-slate-300">{entry.description}</p>
+      <div className="mt-5 flex flex-wrap gap-2">
+        {entry.tech.map((skill) => (
+          <span key={skill} className="rounded-full bg-[#7b8fa8]/10 px-2.5 py-1 text-[11px] text-[#94b8d4]">
+            {skill}
+          </span>
+        ))}
+      </div>
+      {entry.links.length > 0 && (
+        <div className="mt-6 flex flex-wrap gap-3">
+          {entry.links.map((link) => (
+            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-lg border border-[#7b8fa8]/20 bg-[#7b8fa8]/10 px-4 py-2.5 text-sm font-medium text-[#94b8d4] transition-colors hover:bg-[#7b8fa8]/20">
+              <FileText size={16} aria-hidden="true" />
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </article>
+  );
+}
 
 export function Experience() {
   return (
     <>
-      {/* Grand Experience Section */}
-      <section id="experience" className="px-6 py-20 lg:px-20 relative overflow-hidden">
+      <section id="experience" className="relative overflow-hidden px-6 py-20 lg:px-20">
         <SectionAccent label="// experience" position="top-right" />
-        <div className="max-w-7xl mx-auto relative z-10">
-
-          {/* Main Section Header */}
-          <div className="mb-20">
-            <div className="text-[#94b8d4] font-mono text-xs mb-3 uppercase tracking-widest flex items-center gap-2">
-              <span className="w-4 h-[1px] bg-[#94b8d4]"></span>
-              Career Journey
-            </div>
-            <h2 className="text-slate-100 text-4xl md:text-5xl font-black">Experience</h2>
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="mb-16">
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-[#94b8d4]">Professional & Academic Work</p>
+            <h2 className="text-4xl font-black text-slate-100 md:text-5xl">Experience & Research</h2>
           </div>
 
-          <div className="space-y-24">
-
-            {/* Internships Subsection */}
+          <div className="space-y-20">
             <div>
-              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
-                <div className="w-12 h-12 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 flex items-center justify-center shrink-0">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                  </svg>
-                </div>
-                <h3 className="text-3xl font-bold text-slate-100 tracking-tight">Internships</h3>
+              <div className="mb-8 flex items-center gap-4 border-b border-[#7b8fa8]/20 pb-4">
+                <BriefcaseBusiness size={28} className="text-[#94b8d4]" aria-hidden="true" />
+                <h3 className="text-3xl font-bold tracking-tight text-slate-100">Internships</h3>
               </div>
-
-              {/* TAV Airports Internship */}
-              <div className="mb-16">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
-                  <div>
-                    <h4 className="text-slate-200 text-2xl font-black mb-2">TAV Airports</h4>
-                    <p className="text-xs font-mono text-[#94b8d4] mb-2 uppercase tracking-widest">Network &amp; Security Infrastructure Internship · Enfidha, Tunisia · July 2025 — August 2025</p>
-                    <p className="text-slate-400 text-sm">During my internship at TAV IT at Enfidha-Hammamet International Airport, I integrated the parking IT team and worked on the network infrastructure behind the parking system. I audited cabling and connectivity, tested the end-to-end parking workflow, reviewed cameras, switches, firewalls, and servers, and helped document the system for operational follow-up. When a fiber-optic cut disrupted service, I also contributed to the temporary coaxial workaround that kept the parking system running until the repair was completed. I produced an infrastructure report recommending hardware upgrades, IoT sensors, and AI-driven computer-vision solutions such as license-plate recognition and anomaly detection, along with strict data-access policies to keep captured data protected from unauthorised access. The internship strengthened my skills in networking, troubleshooting, security analysis, and operational continuity.</p>
-                  </div>
-                </div>
-
-
-                {/* Documents / Attachments */}
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                      <polyline points="10 9 9 9 8 9" />
-                    </svg>
-                    Attestation de Stage
-                  </a>
-                  <a href="/rapports/TAV.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-slate-700/50 hover:text-slate-100 transition-all text-sm font-medium">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
-                    Rapport de Stage
-                  </a>
-                </div>
-              </div>
-
-              {/* Keystone Groupe Internship */}
-              <div>
-                <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
-                  <div>
-                    <h4 className="text-slate-200 text-2xl font-black mb-2">Keystone Groupe</h4>
-                    <p className="text-xs font-mono text-[#94b8d4] mb-2 uppercase tracking-widest">AI-Powered Penetration Testing Command Framework (DarkIntel) · Engineering Internship · June 2026 — July 2026</p>
-                    <p className="text-slate-400 text-sm">During my internship at Keystone Groupe, I built an AI-powered penetration-testing toolchain for web applications and infrastructure. The work grew into three frameworks: <span className="text-slate-300">IntelForge</span>, a LangGraph-orchestrated reconnaissance pipeline that runs the scanners and chains a Cleaner → Analyst → Researcher → Synthesis loop into a prioritised exploit-intelligence report; <span className="text-slate-300">VoidHawk</span>, a six-agent LangGraph state machine (Planner · Worker · Cleaner · Analyst · Logic · Validator) with ChromaDB + Sentence-Transformers RAG memory that produces CVSS-scored, validated vulnerability reports; and <span className="text-slate-300">DarkIntel</span>, the integration layer that feeds IntelForge's output straight into VoidHawk's memory so a full assessment runs end to end from a single command. The internship deepened my skills in security automation, multi-agent LLM systems, RAG, and AI-driven offensive security.</p>
-                  </div>
-                </div>
-
-                {/* Documents / Attachments */}
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                      <polyline points="10 9 9 9 8 9" />
-                    </svg>
-                    Attestation de Stage
-                  </a>
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-slate-700/50 hover:text-slate-100 transition-all text-sm font-medium">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
-                    Rapport de Stage
-                  </a>
-                </div>
+              <div className="space-y-6">
+                {EXPERIENCE.filter((entry) => entry.kind === "Internship").map((entry) => (
+                  <ExperienceCard key={entry.org} entry={entry} />
+                ))}
               </div>
             </div>
 
-            {/* Research Subsection */}
-            <div>
-              <div className="flex items-center gap-4 mb-10 pb-4 border-b border-[#7b8fa8]/20">
-                <div className="w-12 h-12 rounded-xl bg-[#7b8fa8]/10 border border-[#7b8fa8]/25 flex items-center justify-center shrink-0">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#94b8d4]" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <circle cx="10" cy="13" r="2" />
-                    <line x1="11.41" y1="14.41" x2="15" y2="18" />
-                  </svg>
-                </div>
-                <h3 className="text-3xl font-bold text-slate-100 tracking-tight">Research</h3>
+            <div id="research" className="scroll-mt-24">
+              <div className="mb-8 flex items-center gap-4 border-b border-[#7b8fa8]/20 pb-4">
+                <Microscope size={28} className="text-[#94b8d4]" aria-hidden="true" />
+                <h3 className="text-3xl font-bold tracking-tight text-slate-100">Research</h3>
               </div>
-
-              {/* SympactAI Research Project */}
-              <div className="glass-card rounded-xl p-6 border border-[#7b8fa8]/20">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
-                  <div>
-                    <p className="text-xs font-mono text-[#94b8d4] uppercase tracking-widest mb-2">SympactAI — Second Edition</p>
-                    <h4 className="text-slate-200 text-2xl font-bold">Automated Camera Calibration for Augmented Reality in Soccer Analytics</h4>
-                    <p className="text-sm text-slate-400 mt-2">TAIS NextGen · June 2026 — August 2026</p>
+              <div className="space-y-6">
+                <article className="glass-card rounded-xl border border-[#7b8fa8]/20 p-6 sm:p-8">
+                  <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <p className="mb-2 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#94b8d4]">
+                        <GraduationCap size={18} aria-hidden="true" /> Research Master’s Program
+                      </p>
+                      <h4 className="text-2xl font-bold text-slate-200">{RESEARCH_MASTER.title}</h4>
+                      <p className="mt-2 text-sm text-slate-400">{RESEARCH_MASTER.school} · Tunis, Tunisia</p>
+                    </div>
+                    <span className="shrink-0 font-mono text-xs text-slate-400">{RESEARCH_MASTER.period}</span>
                   </div>
-                  <span className="text-xs font-mono text-slate-500 shrink-0">Research Project</span>
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  During the SympactAI – Second Edition program by TAIS NextGen, I contributed to the project “Automated Camera Calibration for Augmented Reality in Soccer Analytics.” I led the development of a jersey number recognition module, using computer vision and image processing to identify players from live and recorded soccer footage, enhanced with Real-ESRGAN super-resolution to improve accuracy on low-resolution and motion-blurred broadcast frames. The pipeline combined ViTPose for pose estimation and PARSeq for text recognition. This project gave me hands-on experience building real-world AI pipelines while collaborating within a multidisciplinary team on a sports analytics application.
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {["PyTorch", "OpenCV", "Real-ESRGAN", "ViTPose", "PARSeq", "Computer Vision", "Image Processing", "Sports Analytics"].map((skill) => (
-                    <span key={skill} className="text-[11px] px-2.5 py-1 rounded-full bg-[#7b8fa8]/10 text-[#94b8d4]">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <a href="/certificates/sympactai-certificate.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#7b8fa8]/10 border border-[#7b8fa8]/20 text-[#94b8d4] hover:bg-[#7b8fa8]/20 hover:border-[#7b8fa8]/40 transition-all text-sm font-medium">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                    </svg>
-                    View Certification
-                  </a>
-                  <a href="#" className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-slate-700/50 hover:text-slate-100 transition-all text-sm font-medium">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    </svg>
-                    View Research Paper
-                  </a>
-                </div>
+                  <div className="max-w-4xl space-y-3 text-sm leading-relaxed text-slate-300">
+                    <p>{RESEARCH_MASTER.description}</p>
+                    <p>{RESEARCH_MASTER.methodology}</p>
+                  </div>
+                  <p className="mb-3 mt-6 font-mono text-xs uppercase tracking-widest text-slate-400">Research & Study Areas</p>
+                  <div className="flex flex-wrap gap-2">
+                    {RESEARCH_MASTER.focus.map((area) => (
+                      <span key={area} className="rounded-full bg-[#7b8fa8]/10 px-2.5 py-1 text-[11px] text-[#94b8d4]">{area}</span>
+                    ))}
+                  </div>
+                </article>
+                {EXPERIENCE.filter((entry) => entry.kind === "Research").map((entry) => (
+                  <ExperienceCard key={entry.org} entry={entry} />
+                ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>

@@ -29,7 +29,7 @@ export function Contact() {
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl font-display font-semibold mb-3 text-center text-slate-100">Let&apos;s connect</h2>
         <p className="text-slate-400 text-center mb-10">
-          Open to cloud, AI, and cybersecurity internships, collaborations, and projects.
+          Seeking research opportunities and engineering internships in artificial intelligence, computer vision, cybersecurity, and intelligent communication systems.
         </p>
 
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
@@ -93,7 +93,7 @@ export function Contact() {
               value={form.message}
               onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
               className="w-full px-4 py-3 rounded-xl border border-[#7b8fa8]/20 bg-[#12141c]/70 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-[#94b8d4]/50 focus:bg-[#12141c] transition-colors resize-none"
-              placeholder="What's on your mind?"
+              placeholder="Tell me about your research, project, or opportunity."
             />
           </div>
 

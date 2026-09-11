@@ -2,114 +2,14 @@
 import { useState } from "react";
 import { SectionAccent } from "@/components/ui/SectionAccent";
 
-const FEATURED = [
-  {
-    name: "DarkIntel",
-    shortDesc: "Unified end-to-end AI pentest pipeline that chains IntelForge's recon straight into VoidHawk's multi-agent validation, producing CVSS-scored reports from a single command.",
-    fullDesc: "The integration layer between IntelForge and VoidHawk, built during an engineering internship at Keystone Groupe (Jun–Jul 2026). It takes IntelForge's structured intelligence report and injects it into VoidHawk's ChromaDB-backed memory before a run starts, so VoidHawk's Planner agent skips re-discovery and goes straight to validation, exploit reasoning, and severity ranking. Breadth-first recon feeds depth-first multi-agent analysis, with each framework evolving independently. Currently in active development.",
-    tags: ["Python", "LangGraph", "LangChain", "Ollama"],
-    visual: "pipeline",
-    github: "https://github.com/WaelHammali/DarkIntel",
-  },
-  {
-    name: "VoidHawk",
-    shortDesc: "AI-powered penetration-testing framework: six specialised LangGraph agents automate the full lifecycle from recon to CVSS-scored, validated vulnerability reports.",
-    fullDesc: "An extended fork of the open-source Watchtower framework, developed at Keystone Groupe (2026). It models a penetration test as a LangGraph state machine driven by six agents — Planner, Worker, Cleaner, Analyst, Logic, and a skeptical Validator that confirms, rejects, or retests each finding with a CVSS 3.1 score and remediation. RAG memory (ChromaDB HNSW + Sentence-Transformers) provides cross-session knowledge retention that feeds the Planner's next move, with finding de-duplication, severity ranking, and multi-format reporting in PDF, HTML, and Markdown.",
-    tags: ["Python", "LangGraph", "RAG", "ChromaDB"],
-    visual: "hub",
-    github: "https://github.com/WaelHammali/VoidHawk",
-  },
-  {
-    name: "IntelForge",
-    shortDesc: "LangGraph-orchestrated reconnaissance pipeline that runs the scanners, condenses each tool's output with an LLM, then chains four AI analysts into a prioritised exploit-intelligence report.",
-    fullDesc: "A reconnaissance and exploit-intelligence framework built as a compiled LangGraph state machine at Keystone Groupe (2026). It runs Nmap, FinalRecon, and web fuzzing in parallel, uses an LLM to de-noise raw CLI output, then walks a fixed Cleaner → Analyst → Researcher → Synthesis chain to produce an open-services table, an access map, ranked exploit vectors, and a final verdict on the likeliest foothold. Provider-agnostic LLMs (Groq, OpenAI, Google) and strict target validation before anything reaches a subprocess.",
-    tags: ["Python", "LangGraph", "OSINT", "Cybersecurity"],
-    visual: "router",
-    github: "https://github.com/WaelHammali/IntelForge",
-  },
-  {
-    name: "Aerial Object Detection with YOLOv8",
-    shortDesc: "Dual-model YOLOv8 pipeline for detecting trees, cars, and buildings from aerial imagery, solving severe class imbalance.",
-    fullDesc: "An innovative computer vision system that addresses severe class imbalance in aerial datasets by using two custom-trained YOLOv8 models. Model A handles tree detection (mAP50: 0.593), while Model B targets cars and buildings (mAP50: 0.735). Integrated with a Gradio web interface.",
-    tags: ["YOLOv8", "Computer Vision", "Gradio", "Python"],
-    visual: "aerial",
-    github: "https://github.com/WaelHammali/Aerial-object-detection",
-  },
-  {
-    name: "Advanced RAG For Net To Cloud Translation",
-    shortDesc: "AI system that translates network designs into secure cloud equivalents and generates Terraform + Ansible deployments.",
-    fullDesc: "An end-to-end AI pipeline that uses YOLOv8 computer vision to detect and analyze network topology diagrams, then leverages RAG to automatically generate equivalent secure cloud infrastructure. Outputs production-ready Terraform and Ansible configurations for deployment on AWS.",
-    tags: ["Python", "YOLOv8", "RAG"],
-    visual: "pipeline",
-    github: "https://github.com/WaelHammali/Advanced-RAG-For-Net_To_Cloud-Translation",
-  },
-  {
-    name: "Net2Terraform WebInterface",
-    shortDesc: "Architecture translation system that maps real network components to cloud resources using RAG.",
-    fullDesc: "A RAG-powered system that takes physical network architecture descriptions and automatically maps each component to its cloud equivalent. Supports multi-cloud environments and generates monitoring configurations alongside the infrastructure code.",
-    tags: ["RAG", "Automation", "Cloud"],
-    visual: "router",
-    github: "https://github.com/WaelHammali/Net2Terraform-WebInterface",
-  },
-  {
-    name: "Recruitment Management Platform",
-    shortDesc: "Full-stack platform with candidate profiles, CV upload, and HR workflows with matching scores.",
-    fullDesc: "A complete recruitment platform built for HR teams, featuring candidate profile management, CV parsing and upload, automated scoring based on job requirements, and a dashboard for tracking application pipelines from application to hire.",
-    tags: ["Node.js", "MySQL", "Tailwind"],
-    visual: "hub",
-    github: "https://github.com/WaelHammali/Recruitment-Management-Platform",
-  },
-  {
-    name: "Smurf Game",
-    shortDesc: "2D C# .NET game where the player controls a Smurf character, jumps over obstacles, and collects tokens.",
-    fullDesc: "A 2D side-scrolling game built with C# and .NET where the player guides a Smurf character through procedurally generated obstacle courses. Features a token collection system, score tracking, increasing difficulty, and smooth animations using GDI+ rendering.",
-    tags: ["C#", ".NET"],
-    visual: "pipeline",
-    github: "https://github.com/WaelHammali/Smurf_Game",
-  },
-  {
-    name: "ENIT Event Platform",
-    shortDesc: "Full-stack event management platform for ENIT students and staff to create and register for campus events.",
-    fullDesc: "A campus-wide event management system for ENIT that allows student organizations and faculty to create, publish, and manage events. Students can browse, register, and receive reminders. Features an admin dashboard, QR-code check-in, and real-time attendance tracking.",
-    tags: ["Full Stack", "Node.js", "MySQL"],
-    visual: "hub",
-    github: "https://github.com/WaelHammali/ENIT_EventPlatform",
-  },
-  {
-    name: "Moteur De Recherche",
-    shortDesc: "Custom search engine with indexing, ranking algorithms, and a clean query interface for document retrieval.",
-    fullDesc: "A search engine built from scratch in Python, implementing an inverted index, TF-IDF ranking, and Boolean query processing. Features a lightweight web interface for querying a document corpus, with results ranked by relevance score and highlighted keyword matches.",
-    tags: ["Java"],
-    visual: "router",
-    github: "https://github.com/WaelHammali/MoteurDeRecherche",
-  },
-  {
-    name: "Gestion De Clinique Dentaire",
-    shortDesc: "Dental clinic management system for handling patients, appointments, and medical records.",
-    fullDesc: "A complete dental clinic management application that centralises patient records, appointment scheduling, treatment history, and billing. Built with a clean UI for receptionists and dentists, it includes automated appointment reminders, invoice generation, and patient search.",
-    tags: ["Java", "MySQL", "Desktop"],
-    visual: "hub",
-    github: "https://github.com/WaelHammali/Gestion_De_CliniqueDentaire",
-  },
-  {
-    name: "Gestion De Scolarité",
-    shortDesc: "School administration system for managing student records and academic operations.",
-    fullDesc: "A school-management application built in C that centralises student records, enrollment, and day-to-day academic administration into a single console/desktop tool — practice in structuring a real-world data-management system without a framework to lean on.",
-    tags: ["C", "Desktop"],
-    visual: "hub",
-    github: "https://github.com/WaelHammali/Gestion_De_Scolarit-",
-  },
-  {
-    name: "Restauration",
-    shortDesc: "Restaurant ordering app UI built in Flutter, from browsing the menu to placing an order.",
-    fullDesc: "A cross-platform restaurant app UI implemented in Flutter/Dart, covering the menu-browsing and ordering flow. Built as focused practice in translating a mobile UI design into clean, reusable Flutter widgets.",
-    tags: ["Flutter", "Dart", "Mobile"],
-    visual: "hub",
-    github: "https://github.com/WaelHammali/Restauration",
-  },
-];
+import { ALL_PROJECTS, type Project } from "@/lib/portfolio-data";
 
 type Visual = "pipeline" | "router" | "hub" | "aerial";
+
+const VISUALS: Record<Project["visual"], Visual> = {
+  pipeline: "pipeline", agents: "hub", recon: "router", vision: "aerial",
+  cloud: "pipeline", app: "hub", search: "router", game: "hub",
+};
 
 function CardVisual({ visual }: { visual: Visual }) {
   if (visual === "aerial") {
@@ -205,15 +105,15 @@ export function Projects() {
         {/* Header */}
         <div className="flex flex-col gap-2 mb-12">
           <h2 className="text-slate-100 text-3xl font-bold tracking-tight">
-            Key Projects
+            Engineering Projects
           </h2>
           <div className="h-1 w-20 bg-[#94b8d4]" />
-          <p className="text-slate-500 text-sm font-mono mt-1">Click any card to read more</p>
+          <p className="text-slate-500 text-sm font-mono mt-1">Explore the approach, technologies, and implementation behind each project.</p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {FEATURED.map((project) => {
+          {ALL_PROJECTS.map((project) => {
             const isFlipped = flipped === project.name;
             return (
               <div
@@ -230,7 +130,7 @@ export function Projects() {
                       : "rotateY(0deg) scale(1)",
                     transition: "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
                     position: "relative",
-                    minHeight: "280px",
+                    minHeight: "360px",
                   }}
                 >
                   {/* ── FRONT ── */}
@@ -241,7 +141,7 @@ export function Projects() {
                     {/* Visual thumbnail */}
                     <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#7b8fa8]/20 bg-[#7b8fa8]/5 flex items-center justify-center">
                       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#7b8fa8]/20 via-transparent to-transparent" />
-                      <CardVisual visual={project.visual as Visual} />
+                      <CardVisual visual={VISUALS[project.visual]} />
                     </div>
                     {/* Text */}
                     <div className="flex-1">
@@ -250,7 +150,7 @@ export function Projects() {
                         {project.shortDesc}
                       </p>
                       <div className="flex gap-2 mt-3 flex-wrap">
-                        {project.tags.map((tag) => (
+                        {project.tags.slice(0, 4).map((tag) => (
                           <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#7b8fa8]/10 text-[#94b8d4]">
                             {tag}
                           </span>
@@ -258,12 +158,12 @@ export function Projects() {
                       </div>
                     </div>
                     {/* Hint */}
-                    <p className="text-[10px] font-mono text-slate-600 text-right">click to flip →</p>
+                    <p className="text-[10px] font-mono text-slate-600 text-right">View Project Details →</p>
                   </div>
 
                   {/* ── BACK ── */}
                   <div
-                    className="absolute inset-0 flex flex-col justify-between glass-card rounded-xl p-6 border border-[#94b8d4]/30 bg-[#0d0f14]/95"
+                    className="relative flex flex-col justify-between glass-card rounded-xl p-6 border border-[#94b8d4]/30 bg-[#0d0f14]/95"
                     style={{
                       backfaceVisibility: "hidden",
                       transform: "rotateY(180deg)",
@@ -273,7 +173,7 @@ export function Projects() {
                       <h3 className="text-[#94b8d4] text-lg font-bold mb-3">{project.name}</h3>
                       <p className="text-slate-300 text-sm leading-relaxed">{project.fullDesc}</p>
                       <div className="flex gap-2 mt-4 flex-wrap">
-                        {project.tags.map((tag) => (
+                        {project.tags.slice(0, 4).map((tag) => (
                           <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#7b8fa8]/10 text-[#94b8d4]">
                             {tag}
                           </span>
@@ -293,7 +193,7 @@ export function Projects() {
                         </svg>
                         View on GitHub
                       </a>
-                      <p className="text-center text-[10px] font-mono text-slate-600">click card to close</p>
+                      <p className="text-center text-[10px] font-mono text-slate-600">Return to Overview</p>
                     </div>
                   </div>
                 </div>

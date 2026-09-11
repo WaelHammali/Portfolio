@@ -51,7 +51,7 @@ export function WebsiteJsonLd() {
     name: "Wael Hammali — Portfolio",
     url: BASE_URL,
     description:
-      "Portfolio of Wael Hammali, software engineering student at ENIT specializing in Cloud, AI, and Cybersecurity.",
+      "Portfolio of Wael Hammali, software engineering and SYSCOM research master's student at ENIT, focused on artificial intelligence, computer vision, and cybersecurity.",
     author: {
       "@type": "Person",
       name: "Wael Hammali",

@@ -1,8 +1,4 @@
-/**
- * Single source of truth for every piece of real portfolio content.
- * All values here are carried over from the pre-redesign portfolio
- * (components/sections/*) and Wael Hammali's CV — no placeholders.
- */
+/** Portfolio content based on the supplied CV and existing project records. */
 
 export const IDENTITY = {
   name: "Wael Hammali",
@@ -10,7 +6,7 @@ export const IDENTITY = {
   role: "Software Engineering Student at ENIT",
   focusLine: "AI • Cybersecurity • Cloud",
   heroDescription:
-    "Building intelligent systems for automation, infrastructure, and offensive security.",
+    "Developing AI systems for computer vision, security automation, and cloud infrastructure.",
   location: "Tunis, Tunisia",
   coordinates: { lat: "36.8065° N", lon: "10.1815° E" },
   quote: "Technology is a tool. Impact is the goal.",
@@ -55,7 +51,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const ABOUT_SUMMARY =
-  "I'm a third-year Software Engineering student at ENIT, specializing in artificial intelligence, computer vision, and cybersecurity, with a broader foundation in embedded systems, networking, databases, and software design. I turn that foundation into working systems — AI-driven penetration-testing frameworks, computer-vision pipelines for aerial imagery and network diagrams, and infrastructure-as-code that deploys them — while pursuing a Research Master in Communication Systems (SYSCOM) alongside my engineering degree. I'm looking to grow that research background further, with work that stays clear, secure, and genuinely shipped.";
+  "I am a third-year software engineering student at the National Engineering School of Tunis (ENIT), specializing in artificial intelligence, computer vision, and cybersecurity. Alongside my engineering degree, I am pursuing a research master's in Communication Systems (SYSCOM). My work combines applied research and software development, from AI-assisted security assessment to computer vision and cloud infrastructure automation. I am seeking research opportunities to deepen this expertise and contribute to intelligent, reliable systems.";
 
 export type Expertise = {
   number: string;
@@ -142,9 +138,9 @@ export const FEATURED_PROJECTS: Project[] = [
     category: "AI × Cybersecurity",
     year: "2026",
     shortDesc:
-      "Unified end-to-end AI pentest pipeline that chains IntelForge's recon straight into VoidHawk's multi-agent validation, producing CVSS-scored reports from a single command.",
+      "An AI-assisted security assessment pipeline connecting reconnaissance, vulnerability validation, and CVSS-scored reporting.",
     fullDesc:
-      "The integration layer between IntelForge and VoidHawk, built during an engineering internship at Keystone Groupe (Jun–Jul 2026). It takes IntelForge's structured intelligence report and injects it into VoidHawk's ChromaDB-backed memory before a run starts, so VoidHawk's Planner agent skips re-discovery and goes straight to validation, exploit reasoning, and severity ranking. Breadth-first recon feeds depth-first multi-agent analysis, each framework evolving independently. Currently in active development.",
+      "Developed at Keystone Groupe, DarkIntel connects IntelForge's reconnaissance reports to VoidHawk's persistent RAG memory. This lets six specialized agents analyze existing scan context and produce CVSS-scored vulnerability reports through a unified workflow.",
     tags: ["Python", "LangGraph", "LangChain", "Ollama", "ChromaDB", "Sentence-Transformers"],
     github: "https://github.com/WaelHammali/DarkIntel",
     visual: "pipeline",
@@ -155,9 +151,9 @@ export const FEATURED_PROJECTS: Project[] = [
     category: "Multi-Agent Security",
     year: "2026",
     shortDesc:
-      "AI-powered penetration-testing framework: six specialised LangGraph agents automate the full lifecycle from recon to CVSS-scored, validated vulnerability reports.",
+      "Six AI agents coordinate vulnerability analysis, validation, and security reporting with persistent RAG memory.",
     fullDesc:
-      "An extended fork of the open-source Watchtower framework, developed at Keystone Groupe (2026). It models a penetration test as a LangGraph state machine driven by six agents — Planner, Worker, Cleaner, Analyst, Logic, and a skeptical Validator that confirms, rejects, or retests each finding with a CVSS 3.1 score and remediation. RAG memory (ChromaDB HNSW + Sentence-Transformers) provides cross-session knowledge retention that feeds the Planner's next move, with finding de-duplication, severity ranking, and multi-format reporting in PDF, HTML, and Markdown.",
+      "Extended the open-source Watchtower framework with LLM-based vulnerability validation, ChromaDB and Sentence-Transformers memory, and severity ranking. Six specialized agents run through a LangGraph state machine and produce CVSS-scored reports in PDF, HTML, and Markdown.",
     tags: ["Python", "LangGraph", "RAG", "ChromaDB", "Groq", "OpenAI"],
     github: "https://github.com/WaelHammali/VoidHawk",
     visual: "agents",
@@ -168,22 +164,22 @@ export const FEATURED_PROJECTS: Project[] = [
     category: "AI Reconnaissance",
     year: "2026",
     shortDesc:
-      "LangGraph-orchestrated reconnaissance pipeline that runs the scanners, condenses each tool's output with an LLM, then chains four AI analysts into a prioritised exploit-intelligence report.",
+      "Automates passive OSINT and active network reconnaissance to produce structured security intelligence reports.",
     fullDesc:
-      "A reconnaissance and exploit-intelligence framework built as a compiled LangGraph state machine at Keystone Groupe (2026). It runs Nmap, FinalRecon, and web fuzzing in parallel, uses an LLM to de-noise raw CLI output, then walks a fixed Cleaner → Analyst → Researcher → Synthesis chain to produce an open-services table, an access map, ranked exploit vectors, and a final verdict on the likeliest foothold. Provider-agnostic LLMs (Groq, OpenAI, Google) and strict target validation before anything reaches a subprocess.",
+      "Built a reconnaissance framework combining FinalRecon, Nmap, and directory and virtual-host fuzzing. A four-stage AI pipeline uses Groq LLMs and DeepSeek R1 reasoning to analyze scan results and produce structured exploit intelligence reports.",
     tags: ["Python", "LangGraph", "OSINT", "Nmap", "FinalRecon"],
     github: "https://github.com/WaelHammali/IntelForge",
     visual: "recon",
   },
   {
     slug: "net-to-cloud",
-    name: "Advanced RAG for Net-to-Cloud Translation",
+    name: "Network-to-Cloud Translation",
     category: "Computer Vision × Cloud",
     year: "2025",
     shortDesc:
-      "AI system that translates network designs into secure cloud equivalents and generates Terraform + Ansible deployments.",
+      "Converts network diagrams and text descriptions into cloud infrastructure configurations using computer vision and RAG.",
     fullDesc:
-      "An end-to-end AI pipeline that uses YOLOv8 computer vision to detect and analyse network topology diagrams, then leverages RAG to automatically generate equivalent secure cloud infrastructure. Outputs production-ready Terraform and Ansible configurations for deployment on AWS. This was my Year-2 final project (PFA 2) at ENIT.",
+      "Built a full-stack migration tool for my second-year project at ENIT. Fine-tuned YOLOv8 detects network components, while retrieval-augmented generation maps them to cloud resources and generates Terraform and Ansible configurations through a graphical interface.",
     tags: ["Python", "YOLOv8", "RAG", "OpenCV", "Terraform", "Ansible"],
     github: "https://github.com/WaelHammali/Advanced-RAG-For-Net_To_Cloud-Translation",
     visual: "cloud",
@@ -194,9 +190,9 @@ export const FEATURED_PROJECTS: Project[] = [
     category: "Computer Vision",
     year: "2025",
     shortDesc:
-      "Dual-model YOLOv8 pipeline for detecting trees, cars, and buildings from aerial imagery, solving severe class imbalance.",
+      "Detects trees, cars, and buildings in aerial imagery using two specialized YOLOv8 models.",
     fullDesc:
-      "A computer-vision system that addresses severe class imbalance in aerial datasets by using two custom-trained YOLOv8 models. Model A handles tree detection (mAP50: 0.593), while Model B targets cars and buildings (mAP50: 0.735). Integrated with a Gradio web interface for interactive inference.",
+      "Designed a dual-model pipeline to address severe class imbalance in aerial imagery. One fine-tuned YOLOv8 model detects trees; the other detects cars and buildings. A Gradio interface supports interactive inference, with OpenCV and Roboflow used in the workflow.",
     tags: ["YOLOv8", "Computer Vision", "Roboflow", "Gradio", "Python"],
     github: "https://github.com/WaelHammali/Aerial-object-detection",
     visual: "vision",
@@ -206,13 +202,13 @@ export const FEATURED_PROJECTS: Project[] = [
 export const MORE_PROJECTS: Project[] = [
   {
     slug: "net2terraform-web",
-    name: "Net2Terraform WebInterface",
+    name: "Net2Terraform Web Interface",
     category: "Cloud Automation",
     year: "2025",
     shortDesc:
-      "Architecture translation system that maps real network components to cloud resources using RAG.",
+      "A web interface for translating network architecture descriptions into cloud resource configurations.",
     fullDesc:
-      "A RAG-powered system that takes physical network architecture descriptions and automatically maps each component to its cloud equivalent. Supports multi-cloud environments and generates monitoring configurations alongside the infrastructure code.",
+      "Developed a web interface for a RAG-based architecture translation system. The application maps physical network components to cloud equivalents and supports infrastructure configuration workflows.",
     tags: ["RAG", "Automation", "Cloud"],
     github: "https://github.com/WaelHammali/Net2Terraform-WebInterface",
     visual: "cloud",
@@ -223,9 +219,9 @@ export const MORE_PROJECTS: Project[] = [
     category: "Full Stack",
     year: "2025",
     shortDesc:
-      "Full-stack platform with candidate profiles, CV upload, and HR workflows with matching scores.",
+      "A full-stack application for candidate profiles, CV uploads, and recruitment workflows.",
     fullDesc:
-      "A complete recruitment platform built for HR teams, featuring candidate profile management, CV parsing and upload, automated scoring based on job requirements, and a dashboard for tracking application pipelines from application to hire.",
+      "Developed a recruitment management platform with Node.js, MySQL, and Tailwind CSS. The application brings candidate profiles, CV uploads, and matching scores into a single workflow for recruitment teams.",
     tags: ["Node.js", "MySQL", "Tailwind"],
     github: "https://github.com/WaelHammali/Recruitment-Management-Platform",
     visual: "app",
@@ -236,35 +232,35 @@ export const MORE_PROJECTS: Project[] = [
     category: "Full Stack",
     year: "2025",
     shortDesc:
-      "Full-stack event management platform for ENIT students and staff to create and register for campus events.",
+      "A campus platform for publishing events and managing student and staff registrations.",
     fullDesc:
-      "A campus-wide event management system for ENIT that lets student organisations and faculty create, publish, and manage events. Students can browse, register, and receive reminders. Features an admin dashboard, QR-code check-in, and real-time attendance tracking.",
+      "Built a full-stack event management platform for ENIT. The application supports event creation, browsing, and registration, connecting campus organizers with students and staff.",
     tags: ["Full Stack", "Node.js", "MySQL"],
     github: "https://github.com/WaelHammali/ENIT_EventPlatform",
     visual: "app",
   },
   {
     slug: "moteur-de-recherche",
-    name: "Moteur De Recherche",
+    name: "Document Search Engine",
     category: "Information Retrieval",
     year: "2024",
     shortDesc:
-      "Custom search engine with indexing, ranking algorithms, and a clean query interface for document retrieval.",
+      "A document search engine with indexing, relevance ranking, and a query interface.",
     fullDesc:
-      "A search engine built from scratch implementing an inverted index, TF-IDF ranking, and Boolean query processing. Features a lightweight web interface for querying a document corpus, with results ranked by relevance score and highlighted keyword matches.",
+      "Developed a Java search engine to index documents and return results ranked by relevance. The project explores information retrieval, ranking algorithms, and query processing.",
     tags: ["Java"],
     github: "https://github.com/WaelHammali/MoteurDeRecherche",
     visual: "search",
   },
   {
     slug: "clinique-dentaire",
-    name: "Gestion De Clinique Dentaire",
+    name: "Dental Clinic Management",
     category: "Desktop Application",
     year: "2024",
     shortDesc:
-      "Dental clinic management system for handling patients, appointments, and medical records.",
+      "A desktop application for managing dental patients, appointments, and medical records.",
     fullDesc:
-      "A dental clinic management application that centralises patient records, appointment scheduling, treatment history, and billing. Built with a clean UI for receptionists and dentists, it includes automated appointment reminders, invoice generation, and patient search.",
+      "Built a Java and MySQL application to centralize dental clinic records. The system supports patient management, appointment scheduling, and treatment history through a desktop interface.",
     tags: ["Java", "MySQL", "Desktop"],
     github: "https://github.com/WaelHammali/Gestion_De_CliniqueDentaire",
     visual: "app",
@@ -275,13 +271,36 @@ export const MORE_PROJECTS: Project[] = [
     category: "Game Development",
     year: "2024",
     shortDesc:
-      "2D C# .NET game where the player controls a Smurf character, jumps over obstacles, and collects tokens.",
+      "A 2D platform game with obstacle navigation and token collection, developed in C# and .NET.",
     fullDesc:
-      "A 2D side-scrolling game built with C# and .NET where the player guides a Smurf character through procedurally generated obstacle courses. Features a token-collection system, score tracking, increasing difficulty, and smooth animations using GDI+ rendering.",
+      "Developed a 2D game in which players guide a Smurf character through obstacles and collect tokens. The project applies C# and .NET to game logic, player controls, and animation.",
     tags: ["C#", ".NET"],
     github: "https://github.com/WaelHammali/Smurf_Game",
     visual: "game",
   },
+  {
+    slug: "school-management",
+    name: "School Administration System",
+    category: "Desktop Application",
+    year: "",
+    shortDesc: "A C application for managing student records and school administration.",
+    fullDesc: "Developed a school administration application in C to organize student records, enrollment, and academic operations. The project applies structured programming to a practical data management workflow.",
+    tags: ["C", "Desktop"],
+    github: "https://github.com/WaelHammali/Gestion_De_Scolarit-",
+    visual: "app",
+  },
+  {
+    slug: "restaurant-app",
+    name: "Restaurant Ordering Interface",
+    category: "Mobile Development",
+    year: "",
+    shortDesc: "A Flutter interface for browsing a restaurant menu and placing orders.",
+    fullDesc: "Implemented a restaurant ordering interface in Flutter and Dart, covering menu browsing and order placement. The project focuses on reusable widgets and consistent mobile interaction design.",
+    tags: ["Flutter", "Dart", "Mobile"],
+    github: "https://github.com/WaelHammali/Restauration",
+    visual: "app",
+  },
+
 ];
 
 export const ALL_PROJECTS = [...FEATURED_PROJECTS, ...MORE_PROJECTS];
@@ -300,23 +319,23 @@ export type ExperienceEntry = {
 export const EXPERIENCE: ExperienceEntry[] = [
   {
     org: "Keystone Groupe",
-    title: "AI-Powered Penetration Testing Command Framework (DarkIntel)",
+    title: "AI & Cybersecurity Engineering Intern",
     kind: "Internship",
     location: "Tunis, Tunisia",
     period: "Jun 2026 — Jul 2026",
     description:
-      "Built two AI-powered security frameworks from scratch and connected them into one end-to-end penetration-testing pipeline. IntelForge handles passive OSINT and active network reconnaissance through a multi-stage LLM reasoning pipeline; its structured report is injected directly into VoidHawk's RAG memory (ChromaDB + Sentence-Transformers), letting the Planner agent skip discovery and act on pre-loaded context. VoidHawk then drives six specialised agents through a LangGraph state machine to deliver CVSS-scored vulnerability reports.",
+      "Developed DarkIntel, a unified AI-assisted penetration testing pipeline, by connecting IntelForge's reconnaissance output to VoidHawk's RAG memory. Built the reconnaissance workflow and extended Watchtower through VoidHawk, coordinating six LangGraph agents for vulnerability analysis, validation, and CVSS-scored reporting.",
     tech: ["Python", "LangGraph", "LangChain", "Ollama", "ChromaDB", "Sentence-Transformers", "SQLite"],
     links: [],
   },
   {
     org: "TAV Airports",
-    title: "Network & Security Infrastructure Internship",
+    title: "Network & Security Infrastructure Intern",
     kind: "Internship",
     location: "Enfidha, Tunisia",
     period: "Jul 2025 — Aug 2025",
     description:
-      "Integrated the parking IT team at Enfidha-Hammamet International Airport and audited the network infrastructure behind the parking system — cabling, switches, firewalls, servers, and cameras. Tested the end-to-end parking workflow and, during a fibre-optic outage, contributed to the temporary coaxial workaround that kept the system running. Produced an infrastructure report recommending hardware upgrades, IoT sensors, AI-driven computer-vision solutions (license-plate recognition, anomaly detection), and strict data-access policies.",
+      "Audited parking cameras and network infrastructure at Enfidha-Hammamet International Airport, including cabling, switches, firewalls, and servers. Contributed to a workaround that maintained operations during a fiber-optic outage. Delivered a report recommending infrastructure upgrades, IoT sensors, computer vision applications, and stricter data access policies.",
     tech: ["Network Security", "Troubleshooting", "Infrastructure Audit", "Operational Continuity"],
     links: [{ label: "Internship Report", href: "/rapports/TAV.pdf" }],
   },
@@ -327,11 +346,22 @@ export const EXPERIENCE: ExperienceEntry[] = [
     location: "SympactAI — Second Edition",
     period: "Jun 2026 — Aug 2026",
     description:
-      "Contributed to an AI research project on augmented-reality integration in soccer analytics. Led the jersey-number recognition module — computer vision and image processing to identify players from live and recorded footage — enhanced with Real-ESRGAN super-resolution for low-resolution and motion-blurred broadcast frames, using ViTPose for pose estimation and PARSeq for text recognition. Built real-world AI pipelines within a multidisciplinary team.",
+      "Led development of a jersey number recognition module within a multidisciplinary research project on augmented reality in soccer analytics. Applied computer vision and Real-ESRGAN super-resolution to low-resolution and motion-blurred broadcast footage, using a workflow that included ViTPose and PARSeq.",
     tech: ["PyTorch", "OpenCV", "Real-ESRGAN", "ViTPose", "PARSeq", "Computer Vision"],
     links: [{ label: "Certificate", href: "/certificates/sympactai-certificate.pdf" }],
   },
 ];
+
+export const RESEARCH_MASTER = {
+  title: "Master of Research in Communication Systems (SYSCOM)",
+  school: "National Engineering School of Tunis (ENIT)",
+  period: "2026 — Present",
+  description:
+    "Pursuing a research-oriented master's program in advanced communication and intelligent systems alongside my software engineering degree. The program covers telecommunications, wireless communications, computer networks, signal processing, RF and antenna systems, and IoT, with applications of artificial intelligence and machine learning to communication technologies.",
+  methodology:
+    "Training emphasizes scientific research, system modeling, simulation, and the development of intelligent communication solutions.",
+  focus: ["Artificial Intelligence", "Machine Learning", "Telecommunications", "Computer Networks", "Signal Processing", "IoT", "Wireless Communications", "RF & Antenna Systems"],
+} as const;
 
 export type Report = {
   name: string;
@@ -349,16 +379,16 @@ export const REPORTS: Report[] = [
     date: "2025",
     href: "/rapports/pfa2.pdf",
     summary:
-      "A multimodal AI-based approach: YOLOv8 analyses network diagrams and RAG generates equivalent secure cloud infrastructure as production-ready Terraform and Ansible.",
+      "Second-year project documenting a multimodal pipeline that detects network components with YOLOv8 and uses retrieval-augmented generation to produce Terraform and Ansible cloud configurations.",
     skills: ["Cloud Security", "YOLOv8", "RAG", "Automation"],
   },
   {
-    name: "PFA 1 — Les Techniques de Data Lake",
+    name: "PFA 1 — Data Analysis Techniques in Data Lakes",
     org: "ENIT",
     date: "2024",
     href: "/rapports/Projet_PFA1.pdf",
     summary:
-      "In-depth study and implementation of Data Lake architectures for storing and analytically processing massive, heterogeneous data — Hadoop, Spark, Databricks, Kafka, Tableau.",
+      "First-year study of data lake architectures, preprocessing, modeling, visualization, and governance for structured and unstructured data. Examines Hadoop, Spark, Databricks, Kafka, and Tableau for scalable analysis.",
     skills: ["Big Data", "Data Lake", "Data Architecture", "Analytics"],
   },
 ];
@@ -413,21 +443,21 @@ export type EducationEntry = {
 
 export const EDUCATION: EducationEntry[] = [
   {
-    degree: "Master of Research — Communication Systems (SYSCOM)",
+    degree: RESEARCH_MASTER.title,
     school: "ENIT — École Nationale d'Ingénieurs de Tunis",
-    period: "2026 → Present",
-    note: "Research Master",
+    period: RESEARCH_MASTER.period,
+    note: "In progress",
   },
   {
-    degree: "Software Engineering",
+    degree: "Engineering Degree in Software Engineering",
     school: "ENIT — École Nationale d'Ingénieurs de Tunis",
-    period: "2024 → 2027",
+    period: "September 2024 — Present",
     note: null,
   },
   {
     degree: "Preparatory Cycle — Physics & Technology",
     school: "IPEIM — Institut Préparatoire aux Études d'Ingénieurs de Monastir",
-    period: "2021 → 2023",
+    period: "September 2021 — July 2023",
     note: "High Honors (Rank 78)",
   },
 ];
@@ -444,7 +474,7 @@ export const CLUBS = [
     org: "G2FOSS ENIT — Software Club",
     period: "2024 → Present",
     detail:
-      "Organised the League of Coders, a major problem-solving and competitive-programming event in Tunisia — planning, coordination, and participant engagement.",
+      "Contributed to planning, coordination, and participant engagement for League of Coders, a competitive programming event. Subsequently recognized as a Golden Member of the club.",
   },
   {
     role: "Organizing Member",
@@ -456,7 +486,7 @@ export const CLUBS = [
     role: "Participant",
     org: "Injaz El Arab Competition — ENIT",
     period: "2025",
-    detail: "Sustainable project developing thermal-insulation panels from natural materials.",
+    detail: "Contributed to a sustainable project developing thermal insulation panels from natural materials in the Injaz El Arab competition.",
   },
 ] as const;
 
@@ -475,7 +505,7 @@ export const LANGUAGES = [
 ] as const;
 
 export const HERO_STATS = [
-  { value: String(ALL_PROJECTS.length), label: "Projects Shipped" },
+  { value: String(ALL_PROJECTS.length), label: "Portfolio Projects" },
   { value: "ENIT", label: "Software Engineering" },
-  { value: "∞", label: "Curiosity" },
+  { value: "SYSCOM", label: "Research Master’s" },
 ];

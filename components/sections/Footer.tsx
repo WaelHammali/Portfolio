@@ -13,7 +13,7 @@ export function Footer() {
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-xs text-center md:text-left">
-            Software Engineering student focused on Cloud, AI, and Cybersecurity.
+            Software engineering student and SYSCOM research master’s student at ENIT, focused on AI, computer vision, and cybersecurity.
           </p>
         </div>
 

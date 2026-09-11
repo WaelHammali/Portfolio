@@ -2,26 +2,7 @@
 
 import { SectionAccent } from "@/components/ui/SectionAccent";
 
-const REPORTS = [
-  {
-    name: "PFA 1 — Les Techniques de Data Lake",
-    org: "ENIT",
-    date: "2024",
-    href: "/rapports/Projet_PFA1.pdf",
-    summary:
-      "Etude approfondie et mise en œuvre des architectures Data Lake pour le stockage et le traitement analytique de données massives et hétérogènes.",
-    skills: ["Big Data", "Data Lake", "Data Architecture", "Analytics"],
-  },
-  {
-    name: "PFA 2 — From Network Diagrams to Deployable Cloud Infrastructure: A Multimodal AI- Based Approach",
-    org: "ENIT",
-  date: "2025",
-  href: "/rapports/pfa2.pdf",
-  summary:
-  "An AI pipeline using YOLOv8 to analyze network diagrams and RAG to generate secure cloud infrastructure (Terraform/Ansible).",
-  skills: ["Cloud Security", "YOLOv8", "RAG", "Automation"],
-  },
-];
+import { REPORTS } from "@/lib/portfolio-data";
 
 export function Reports() {
   return (
@@ -34,7 +15,7 @@ export function Reports() {
           </h2>
           <div className="h-1 w-20 bg-[#94b8d4]" />
           <p className="text-slate-400 mt-2 font-mono text-sm">
-            Detailed project documentation and research
+            Academic project reports covering methods, implementation, and analysis.
           </p>
         </div>
 
@@ -77,7 +58,7 @@ export function Reports() {
                   rel="noopener noreferrer"
                   className="text-xs font-mono text-slate-400 hover:text-[#94b8d4] transition-colors flex items-center gap-2"
                 >
-                  Download Rapport →
+                  Read Report →
                 </a>
               </div>
             </div>
