@@ -1,3 +1,5 @@
+import { SectionAccent } from "@/components/ui/SectionAccent";
+
 const EDUCATION = [
   { degree: "Master of Research — Communication Systems (SYSCOM)", school: "ENIT — Ecole Nationale d'Ingenieurs de Tunis", period: "2026 → Present", note: "Research Master" },
   { degree: "Software Engineering", school: "ENIT — Ecole Nationale d'Ingenieurs de Tunis", period: "2024 → 2027", note: null },
@@ -47,7 +49,8 @@ const LANGUAGES = [
 
 export const Education = () => {
   return (
-    <section id="education" className="py-20 px-6 max-w-6xl mx-auto">
+    <section id="education" className="relative overflow-hidden py-20 px-6 max-w-6xl mx-auto">
+      <SectionAccent label="// education" position="top-right" />
       <div className="space-y-6">
         <div>
           <div className="text-[#94b8d4] font-mono text-xs mb-3 uppercase tracking-widest flex items-center gap-2">
