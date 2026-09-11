@@ -55,7 +55,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const ABOUT_SUMMARY =
-  "I'm a Software Engineering student at ENIT with a broad engineering foundation — embedded systems (STM32), .NET/C#, mobile development, databases, algorithms, compilation, and parallel computing — that I've focused toward artificial intelligence, cybersecurity, and cloud infrastructure. I build systems that solve real problems: multi-agent AI pipelines for penetration testing, computer-vision models that read network diagrams, and infrastructure-as-code that deploys them. I care about work that is clear, secure, and actually shipped.";
+  "I'm a third-year Software Engineering student at ENIT, specializing in artificial intelligence, computer vision, and cybersecurity, with a broader foundation in embedded systems, networking, databases, and software design. I turn that foundation into working systems — AI-driven penetration-testing frameworks, computer-vision pipelines for aerial imagery and network diagrams, and infrastructure-as-code that deploys them — while pursuing a Research Master in Communication Systems (SYSCOM) alongside my engineering degree. I'm looking to grow that research background further, with work that stays clear, secure, and genuinely shipped.";
 
 export type Expertise = {
   number: string;
