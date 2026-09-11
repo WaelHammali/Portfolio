@@ -9,9 +9,10 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Magnet } from "@/components/motion/Magnet";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { HeroGlobe } from "@/components/sections/HeroGlobe";
 import { IDENTITY, PORTRAIT, HERO_STATS } from "@/lib/portfolio-data";
 
 const ORBIT_WORDS = ["LEARN", "BUILD", "BREAK", "IMPROVE", "REPEAT"];
@@ -43,7 +44,7 @@ export function Hero() {
       ref={ref}
       onPointerMove={handlePointer}
       onPointerLeave={() => setTilt({ x: 0, y: 0 })}
-      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden px-5 pb-10 pt-28 sm:px-8 lg:px-12"
+      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden px-5 pb-8 pt-28 sm:px-8 lg:px-12"
     >
       {/* LAYER 1 — atmosphere */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -69,9 +70,22 @@ export function Hero() {
         </div>
       </FadeIn>
 
-      {/* right-side orbit words */}
+      {/* top-right decorative — dotted globe with a Tunis marker */}
+      <FadeIn
+        onView={false}
+        x={20}
+        delay={0.2}
+        className="pointer-events-none absolute right-0 top-16 hidden lg:block"
+      >
+        <HeroGlobe />
+      </FadeIn>
+
+      {/* right-side: cursive tag + orbit words */}
       <div className="pointer-events-none absolute right-5 top-1/2 hidden -translate-y-1/2 flex-col items-end gap-3 lg:flex">
-        <div className="h-16 w-px bg-gradient-to-b from-transparent to-paper/20" />
+        <FadeIn onView={false} delay={0.35} x={20} className="font-caveat text-3xl text-paper/85">
+          {IDENTITY.cursiveTag}
+        </FadeIn>
+        <div className="h-14 w-px bg-gradient-to-b from-transparent to-paper/20" />
         {ORBIT_WORDS.map((w, i) => (
           <FadeIn
             key={w}
@@ -84,17 +98,38 @@ export function Hero() {
             <span className="h-1 w-1 rounded-full bg-accent/60" />
           </FadeIn>
         ))}
-        <div className="h-16 w-px bg-gradient-to-b from-paper/20 to-transparent" />
+        <div className="h-14 w-px bg-gradient-to-b from-paper/20 to-transparent" />
+
+        {/* quote card */}
+        <FadeIn onView={false} delay={0.9} x={20} className="mt-6 max-w-[220px]">
+          <div className="flex items-start gap-2 rounded-xl border border-paper/15 bg-paper/[0.03] px-4 py-3">
+            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+            <p className="font-serif text-[13px] italic leading-snug text-paper/60">
+              &ldquo;Technology is a tool.
+              <br />
+              Impact is the goal.&rdquo;
+            </p>
+          </div>
+        </FadeIn>
       </div>
 
       {/* CENTRE STAGE */}
       <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center">
-        {/* LAYER 2 — massive heading */}
+        {/* LAYER 2 — massive chrome heading */}
         <FadeIn onView={false} delay={0.15} y={40} className="z-0 w-full">
           <motion.h1
             style={{ y: headingY }}
-            className="pointer-events-none select-none text-center font-black uppercase leading-[0.82] tracking-tight"
+            className="pointer-events-none relative select-none text-center font-black leading-[0.82] tracking-tight"
           >
+            <span
+              aria-hidden
+              className="heading-glint left-[18%] top-[6%] animate-sparkle hidden sm:block"
+            />
+            <span
+              aria-hidden
+              className="heading-glint right-[20%] top-[58%] hidden animate-sparkle sm:block"
+              style={{ animationDelay: "1.1s" }}
+            />
             <span
               data-text="Hi, I'm"
               className="hero-heading block text-[clamp(2.8rem,12vw,9rem)]"
@@ -113,8 +148,19 @@ export function Hero() {
         {/* LAYER 3 — portrait, overlapping the letters */}
         <motion.div
           style={{ y: portraitY, opacity: fade }}
-          className="relative z-20 -mt-[2vw] mb-6 sm:-mt-[4vw]"
+          className="relative z-20 -mt-[3vw] sm:-mt-[5vw]"
         >
+          {/* thin orbit arcs flanking the portrait */}
+          <svg
+            aria-hidden
+            viewBox="0 0 520 260"
+            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[260px] w-[520px] -translate-x-1/2 -translate-y-1/2 overflow-visible sm:block"
+          >
+            <ellipse cx="260" cy="130" rx="255" ry="95" fill="none" stroke="rgba(215,226,234,0.14)" strokeWidth="0.75" />
+            <circle cx="18" cy="95" r="3" fill="#69b7ff" opacity="0.8" />
+            <circle cx="500" cy="165" r="2.5" fill="#d7e2ea" opacity="0.6" />
+          </svg>
+
           <Magnet padding={130} strength={3.4}>
             <motion.div
               animate={{ rotateX: tilt.x, rotateY: tilt.y }}
@@ -140,28 +186,39 @@ export function Hero() {
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(12,12,12,0.55)_100%)]" />
                 <div className="pointer-events-none absolute inset-0 shadow-[inset_18px_0_36px_-24px_rgba(140,207,255,0.6),inset_-18px_0_36px_-24px_rgba(0,0,0,0.7)]" />
               </div>
-
-              {/* elliptical base */}
-              <div
-                aria-hidden
-                className="absolute -bottom-4 left-1/2 h-8 w-[115%] -translate-x-1/2 rounded-[50%] border border-paper/15 bg-[radial-gradient(ellipse_at_center,rgba(105,183,255,0.12),transparent_70%)]"
-              />
             </motion.div>
           </Magnet>
-        </motion.div>
 
-        {/* hero phrase */}
-        <FadeIn
-          onView={false}
-          delay={0.45}
-          className="z-20 mt-2 font-mono text-[11px] uppercase tracking-[0.4em] text-paper/45"
-        >
-          {IDENTITY.phrases.hero}
-        </FadeIn>
+          {/* metallic ring platform, with "Ideas -> Systems -> Real Impact" curved along the front edge */}
+          <div className="relative -mt-4 h-20 w-[145%] -translate-x-[calc((145%-100%)/2)] sm:h-24">
+            <svg viewBox="0 0 600 110" className="h-full w-full overflow-visible" aria-hidden>
+              <defs>
+                <path id="ringTextPath" d="M 42 26 A 258 34 0 0 0 558 26" fill="none" />
+                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="rgba(215,226,234,0.04)" />
+                  <stop offset="50%" stopColor="rgba(105,183,255,0.75)" />
+                  <stop offset="100%" stopColor="rgba(215,226,234,0.04)" />
+                </linearGradient>
+                <radialGradient id="ringGlow" cx="50%" cy="20%" r="70%">
+                  <stop offset="0%" stopColor="rgba(105,183,255,0.18)" />
+                  <stop offset="100%" stopColor="rgba(105,183,255,0)" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="300" cy="22" rx="258" ry="34" fill="url(#ringGlow)" />
+              <ellipse cx="300" cy="20" rx="258" ry="34" fill="none" stroke="url(#ringGrad)" strokeWidth="2" />
+              <ellipse cx="300" cy="16" rx="258" ry="34" fill="none" stroke="rgba(215,226,234,0.15)" strokeWidth="0.75" />
+              <text fill="rgba(224,232,238,0.85)" fontSize="16" letterSpacing="2.5" className="font-mono font-semibold uppercase">
+                <textPath href="#ringTextPath" startOffset="50%" textAnchor="middle">
+                  {IDENTITY.phrases.footer}
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </motion.div>
       </div>
 
       {/* LAYER 4 — info + CTAs */}
-      <div className="relative z-20 mx-auto grid w-full max-w-6xl gap-8 pt-8 sm:grid-cols-2 sm:items-end">
+      <div className="relative z-20 mx-auto grid w-full max-w-6xl gap-8 pt-4 sm:grid-cols-2 sm:items-end">
         <FadeIn onView={false} delay={0.5} className="space-y-3">
           <p className="text-lg font-medium text-paper sm:text-xl">
             Software Engineering Student
@@ -186,26 +243,26 @@ export function Hero() {
         </FadeIn>
       </div>
 
-      {/* LAYER 5 — stats bar */}
+      {/* LAYER 5 — compact stats row */}
       <FadeIn
         onView={false}
         delay={0.75}
-        className="relative z-20 mx-auto mt-10 grid w-full max-w-6xl grid-cols-3 divide-x divide-paper/10 border-y border-paper/10"
+        className="relative z-20 mx-auto mt-8 flex w-full max-w-6xl flex-wrap items-center gap-x-6 gap-y-3 divide-x divide-paper/10"
       >
-        {HERO_STATS.map((s) => (
-          <div key={s.label} className="px-3 py-4 text-center sm:px-6 sm:text-left">
-            <div className="text-xl font-bold text-paper sm:text-2xl">{s.value}</div>
-            <div className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-paper/40 sm:text-[10px]">
+        {HERO_STATS.map((s, i) => (
+          <div key={s.label} className={i === 0 ? "" : "pl-6"}>
+            <div className="text-xl font-bold text-paper">{s.value}</div>
+            <div className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-paper/40">
               {s.label}
             </div>
           </div>
         ))}
       </FadeIn>
 
-      {/* scroll cue */}
-      <div className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-paper/30 lg:flex">
-        <span className="font-mono text-[9px] uppercase tracking-[0.3em]">Scroll</span>
-        <ArrowDown size={14} className="animate-float" />
+      {/* corner labels */}
+      <div className="pointer-events-none relative z-20 mx-auto mt-8 hidden w-full max-w-6xl items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-paper/30 lg:flex">
+        <span>{IDENTITY.phrases.tunisiaToWorld}</span>
+        <span>{IDENTITY.phrases.alwaysBuilding}</span>
       </div>
     </section>
   );
