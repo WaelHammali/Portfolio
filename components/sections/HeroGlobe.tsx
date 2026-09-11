@@ -87,8 +87,8 @@ export function HeroGlobe({ className = "", variant = "location", label = "Engin
         <div className="relative h-full w-full animate-spin-slow" style={{ transformOrigin: "50% 50%" }}>
           {sphere}
           <span
-            className={`absolute inset-0 grid place-items-center px-1.5 text-center font-mono font-semibold uppercase leading-none tracking-[0.04em] text-accent-soft [text-shadow:0_0_6px_#0d0f14,0_0_10px_#0d0f14] ${
-              label.length > 6 ? "text-[5.5px]" : "text-[7px]"
+            className={`absolute inset-0 grid place-items-center px-1 text-center font-mono font-semibold uppercase leading-none tracking-[0.02em] text-accent-soft [text-shadow:0_0_6px_#0d0f14,0_0_10px_#0d0f14] ${
+              label.length > 6 ? "text-[8px]" : "text-[10px]"
             }`}
           >
             {label}
