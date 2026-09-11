@@ -7,8 +7,26 @@ import { HeroGlobe } from "@/components/sections/HeroGlobe";
 type Position = { x: number; y: number; size: number };
 const MARGIN = 16;
 
+const BALLOONS = [
+  { id: "engineer", label: "Engineer" },
+  { id: "ai", label: "AI" },
+  { id: "cybersecurity", label: "Cybersecurity" },
+];
+
+// Spread starting spots across the viewport's corners so the balloons
+// don't stack on top of each other before their first teleport.
+function initialSlot(index: number) {
+  const b = bounds();
+  const slots = [
+    { x: b.minX, y: b.minY },
+    { x: b.maxX, y: b.minY },
+    { x: b.minX, y: b.maxY },
+  ];
+  return slots[index % slots.length];
+}
+
 function bounds() {
-  const size = window.innerWidth < 640 ? 88 : 112;
+  const size = window.innerWidth < 640 ? 60 : 80;
   const headerBottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 80;
   const maxY = Math.max(MARGIN, window.innerHeight - size - MARGIN);
   return {
@@ -20,10 +38,10 @@ function bounds() {
   };
 }
 
-function nextPosition(current: Position, pointer?: { x: number; y: number }): Position {
+function nextPosition(selfId: string, current: Position, pointer?: { x: number; y: number }): Position {
   const b = bounds();
   const obstacles = Array.from(document.querySelectorAll(
-    "a, button:not([data-engineer-globe]), input, textarea, select, #home img",
+    `a, button:not([data-balloon-id="${selfId}"]), input, textarea, select, #home img`,
   )).map((el) => el.getBoundingClientRect()).filter((r) => r.width && r.height);
   // Sample the page edges and interior, with corners as reliable fallbacks.
   const candidates = [
@@ -50,7 +68,7 @@ function nextPosition(current: Position, pointer?: { x: number; y: number }): Po
   return { ...destination, size: b.size };
 }
 
-export function EngineerGlobe() {
+function Balloon({ id, label, index }: { id: string; label: string; index: number }) {
   const [position, setPosition] = useState<Position | null>(null);
   const [visible, setVisible] = useState(true);
   const reduceMotion = useReducedMotion();
@@ -60,9 +78,10 @@ export function EngineerGlobe() {
   useEffect(() => {
     function fitViewport() {
       const b = bounds();
+      const slot = initialSlot(index);
       setPosition((previous) => ({
-        x: Math.min(b.maxX, Math.max(b.minX, previous?.x ?? 28)),
-        y: Math.min(b.maxY, Math.max(b.minY, previous?.y ?? 124)),
+        x: Math.min(b.maxX, Math.max(b.minX, previous?.x ?? slot.x)),
+        y: Math.min(b.maxY, Math.max(b.minY, previous?.y ?? slot.y)),
         size: b.size,
       }));
     }
@@ -72,14 +91,14 @@ export function EngineerGlobe() {
       window.removeEventListener("resize", fitViewport);
       timers.current.forEach(clearTimeout);
     };
-  }, []);
+  }, [index]);
 
   function teleport(pointer?: { x: number; y: number }) {
     if (!position || busy.current) return;
     busy.current = true;
     setVisible(false);
     timers.current = [setTimeout(() => {
-      setPosition(nextPosition(position, pointer));
+      setPosition(nextPosition(id, position, pointer));
       setVisible(true);
     }, reduceMotion ? 0 : 180), setTimeout(() => {
       busy.current = false;
@@ -92,7 +111,8 @@ export function EngineerGlobe() {
     <motion.button
       type="button"
       data-engineer-globe
-      aria-label="Move the Engineer globe to another position"
+      data-balloon-id={id}
+      aria-label={`Move the ${label} globe to another position`}
       onPointerEnter={(event) => {
         if (event.pointerType === "mouse" || event.pointerType === "pen") {
           teleport({ x: event.clientX, y: event.clientY });
@@ -106,7 +126,17 @@ export function EngineerGlobe() {
         pointerEvents: visible ? "auto" : "none" }}
       className="fixed z-40 cursor-pointer touch-manipulation rounded-full border border-accent/15 bg-[#0d0f14]/70 p-1 shadow-[0_0_28px_rgba(105,183,255,0.12)] backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
     >
-      <HeroGlobe variant="engineer" className="h-full w-full" />
+      <HeroGlobe variant="engineer" label={label} className="h-full w-full" />
     </motion.button>
+  );
+}
+
+export function EngineerGlobe() {
+  return (
+    <>
+      {BALLOONS.map((b, index) => (
+        <Balloon key={b.id} id={b.id} label={b.label} index={index} />
+      ))}
+    </>
   );
 }
