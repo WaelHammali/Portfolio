@@ -1,5 +1,7 @@
 "use client";
 
+import { SectionAccent } from "@/components/ui/SectionAccent";
+
 const REPORTS = [
   {
     name: "PFA 1 — Les Techniques de Data Lake",
@@ -23,7 +25,8 @@ const REPORTS = [
 
 export function Reports() {
   return (
-    <section id="reports" className="px-6 py-20 lg:px-20">
+    <section id="reports" className="relative overflow-hidden px-6 py-20 lg:px-20">
+      <SectionAccent label="// research" position="top-right" />
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-2 mb-12">
           <h2 className="text-slate-100 text-3xl font-bold tracking-tight">
