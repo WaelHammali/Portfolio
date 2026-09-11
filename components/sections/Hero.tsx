@@ -9,7 +9,7 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, FileDown } from "lucide-react";
 import { Magnet } from "@/components/motion/Magnet";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { HeroGlobe } from "@/components/sections/HeroGlobe";
@@ -53,22 +53,6 @@ export function Hero() {
         <div className="absolute left-1/2 top-[42%] h-[60vh] w-[60vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(105,183,255,0.14),transparent_65%)]" />
         <div className="absolute bottom-0 left-1/2 h-[30vh] w-[80vw] -translate-x-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(105,183,255,0.10),transparent_70%)]" />
       </div>
-
-      {/* top-left decorative */}
-      <FadeIn
-        onView={false}
-        y={-20}
-        delay={0.1}
-        className="pointer-events-none absolute left-5 top-24 hidden font-mono text-[10px] uppercase tracking-[0.3em] text-paper/35 sm:block lg:left-12"
-      >
-        &lt; North Africa &gt;
-        <div className="mt-3 space-y-1 text-paper/25">
-          <div>Ideas</div>
-          <div>Code</div>
-          <div>Impact</div>
-          <div>//</div>
-        </div>
-      </FadeIn>
 
       {/* top-right decorative — dotted globe with a Tunis marker */}
       <FadeIn
@@ -253,6 +237,10 @@ export function Hero() {
           <Link href="/#about" className="btn-ghost">
             About Me
           </Link>
+          <a href="/Resume.pdf" download className="btn-ghost">
+            <FileDown size={15} />
+            Resume
+          </a>
         </FadeIn>
       </div>
 
