@@ -55,7 +55,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const ABOUT_SUMMARY =
-  "I'm a Software Engineering student at ENIT in Tunis, building at the intersection of artificial intelligence, cybersecurity, cloud infrastructure, and automation. My work turns real engineering problems into working systems — multi-agent AI pipelines for penetration testing, computer-vision models that read network diagrams, and infrastructure-as-code that deploys them. I care about systems that are clear, secure, and actually shipped.";
+  "I'm a Software Engineering student at ENIT with a broad engineering foundation — embedded systems (STM32), .NET/C#, mobile development, databases, algorithms, compilation, and parallel computing — that I've focused toward artificial intelligence, cybersecurity, and cloud infrastructure. I build systems that solve real problems: multi-agent AI pipelines for penetration testing, computer-vision models that read network diagrams, and infrastructure-as-code that deploys them. I care about work that is clear, secure, and actually shipped.";
 
 export type Expertise = {
   number: string;
