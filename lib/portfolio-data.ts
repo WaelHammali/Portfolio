@@ -33,18 +33,24 @@ export const SOCIALS = {
   resume: "/Resume.pdf",
 } as const;
 
-/** Path the hero portrait should live at long-term. Falls back to the
- *  existing profile image until a transparent cutout is supplied. */
+/** Hero portrait: cropped from the reference composite the user supplied,
+ *  with the source image's baked-in heading text painted out (see the
+ *  crop/cleanup step in git history). Swap this file for a true clean
+ *  cutout whenever one is available — the rest of the Hero treats it as
+ *  a plain photo (oval mask, backlight, rim light are all applied in CSS). */
 export const PORTRAIT = {
-  preferred: "/assets/wael-portrait.png",
-  current: "/l.jpeg",
+  current: "/assets/wael-portrait.png",
   alt: "Wael Hammali",
 } as const;
 
 export const NAV_LINKS = [
+  { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Stack" },
   { href: "#projects", label: "Projects" },
+  { href: "#reports", label: "Reports" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
