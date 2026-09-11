@@ -91,6 +91,22 @@ const FEATURED = [
     visual: "hub",
     github: "https://github.com/WaelHammali/Gestion_De_CliniqueDentaire",
   },
+  {
+    name: "Gestion De Scolarité",
+    shortDesc: "School administration system for managing student records and academic operations.",
+    fullDesc: "A school-management application built in C that centralises student records, enrollment, and day-to-day academic administration into a single console/desktop tool — practice in structuring a real-world data-management system without a framework to lean on.",
+    tags: ["C", "Desktop"],
+    visual: "hub",
+    github: "https://github.com/WaelHammali/Gestion_De_Scolarit-",
+  },
+  {
+    name: "Restauration",
+    shortDesc: "Restaurant ordering app UI built in Flutter, from browsing the menu to placing an order.",
+    fullDesc: "A cross-platform restaurant app UI implemented in Flutter/Dart, covering the menu-browsing and ordering flow. Built as focused practice in translating a mobile UI design into clean, reusable Flutter widgets.",
+    tags: ["Flutter", "Dart", "Mobile"],
+    visual: "hub",
+    github: "https://github.com/WaelHammali/Restauration",
+  },
 ];
 
 type Visual = "pipeline" | "router" | "hub" | "aerial";
