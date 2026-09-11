@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div className="py-20 px-6 max-w-3xl mx-auto">
+    <div className="px-6 pb-20 pt-32 max-w-3xl mx-auto">
       {/* Back */}
       <Link
         href="/blog"
