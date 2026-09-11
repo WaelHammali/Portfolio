@@ -4,203 +4,345 @@
 
 @layer base {
   :root {
+    /* redesign palette — graphite / metallic silver / soft blue */
+    --ink: #0c0c0c;
+    --paper: #d7e2ea;
+    --accent: #69b7ff;
+    --accent-soft: #8ccfff;
+
+    /* legacy tokens kept for older components (blog, etc.) */
     --primary: #94b8d4;
-    --bg-dark: #0d0f14;
+    --bg-dark: #0c0c0c;
     --bg-darker: #080a0e;
     --navy-deep: #12141c;
-    --slate-custom: #0d0f14;
     --accent-gold: #94b8d4;
     --accent-teal: #7b8fa8;
   }
 
-  /* Dark theme (default) */
-  :root[data-theme="dark"], body.dark {
+  :root[data-theme="dark"],
+  body.dark {
     color-scheme: dark;
   }
 
-  /* Light theme fallback */
-  :root[data-theme="light"], body.light {
-    color-scheme: light;
-    --primary: #7b8fa8;
-    --bg-dark: #ffffff;
-    --bg-darker: #f9fafb;
+  * {
+    box-sizing: border-box;
   }
 
   ::selection {
-    background: rgba(148, 184, 212, 0.35);
-    color: inherit;
+    background: rgba(105, 183, 255, 0.28);
+    color: #fff;
   }
 
   html {
     scroll-behavior: smooth;
+    background: var(--ink);
+  }
+
+  /* keep anchored sections clear of the fixed navbar */
+  section[id],
+  [id]:target {
+    scroll-margin-top: 5.5rem;
   }
 
   body {
-    background: linear-gradient(135deg, #0d0f14 0%, #12141c 25%, #080a0e 50%, #0f1118 75%, #0d0f14 100%);
-    background-attachment: fixed;
-    color: #c8cdd5;
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar       { width: 6px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #3d4a5c; border-radius: 3px; }
+  #__next,
+  main {
+    overflow-x: clip;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0c0c0c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2e33;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a4046;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Metallic silver headings.
+     The element itself renders a solid, always-visible silver; a ::after
+     pseudo re-draws the same text (via data-text) with the metallic gradient
+     clipped to the glyphs. If background-clip:text fails to paint anywhere,
+     the pseudo is simply transparent and the solid base shows through — the
+     heading can never become invisible. */
+  .hero-heading {
+    position: relative;
+    color: #aeb9c2;
+    isolation: isolate;
+  }
+  .hero-heading::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(180deg, #6b7076 0%, #c6d4de 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    pointer-events: none;
+  }
+  /* when used without data-text, no pseudo overlay */
+  .hero-heading:not([data-text])::after {
+    content: none;
+  }
+
+  /* Primary CTA — bright metallic pill */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 9999px;
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 0 1px rgba(215, 226, 234, 0.15), 0 10px 40px -12px rgba(105, 183, 255, 0.35);
+  }
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(215, 226, 234, 0.25), 0 16px 48px -12px rgba(105, 183, 255, 0.5);
+  }
+  .btn-primary:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Secondary CTA — ghost pill */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(215, 226, 234, 0.45);
+    color: var(--paper);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+  .btn-ghost:hover {
+    background: rgba(215, 226, 234, 0.08);
+    border-color: rgba(215, 226, 234, 0.75);
+    transform: translateY(-2px);
+  }
+  .btn-ghost:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .btn-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .metal-border {
+    border: 2px solid var(--paper);
+  }
+
+  .surface-card {
+    background: #101012;
+    border: 1px solid rgba(215, 226, 234, 0.1);
+    border-radius: 24px;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .surface-card:hover {
+    border-color: rgba(105, 183, 255, 0.4);
+    box-shadow: 0 24px 60px -24px rgba(105, 183, 255, 0.25);
+  }
+
+  .rim-light {
+    box-shadow:
+      inset 0 1px 0 rgba(215, 226, 234, 0.12),
+      inset 0 0 40px rgba(105, 183, 255, 0.05);
+  }
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
+  .text-balance {
+    text-wrap: balance;
+  }
 
-  /* Staggered animation delays */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-
-  /* Opacity 0 initial for animated elements */
-  .animate-fade-up,
-  .animate-fade-in,
-  .animate-slide-left {
+  /* Progressive-enhancement reveal.
+     Default (no JS / JS error): fully visible.
+     With `.js` on <html> (set by an inline script before paint): starts
+     hidden and transitions in when IntersectionObserver adds `.in-view`. */
+  .reveal {
+    opacity: 1;
+  }
+  .js .reveal {
     opacity: 0;
-    animation-fill-mode: forwards;
+    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 28px), 0);
+    transition:
+      opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+      transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+    /* failsafe: if the IntersectionObserver / hydration never fires,
+       force the element visible after 4s so content is never lost. */
+    animation: reveal-failsafe 0.01s linear 4s forwards;
+  }
+  .js .reveal.in-view {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: none;
+    }
   }
 
-  /* Steel-blue glow */
-  .glow-cyan {
-    box-shadow: 0 0 20px rgba(148, 184, 212, 0.25), inset 0 0 20px rgba(148, 184, 212, 0.06);
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(215, 226, 234, 0.06) 1px, transparent 0);
+    background-size: 44px 44px;
   }
 
-  .glow-primary {
-    box-shadow: 0 0 20px rgba(148, 184, 212, 0.2);
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(215, 226, 234, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(215, 226, 234, 0.035) 1px, transparent 1px);
+    background-size: 90px 90px;
   }
 
-  /* Accent border */
-  .border-cyan-accent {
-    border-color: rgba(123, 143, 168, 0.3);
+  .glass-nav {
+    background: rgba(12, 12, 12, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(215, 226, 234, 0.1);
   }
 
-  /* Gradient text with cool blue tones */
+  /* legacy — retained so pre-redesign components still render if referenced */
+  .glass-card {
+    background: rgba(16, 16, 18, 0.5);
+    border: 1px solid rgba(215, 226, 234, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
   .gradient-text {
     background: linear-gradient(135deg, #c8d6e5 0%, #94b8d4 50%, #7b8fa8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  /* Dark glass card */
-  .glass-card {
-    background: rgba(18, 20, 28, 0.5);
-    border: 1px solid rgba(123, 143, 168, 0.15);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  }
-
-  .glass-card-hover {
-    @apply glass-card transition-all duration-300;
-  }
-
-  .glass-card-hover:hover {
-    background: rgba(18, 20, 28, 0.7);
-    border-color: rgba(148, 184, 212, 0.3);
-    box-shadow: 0 12px 48px rgba(148, 184, 212, 0.08);
-    transform: translateY(-2px);
-  }
-
-  /* Floating card effect */
-  .float-card {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .float-card-sm {
-    animation: float 5s ease-in-out infinite;
-  }
-
-  .float-card-lg {
-    animation: float 7s ease-in-out infinite;
-  }
-
-  /* Dot grid background */
-  .dot-grid {
-    background-image: radial-gradient(circle at 2px 2px, rgba(123, 143, 168, 0.08) 1px, transparent 0);
-    background-size: 40px 40px;
-  }
-
-  .grid-lines {
-    background-image:
-      linear-gradient(to right, rgba(123, 143, 168, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(123, 143, 168, 0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
-  }
-
-  /* Steel-blue accent button */
   .btn-cyan {
     @apply px-8 py-3 rounded-lg font-semibold text-sm;
     background: rgba(148, 184, 212, 0.08);
     border: 1.5px solid rgba(148, 184, 212, 0.4);
     color: #94b8d4;
     transition: all 0.25s ease;
-    box-shadow: 0 0 12px rgba(148, 184, 212, 0.1);
-  }
-
-  .btn-cyan:hover {
-    background: rgba(148, 184, 212, 0.18);
-    border-color: #94b8d4;
-    color: #c8d6e5;
-    box-shadow: 0 0 22px rgba(148, 184, 212, 0.25);
-    transform: translateY(-1px);
-  }
-
-  .mesh-bg {
-    background-image:
-      radial-gradient(600px 400px at 10% 20%, rgba(148, 184, 212, 0.06), transparent 60%),
-      radial-gradient(500px 360px at 85% 10%, rgba(123, 143, 168, 0.05), transparent 60%),
-      radial-gradient(420px 320px at 70% 80%, rgba(18, 20, 28, 0.08), transparent 60%);
-  }
-
-  .glass-panel {
-    background: rgba(13, 15, 20, 0.7);
-    border: 1px solid rgba(123, 143, 168, 0.15);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(16px);
   }
 }
 
-@keyframes scanline {
-  0% { transform: translateY(-60%); opacity: 0; }
-  20% { opacity: 0.4; }
-  60% { opacity: 0.15; }
-  100% { transform: translateY(120%); opacity: 0; }
+@keyframes reveal-failsafe {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
 }
 
-@keyframes float-sm {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Code block styles (rehype-pretty-code) */
+.animate-marquee-left {
+  animation: marquee-left 42s linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right 42s linear infinite;
+}
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right,
+  .animate-float,
+  .animate-spin-slow {
+    animation: none;
+  }
+}
+
+/* Code block styles (rehype-pretty-code) — used by /blog */
 [data-rehype-pretty-code-fragment] {
   position: relative;
 }
-
 [data-rehype-pretty-code-fragment] pre {
   @apply rounded-xl border border-slate-700/40 bg-slate-950 p-5 overflow-x-auto text-sm;
 }
-
 [data-rehype-pretty-code-title] {
   @apply px-5 py-2 text-xs font-mono text-slate-400 bg-slate-900 border border-b-0 border-slate-700/40 rounded-t-xl;
 }
-
 [data-highlighted-line] {
   @apply bg-slate-700/10 -mx-5 px-5;
-}
-
-/* Terminal cursor */
-.cursor::after {
-  content: "|";
-  @apply animate-blink text-slate-400;
 }
