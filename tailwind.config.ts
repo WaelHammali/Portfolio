@@ -10,9 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-kanit)", "var(--font-space)", "system-ui", "sans-serif"],
-        mono: ["var(--font-plex)", "ui-monospace", "monospace"],
-        display: ["var(--font-kanit)", "var(--font-space)", "sans-serif"],
+        sans: ["var(--font-space)", "system-ui", "sans-serif"],
+        mono: ["var(--font-plex)", "monospace"],
+        display: ["var(--font-space)", "sans-serif"],
+        caveat: ["var(--font-caveat)", "cursive"],
       },
       colors: {
         ink: "#0c0c0c",
