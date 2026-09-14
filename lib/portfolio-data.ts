@@ -43,9 +43,9 @@ export const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Stack" },
   { href: "#projects", label: "Projects" },
-  { href: "#reports", label: "Reports" },
-  { href: "#certifications", label: "Certifications" },
   { href: "#experience", label: "Experience" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#reports", label: "Reports" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
@@ -348,6 +348,17 @@ export const EXPERIENCE: ExperienceEntry[] = [
       "Led development of a jersey number recognition module within a multidisciplinary research project on augmented reality in soccer analytics. Applied computer vision and Real-ESRGAN super-resolution to low-resolution and motion-blurred broadcast footage, using a workflow that included ViTPose and PARSeq.",
     tech: ["PyTorch", "OpenCV", "Real-ESRGAN", "ViTPose", "PARSeq", "Computer Vision"],
     links: [{ label: "Certificate", href: "/certificates/sympactai-certificate.pdf" }],
+  },
+  {
+    org: "RISC Laboratory, ICT Department — ENIT, University of Tunis El Manar",
+    title: "From Network Diagrams to Deployable Cloud Infrastructure: A Multimodal AI-Based Approach",
+    kind: "Research",
+    location: "Tunis, Tunisia",
+    period: "2025 — Oct. 2026",
+    description:
+      "Research manuscript co-authored with Dhiaeddine Barhoumi, supervised by Mme. Wafa Meftah (full technical details under Projects). Paper accepted at IEEE AIDIST 2026 — \"L'intelligence artificielle pour une transition numérique et durable\" — 5th FCIERI Forum (29–31 Oct. 2026, Tunis).",
+    tech: ["Python", "YOLOv8", "RAG", "OpenCV", "Terraform", "Ansible"],
+    links: [],
   },
 ];
 
