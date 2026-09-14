@@ -4,7 +4,7 @@ export const IDENTITY = {
   name: "Wael Hammali",
   firstName: "Wael",
   role: "Software Engineering Student at ENIT",
-  focusLine: "AI • Cybersecurity",
+  focusLine: "AI • Cybersecurity • Computer Vision",
   heroDescription:
     "Developing AI systems for automation, backed by cybersecurity and cloud expertise.",
   location: "Tunis, Tunisia",
