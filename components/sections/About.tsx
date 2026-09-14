@@ -57,9 +57,6 @@ export function About() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl">
-        <FadeIn className="mb-2 font-mono text-[11px] uppercase tracking-[0.35em] text-accent-soft">
-          // about me
-        </FadeIn>
         <h2
           data-text="About"
           className="hero-heading text-[clamp(2rem,5.5vw,3.75rem)] font-black uppercase leading-[0.95] tracking-tight"
