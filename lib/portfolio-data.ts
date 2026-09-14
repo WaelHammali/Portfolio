@@ -6,7 +6,7 @@ export const IDENTITY = {
   role: "Software Engineering Student at ENIT",
   focusLine: "AI • Cybersecurity • Computer Vision",
   heroDescription:
-    "Building computer vision and multimodal AI systems — from cloud automation to LLM-powered penetration testing tools.",
+    "Building computer vision and multimodal AI systems for cloud automation and LLM-powered penetration testing tools.",
   location: "Tunis, Tunisia",
   coordinates: { lat: "36.8065° N", lon: "10.1815° E" },
   quote: "Technology is a tool. Impact is the goal.",
