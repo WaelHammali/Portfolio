@@ -137,10 +137,10 @@ export const FEATURED_PROJECTS: Project[] = [
     category: "AI × Cybersecurity",
     year: "2026",
     shortDesc:
-      "An AI-assisted security assessment pipeline connecting reconnaissance, vulnerability validation, and CVSS-scored reporting.",
+      "A three-stage AI pentesting pipeline turning raw recon into validated, evidence-backed exploitation reports.",
     fullDesc:
-      "Developed at Keystone Groupe, DarkIntel connects IntelForge's reconnaissance reports to VoidHawk's persistent RAG memory. This lets six specialized agents analyze existing scan context and produce CVSS-scored vulnerability reports through a unified workflow.",
-    tags: ["Python", "LangGraph", "LangChain", "Ollama", "ChromaDB", "Sentence-Transformers"],
+      "A three-stage AI pentesting pipeline. IntelForge handles OSINT and network recon, feeding its findings straight into VoidHawk's RAG memory so its agents can skip discovery and go straight to validation. Six agents then confirm findings and assign CVSS scores. A final stage, Dragon LLM, writes the exploitation report using only confirmed findings and commands that were actually run.",
+    tags: ["Python", "LangGraph", "LangChain", "Ollama", "Claude (Anthropic API)", "ChromaDB", "Sentence-Transformers", "SQLite"],
     github: "https://github.com/WaelHammali/DarkIntel",
     visual: "pipeline",
   },
