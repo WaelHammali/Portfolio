@@ -240,13 +240,13 @@ export const MORE_PROJECTS: Project[] = [
   },
   {
     slug: "moteur-de-recherche",
-    name: "Document Search Engine",
+    name: "Search Engine",
     category: "Information Retrieval",
     year: "2024",
     shortDesc:
-      "A document search engine with indexing, relevance ranking, and a query interface.",
+      "A search engine that indexes and ranks hundreds of names from an Excel dataset through a query interface.",
     fullDesc:
-      "Developed a Java search engine to index documents and return results ranked by relevance. The project explores information retrieval, ranking algorithms, and query processing.",
+      "Developed a Java search engine to index a dataset of hundreds of names from an Excel spreadsheet and return results ranked by relevance. The project explores information retrieval, indexing, ranking algorithms, and query processing.",
     tags: ["Java"],
     github: "https://github.com/WaelHammali/MoteurDeRecherche",
     visual: "search",
