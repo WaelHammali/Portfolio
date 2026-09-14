@@ -4,14 +4,46 @@ import { SectionAccent } from "@/components/ui/SectionAccent";
 
 import { ALL_PROJECTS, type Project } from "@/lib/portfolio-data";
 
-type Visual = "pipeline" | "router" | "hub" | "aerial";
+type VisualKind =
+  | "pipeline-security"
+  | "pipeline-vision"
+  | "agents"
+  | "recon"
+  | "aerial"
+  | "cloud-web"
+  | "web-app"
+  | "desktop-app"
+  | "mobile-app"
+  | "search"
+  | "game";
 
-const VISUALS: Record<Project["visual"], Visual> = {
-  pipeline: "pipeline", agents: "hub", recon: "router", vision: "aerial",
-  cloud: "pipeline", app: "hub", search: "router", game: "hub",
-};
+function getVisualKind(project: Project): VisualKind {
+  switch (project.visual) {
+    case "pipeline":
+      return "pipeline-security";
+    case "agents":
+      return "agents";
+    case "recon":
+      return "recon";
+    case "vision":
+      return "aerial";
+    case "cloud":
+      return project.category === "Computer Vision × Cloud" ? "pipeline-vision" : "cloud-web";
+    case "search":
+      return "search";
+    case "game":
+      return "game";
+    case "app":
+    default:
+      if (project.category === "Desktop Application") return "desktop-app";
+      if (project.category === "Mobile Development") return "mobile-app";
+      return "web-app";
+  }
+}
 
-function CardVisual({ visual }: { visual: Visual }) {
+function CardVisual({ project }: { project: Project }) {
+  const visual = getVisualKind(project);
+
   if (visual === "aerial") {
     return (
       <div className="absolute inset-0 p-3 flex flex-col justify-between bg-slate-950/40">
@@ -62,7 +94,7 @@ function CardVisual({ visual }: { visual: Visual }) {
       </div>
     );
   }
-  if (visual === "pipeline") {
+  if (visual === "pipeline-vision") {
     return (
       <div className="absolute inset-0 grid grid-cols-2">
         <div className="bg-[#7b8fa8]/8 flex items-center justify-center border-r border-[#7b8fa8]/20">
@@ -78,17 +110,152 @@ function CardVisual({ visual }: { visual: Visual }) {
       </div>
     );
   }
-  if (visual === "router") {
+  if (visual === "pipeline-security") {
     return (
-      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
-        <rect x="2" y="9" width="20" height="6" rx="2" /><path d="M8 9V5M16 9V5M12 9V5M8 15v4M16 15v4M12 15v4" />
-      </svg>
+      <div className="absolute inset-0 grid grid-cols-2">
+        <div className="bg-[#7b8fa8]/8 flex items-center justify-center border-r border-[#7b8fa8]/20">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+            <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
+          </svg>
+        </div>
+        <div className="bg-slate-900/50 p-2 font-mono text-[8px] text-[#94b8d4]/60 overflow-hidden">
+          <p>ingest_recon()</p>
+          <p>validate_findings()</p>
+          <p>score_cvss()</p>
+        </div>
+      </div>
+    );
+  }
+  if (visual === "agents") {
+    return (
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+          <circle cx="12" cy="12" r="3" /><circle cx="4" cy="6" r="2" /><circle cx="20" cy="6" r="2" /><circle cx="4" cy="18" r="2" /><circle cx="20" cy="18" r="2" /><path d="M6 6.5l4 4M18 6.5l-4 4M6 17.5l4-4M18 17.5l-4-4" />
+        </svg>
+        <span className="text-[8px] font-mono text-[#94b8d4]/60 tracking-wider">6 AGENTS · RAG MEMORY</span>
+      </div>
+    );
+  }
+  if (visual === "recon") {
+    return (
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+          <rect x="2" y="9" width="20" height="6" rx="2" /><path d="M8 9V5M16 9V5M12 9V5M8 15v4M16 15v4M12 15v4" />
+        </svg>
+        <span className="text-[8px] font-mono text-[#94b8d4]/60 tracking-wider">OSINT · NMAP SCAN</span>
+      </div>
+    );
+  }
+  if (visual === "cloud-web") {
+    return (
+      <div className="absolute inset-0 flex flex-col justify-center gap-3 px-4 bg-slate-900/40">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-[#7b8fa8]/40" />
+          <span className="w-2 h-2 rounded-full bg-[#7b8fa8]/40" />
+          <span className="w-2 h-2 rounded-full bg-[#7b8fa8]/40" />
+          <div className="flex-1 ml-2 h-3 rounded bg-[#7b8fa8]/10 border border-[#7b8fa8]/20" />
+        </div>
+        <div className="flex items-center justify-center gap-3 py-2">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1.2" className="opacity-60">
+            <rect x="2" y="6" width="8" height="6" rx="1" /><rect x="14" y="6" width="8" height="6" rx="1" /><path d="M6 12v3M18 12v3M6 15h12" />
+          </svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94b8d4" strokeWidth="1.5" className="opacity-70">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#94b8d4" strokeWidth="1.2" className="opacity-70">
+            <path d="M7 18a4 4 0 010-8 5 5 0 019.9-1A3.5 3.5 0 0117.5 18H7z" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
+  if (visual === "web-app") {
+    return (
+      <div className="absolute inset-0 flex flex-col bg-slate-900/40">
+        <div className="flex items-center gap-1.5 px-2.5 py-1.5 border-b border-[#7b8fa8]/20">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7b8fa8]/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7b8fa8]/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#7b8fa8]/50" />
+          <div className="flex-1 ml-1.5 h-2.5 rounded-sm bg-[#7b8fa8]/10" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center gap-1.5 px-3 py-2">
+          <div className="h-2 w-3/4 rounded-sm bg-[#94b8d4]/35" />
+          <div className="h-2 w-full rounded-sm bg-[#7b8fa8]/25" />
+          <div className="h-2 w-5/6 rounded-sm bg-[#7b8fa8]/25" />
+          <div className="h-2 w-2/3 rounded-sm bg-[#7b8fa8]/25" />
+        </div>
+      </div>
+    );
+  }
+  if (visual === "desktop-app") {
+    return (
+      <div className="absolute inset-0 flex flex-col bg-slate-900/40">
+        <div className="flex items-center gap-1.5 px-2.5 py-1.5 border-b border-[#7b8fa8]/20 bg-[#7b8fa8]/5">
+          <span className="w-1.5 h-1.5 rounded-full bg-red-400/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400/50" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50" />
+        </div>
+        <div className="flex-1 flex">
+          <div className="w-1/4 border-r border-[#7b8fa8]/15 flex flex-col gap-1.5 p-1.5">
+            <div className="h-1.5 rounded-sm bg-[#94b8d4]/35" />
+            <div className="h-1.5 rounded-sm bg-[#7b8fa8]/20" />
+            <div className="h-1.5 rounded-sm bg-[#7b8fa8]/20" />
+          </div>
+          <div className="flex-1 flex flex-col gap-1.5 p-2">
+            <div className="h-1.5 w-full rounded-sm bg-[#7b8fa8]/25" />
+            <div className="h-1.5 w-5/6 rounded-sm bg-[#7b8fa8]/25" />
+            <div className="h-1.5 w-full rounded-sm bg-[#7b8fa8]/25" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (visual === "mobile-app") {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center bg-slate-900/40">
+        <div className="w-16 h-full max-h-[130px] my-2 rounded-xl border border-[#7b8fa8]/30 bg-[#7b8fa8]/5 flex flex-col p-1.5 gap-1">
+          <div className="mx-auto w-5 h-1 rounded-full bg-[#7b8fa8]/30 mb-1" />
+          <div className="h-3 rounded bg-[#94b8d4]/30" />
+          <div className="flex-1 flex flex-col gap-1">
+            <div className="h-2.5 rounded bg-[#7b8fa8]/25" />
+            <div className="h-2.5 rounded bg-[#7b8fa8]/25" />
+            <div className="h-2.5 rounded bg-[#7b8fa8]/25" />
+          </div>
+          <div className="h-2 rounded bg-[#94b8d4]/30" />
+        </div>
+      </div>
+    );
+  }
+  if (visual === "search") {
+    return (
+      <div className="absolute inset-0 flex flex-col justify-center gap-2 px-4 bg-slate-900/40">
+        <div className="flex items-center gap-2 rounded border border-[#7b8fa8]/25 bg-[#7b8fa8]/5 px-2 py-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94b8d4" strokeWidth="2" className="opacity-70 shrink-0">
+            <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" />
+          </svg>
+          <div className="h-1.5 flex-1 rounded-full bg-[#7b8fa8]/20" />
+        </div>
+        <div className="flex flex-col gap-1.5 mt-1">
+          <div className="h-1.5 w-5/6 rounded-sm bg-[#94b8d4]/35" />
+          <div className="h-1.5 w-full rounded-sm bg-[#7b8fa8]/25" />
+          <div className="h-1.5 w-4/6 rounded-sm bg-[#7b8fa8]/25" />
+        </div>
+      </div>
     );
   }
   return (
-    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#7b8fa8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
-      <circle cx="12" cy="12" r="3" /><circle cx="4" cy="6" r="2" /><circle cx="20" cy="6" r="2" /><circle cx="4" cy="18" r="2" /><circle cx="20" cy="18" r="2" /><path d="M6 6.5l4 4M18 6.5l-4 4M6 17.5l4-4M18 17.5l-4-4" />
-    </svg>
+    <div className="absolute inset-0 overflow-hidden bg-slate-900/40">
+      <div className="absolute top-3 left-3 flex gap-1">
+        <div className="w-2.5 h-2.5 rounded-sm bg-amber-400/60" />
+        <div className="w-2.5 h-2.5 rounded-sm bg-amber-400/40" />
+        <div className="w-2.5 h-2.5 rounded-sm bg-amber-400/25" />
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-3 bg-[#7b8fa8]/20 border-t border-[#7b8fa8]/30" />
+      <div className="absolute bottom-3 left-[20%] w-3.5 h-3.5 rounded-sm bg-[#94b8d4]/70" />
+      <div className="absolute bottom-3 left-[55%] w-6 h-2.5 rounded-sm bg-[#7b8fa8]/25" />
+      <div className="absolute top-[35%] right-[15%] w-2 h-2 rounded-full bg-amber-400/50" />
+      <div className="absolute top-[50%] right-[30%] w-2 h-2 rounded-full bg-amber-400/50" />
+    </div>
   );
 }
 
@@ -141,7 +308,7 @@ export function Projects() {
                     {/* Visual thumbnail */}
                     <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#7b8fa8]/20 bg-[#7b8fa8]/5 flex items-center justify-center">
                       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#7b8fa8]/20 via-transparent to-transparent" />
-                      <CardVisual visual={VISUALS[project.visual]} />
+                      <CardVisual project={project} />
                     </div>
                     {/* Text */}
                     <div className="flex-1">
