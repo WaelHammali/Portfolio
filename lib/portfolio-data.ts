@@ -340,7 +340,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     org: "TAIS NextGen",
-    title: "Automated Camera Calibration for AR in Soccer Analytics",
+    title: "Automated Camera Calibration for Augmented Reality in Soccer Analytics",
     kind: "Research",
     location: "SympactAI — Second Edition",
     period: "Jun 2026 — Aug 2026",
