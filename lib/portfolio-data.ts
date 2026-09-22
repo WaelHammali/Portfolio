@@ -325,7 +325,10 @@ export const EXPERIENCE: ExperienceEntry[] = [
     description:
       "Developed DarkIntel, a unified AI-assisted penetration testing pipeline, by connecting IntelForge's reconnaissance output to VoidHawk's RAG memory. Built the reconnaissance workflow and extended Watchtower through VoidHawk, coordinating six LangGraph agents for vulnerability analysis, validation, and CVSS-scored reporting.",
     tech: ["Python", "LangGraph", "LangChain", "Ollama", "ChromaDB", "Sentence-Transformers", "SQLite"],
-    links: [{ label: "Attestation", href: "/certificates/keystone-attestation.pdf" }],
+    links: [
+      { label: "Attestation", href: "/certificates/keystone-attestation.pdf" },
+      { label: "Internship Report", href: "/rapports/keystone.pdf" },
+    ],
   },
   {
     org: "TAV Airports",
