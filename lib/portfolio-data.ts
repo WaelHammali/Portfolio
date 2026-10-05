@@ -127,10 +127,23 @@ export type Project = {
   github: string;
   live?: string;
   /** abstract visual identity for the generated card artwork */
-  visual: "pipeline" | "agents" | "recon" | "vision" | "cloud" | "app" | "search" | "game";
+  visual: "pipeline" | "agents" | "recon" | "vision" | "signal" | "cloud" | "app" | "search" | "game";
 };
 
 export const FEATURED_PROJECTS: Project[] = [
+  {
+    slug: "eeg-absence-detector",
+    name: "EEG Absence Detector",
+    category: "Biomedical AI × Signal Processing",
+    year: "2026",
+    shortDesc:
+      "Detects absence-seizure periods in multichannel EEG recordings through signal processing and machine learning.",
+    fullDesc:
+      "Built an end-to-end pipeline that aligns clinical annotations with MATLAB EEG recordings, applies band-pass filtering, segments eight channels into overlapping windows, and extracts time- and frequency-domain features. Four machine-learning models generate out-of-fold probabilities and seizure intervals, with event-level evaluation and an interactive Dash application for reviewing signals, predictions, spectra, and model performance.",
+    tags: ["Python", "EEG", "Signal Processing", "Scikit-learn", "SciPy", "Pandas", "Dash", "Plotly"],
+    github: "https://github.com/WaelHammali/EGG-Absence-Detector",
+    visual: "signal",
+  },
   {
     slug: "darkintel",
     name: "DarkIntel",

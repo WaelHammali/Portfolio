@@ -10,6 +10,7 @@ type VisualKind =
   | "agents"
   | "recon"
   | "aerial"
+  | "eeg-signal"
   | "cloud-web"
   | "web-app"
   | "desktop-app"
@@ -27,6 +28,8 @@ function getVisualKind(project: Project): VisualKind {
       return "recon";
     case "vision":
       return "aerial";
+    case "signal":
+      return "eeg-signal";
     case "cloud":
       return project.category === "Computer Vision × Cloud" ? "pipeline-vision" : "cloud-web";
     case "search":
@@ -43,6 +46,29 @@ function getVisualKind(project: Project): VisualKind {
 
 function CardVisual({ project }: { project: Project }) {
   const visual = getVisualKind(project);
+
+  if (visual === "eeg-signal") {
+    return (
+      <div className="absolute inset-0 flex flex-col justify-between bg-slate-950/40 p-3">
+        <div className="flex items-center justify-between font-mono text-[8px] text-[#94b8d4]/80">
+          <span>8-CHANNEL EEG</span>
+          <span>0.5–40 Hz</span>
+        </div>
+        <div className="relative my-2 flex-1 overflow-hidden rounded border border-[#7b8fa8]/20 bg-slate-900/50">
+          <div className="absolute inset-y-0 left-[57%] w-[18%] border-x border-amber-400/30 bg-amber-400/10" />
+          <svg viewBox="0 0 240 80" className="absolute inset-0 h-full w-full" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 20 L18 20 L25 17 L31 24 L38 19 L51 20 L64 20 L72 16 L79 25 L87 19 L105 20 L118 20 L126 17 L133 24 L140 19 L151 20 L158 8 L164 35 L170 11 L176 31 L182 18 L192 20 L209 20 L218 17 L225 24 L232 19 L240 20" fill="none" stroke="#94b8d4" strokeWidth="1.2" />
+            <path d="M0 42 L21 42 L28 39 L35 45 L43 41 L61 42 L76 42 L83 38 L90 46 L98 41 L116 42 L130 42 L138 29 L144 55 L151 31 L157 52 L165 40 L177 42 L197 42 L205 38 L212 46 L220 41 L240 42" fill="none" stroke="#7b8fa8" strokeWidth="1" opacity="0.8" />
+            <path d="M0 64 L16 64 L24 60 L32 68 L40 63 L59 64 L73 64 L81 61 L88 67 L96 63 L114 64 L129 64 L137 52 L143 76 L150 54 L156 73 L164 62 L178 64 L198 64 L206 60 L214 68 L222 63 L240 64" fill="none" stroke="#94b8d4" strokeWidth="1" opacity="0.65" />
+          </svg>
+        </div>
+        <div className="flex items-center justify-between font-mono text-[7px] text-slate-500">
+          <span>Fp1 · Fp2 · C3 · C4</span>
+          <span>SEIZURE DETECTED</span>
+        </div>
+      </div>
+    );
+  }
 
   if (visual === "aerial") {
     return (
