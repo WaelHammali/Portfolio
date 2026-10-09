@@ -312,10 +312,11 @@ export function Projects() {
               <div
                 key={project.name}
                 onClick={() => toggle(project.name)}
-                className={`cursor-pointer transition-all duration-300 ${isFlipped ? "relative z-20" : "relative z-0"}`}
+                className={`flex cursor-pointer transition-all duration-300 ${isFlipped ? "relative z-20" : "relative z-0"}`}
                 style={{ perspective: "1200px" }}
               >
                 <div
+                  className="grid w-full"
                   style={{
                     transformStyle: "preserve-3d",
                     transform: isFlipped
